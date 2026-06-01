@@ -1,2 +1,1 @@
-# fintechrank
-# FintechRank
+# FintechRank - Fintech Comparison Site
