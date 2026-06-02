@@ -959,3 +959,78 @@ html.light .footer-brand     { color: #0a1520 !important; }
 [data-theme="light"] .logo-wrap { background: #f0f4f8 !important; border-color: rgba(0,0,0,0.08) !important; }
 [data-theme="light"] .spill { color: #1e3048 !important; border-color: rgba(0,0,0,0.1) !important; background: #ffffff !important; }
 [data-theme="light"] .theme-toggle { border-color: rgba(0,0,0,0.1) !important; color: #3a5070 !important; }
+
+/* ── NAV DROPDOWN ─────────────────────────────────────── */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nav-dropdown-trigger {
+  font-size: 12px; font-weight: 300; letter-spacing: 0.06em;
+  color: var(--muted); text-decoration: none; transition: color 0.15s;
+  cursor: pointer; white-space: nowrap;
+}
+.nav-dropdown-trigger:hover { color: var(--text); }
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 6px;
+  min-width: 160px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  transform: translateX(-50%) translateY(-4px);
+  z-index: 200;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-menu a {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 12px; border-radius: 6px;
+  font-size: 12px; font-weight: 300; color: var(--muted);
+  text-decoration: none; transition: all 0.12s;
+  letter-spacing: 0.02em;
+}
+.nav-dropdown-menu a:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+}
+
+/* Category color dots in dropdown */
+.nav-dropdown-menu a[href*="payments"]::before  { content:''; width:6px; height:6px; border-radius:50%; background:#60a5fa; flex-shrink:0; }
+.nav-dropdown-menu a[href*="banking"]::before   { content:''; width:6px; height:6px; border-radius:50%; background:#00c4a0; flex-shrink:0; }
+.nav-dropdown-menu a[href*="investing"]::before { content:''; width:6px; height:6px; border-radius:50%; background:#fbbf24; flex-shrink:0; }
+.nav-dropdown-menu a[href*="crypto"]::before    { content:''; width:6px; height:6px; border-radius:50%; background:#c084fc; flex-shrink:0; }
+.nav-dropdown-menu a[href*="lending"]::before   { content:''; width:6px; height:6px; border-radius:50%; background:#f87171; flex-shrink:0; }
+.nav-dropdown-menu a[href*="business"]::before  { content:''; width:6px; height:6px; border-radius:50%; background:#4ade80; flex-shrink:0; }
+
+/* Light mode dropdown */
+html.light .nav-dropdown-menu,
+[data-theme="light"] .nav-dropdown-menu {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+html.light .nav-dropdown-menu a,
+[data-theme="light"] .nav-dropdown-menu a {
+  color: #1e3048;
+}
+html.light .nav-dropdown-menu a:hover,
+[data-theme="light"] .nav-dropdown-menu a:hover {
+  background: rgba(0,0,0,0.04);
+  color: #0a1520;
+}
+
+@media (max-width: 768px) {
+  .nav-dropdown-menu { display: none; }
+}

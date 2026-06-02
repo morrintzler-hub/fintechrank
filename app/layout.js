@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -64,7 +64,18 @@ export default function RootLayout({ children }) {
           <div className="nav-links">
             <a href="/">Home</a>
             <a href="/compare">Compare</a>
-            <a href="/category/payments">Categories</a>
+            <div className="nav-dropdown">
+              <a href="/category/payments" className="nav-dropdown-trigger">Categories ▾</a>
+              <div className="nav-dropdown-menu">
+                <a href="/category/payments">Payments</a>
+                <a href="/category/banking">Banking</a>
+                <a href="/category/investing">Investing</a>
+                <a href="/category/crypto">Crypto</a>
+                <a href="/category/lending">Lending</a>
+                <a href="/category/business">Business</a>
+              </div>
+            </div>
+            <a href="/blog">Blog</a>
           </div>
           <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
             <button className="theme-toggle" id="themeToggle"
@@ -98,9 +109,9 @@ export default function RootLayout({ children }) {
           </div>
           <div className="footer-links">
             <h4>Company</h4>
-            <a href="#">About</a>
+            <a href="/about">About</a>
             <a href="/compare">Compare tool</a>
-            <a href="#">Methodology</a>
+            <a href="/about#methodology">Methodology</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Contact</a>
           </div>
