@@ -916,3 +916,46 @@ html.light .cat-count        { color: #5a7a9a !important; }
 html.light .cat-btn.active .cat-count { color: var(--accent) !important; }
 html.light .footer-links h4  { color: #5a7a9a !important; }
 html.light .footer-brand     { color: #0a1520 !important; }
+
+/* ── DATA-THEME FALLBACK — mirrors all html.light rules ── */
+/* Ensures theme persists across Next.js page navigation   */
+[data-theme="light"] body { background: #f0f4f8; color: #0a1520; }
+[data-theme="light"] .nav { background: rgba(240,244,248,0.92) !important; border-bottom-color: rgba(0,0,0,0.08) !important; }
+[data-theme="light"] .nav-scrolled { background: rgba(240,244,248,0.98) !important; }
+[data-theme="light"] .nav-logo { color: #0a1520 !important; }
+[data-theme="light"] .nav-links a { color: #1e3048 !important; }
+[data-theme="light"] .nav-acc { color: var(--accent) !important; }
+[data-theme="light"] .bg-base { background: radial-gradient(ellipse 100% 60% at 50% 0%, #dce8f5 0%, transparent 55%), linear-gradient(170deg, #eef3f9 0%, #f0f4f8 100%) !important; }
+[data-theme="light"] .bg-orb { display: none; }
+[data-theme="light"] .company-card { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
+[data-theme="light"] .company-name { color: #0a1520 !important; }
+[data-theme="light"] .company-desc { color: #1e3048 !important; }
+[data-theme="light"] .pricing { color: #1e3048 !important; }
+[data-theme="light"] .pricing strong { color: #0a1520 !important; }
+[data-theme="light"] .tag { color: #2a4060 !important; background: #eef3f9 !important; border-color: rgba(0,0,0,0.1) !important; }
+[data-theme="light"] .cat-btn { color: #1e3048 !important; }
+[data-theme="light"] .cat-btn.active { color: var(--accent) !important; background: rgba(0,158,128,0.08) !important; }
+[data-theme="light"] .sort-opt { color: #1e3048 !important; }
+[data-theme="light"] .sort-opt.active { color: var(--accent) !important; }
+[data-theme="light"] .sidebar-title { color: #5a7a9a !important; }
+[data-theme="light"] .compare-panel { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
+[data-theme="light"] .compare-panel-title { color: #0a1520 !important; }
+[data-theme="light"] .cslot { color: #5a7a9a !important; border-color: rgba(0,0,0,0.1) !important; }
+[data-theme="light"] .btn-review { color: #1e3048 !important; border-color: rgba(0,0,0,0.12) !important; }
+[data-theme="light"] .hero h1 { color: #0a1520 !important; }
+[data-theme="light"] .hero h1 strong { color: rgba(10,21,32,0.3) !important; }
+[data-theme="light"] .hero-sub { color: #1e3048 !important; }
+[data-theme="light"] .search-box { background: #ffffff !important; border-color: rgba(0,0,0,0.1) !important; }
+[data-theme="light"] .search-box input { color: #0a1520 !important; }
+[data-theme="light"] .stat-num { color: #0a1520 !important; }
+[data-theme="light"] .stat-lbl { color: #5a7a9a !important; }
+[data-theme="light"] .results-info { color: #1e3048 !important; }
+[data-theme="light"] .results-info strong { color: #0a1520 !important; }
+[data-theme="light"] footer { border-top-color: rgba(0,0,0,0.08) !important; }
+[data-theme="light"] .footer-brand { color: #0a1520 !important; }
+[data-theme="light"] .footer-tagline { color: #1e3048 !important; }
+[data-theme="light"] .footer-links a { color: #1e3048 !important; }
+[data-theme="light"] .footer-bottom { color: #5a7a9a !important; }
+[data-theme="light"] .logo-wrap { background: #f0f4f8 !important; border-color: rgba(0,0,0,0.08) !important; }
+[data-theme="light"] .spill { color: #1e3048 !important; border-color: rgba(0,0,0,0.1) !important; background: #ffffff !important; }
+[data-theme="light"] .theme-toggle { border-color: rgba(0,0,0,0.1) !important; color: #3a5070 !important; }

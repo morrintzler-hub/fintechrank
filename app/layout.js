@@ -11,13 +11,17 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Blocking script - runs before paint to prevent theme flash */}
+        {/* CRITICAL: This must be first script in head - sets theme before paint */}
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
             try {
-              var theme = localStorage.getItem('tfr_theme') || 'dark';
-              if (theme === 'light') {
+              var t = localStorage.getItem('tfr_theme');
+              if (t === 'light') {
                 document.documentElement.classList.add('light');
+                document.documentElement.setAttribute('data-theme', 'light');
+              } else {
+                document.documentElement.classList.remove('light');
+                document.documentElement.setAttribute('data-theme', 'dark');
               }
             } catch(e) {}
           })();
@@ -122,7 +126,10 @@ export default function RootLayout({ children }) {
               btn.addEventListener('click', function() {
                 document.documentElement.classList.toggle('light');
                 var theme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
                 localStorage.setItem('tfr_theme', theme);
+                // Force a storage event so other tabs sync
+                try { localStorage.setItem('tfr_theme_ts', Date.now()); } catch(e) {}
                 updateIcon();
               });
             }
