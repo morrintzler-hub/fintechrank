@@ -370,57 +370,52 @@ function Sidebar({ category, setCategory, sort, setSort, compare, setCompare, co
   )
 }
 
-// Fetches logo from Clearbit using company domain
-// Falls back to styled initials if logo not found
+// Company logo — tries Google favicon service (most reliable)
+// Falls back to styled initials if not found
 function CompanyLogo({ website, name }) {
-  const [imgError, setImgError] = useState(false)
-  const [loaded, setLoaded] = useState(false)
+  const [failed, setFailed] = useState(false)
 
   const domain = (website || '')
     .replace(/^https?:\/\//, '')
     .replace(/^www\./, '')
     .split('/')[0]
-    .split('?')[0]
     .trim()
 
   const initials = (name || '').slice(0, 2).toUpperCase()
 
-  if (!domain || imgError) {
-    return (
-      <span style={{
-        fontFamily: 'var(--font)', fontWeight: 500,
-        fontSize: 13, color: 'var(--muted)', letterSpacing: '0.04em'
-      }}>
-        {initials}
-      </span>
-    )
-  }
+  // Google's favicon service is extremely reliable and works for all domains
+  const logoSrc = domain
+    ? `https://www.google.com/s2/favicons?domain=${domain}&sz=64`
+    : null
 
   return (
-    <>
-      {!loaded && (
+    <div style={{
+      width: '100%', height: '100%',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      {logoSrc && !failed ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={logoSrc}
+          alt={`${name} logo`}
+          onError={() => setFailed(true)}
+          style={{
+            width: 28, height: 28,
+            objectFit: 'contain',
+            borderRadius: 4,
+            imageRendering: 'crisp-edges',
+          }}
+        />
+      ) : (
         <span style={{
           fontFamily: 'var(--font)', fontWeight: 500,
-          fontSize: 13, color: 'var(--muted)', letterSpacing: '0.04em',
-          position: 'absolute'
+          fontSize: 12, color: 'var(--muted)',
+          letterSpacing: '0.04em',
         }}>
           {initials}
         </span>
       )}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`https://logo.clearbit.com/${domain}`}
-        alt={`${name} logo`}
-        onLoad={() => setLoaded(true)}
-        onError={() => setImgError(true)}
-        style={{
-          width: loaded ? 30 : 0,
-          height: loaded ? 30 : 0,
-          objectFit: 'contain',
-          borderRadius: 4,
-        }}
-      />
-    </>
+    </div>
   )
 }
 

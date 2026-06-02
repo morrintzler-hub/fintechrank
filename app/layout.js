@@ -11,6 +11,17 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Blocking script - runs before paint to prevent theme flash */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            try {
+              var theme = localStorage.getItem('tfr_theme') || 'dark';
+              if (theme === 'light') {
+                document.documentElement.classList.add('light');
+              }
+            } catch(e) {}
+          })();
+        `}} />
       </head>
       <body>
 

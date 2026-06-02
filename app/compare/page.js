@@ -161,99 +161,138 @@ function ComparePageInner() {
         <div style={{fontSize:9,fontWeight:600,letterSpacing:'.2em',textTransform:'uppercase',
           color:'var(--dim)',marginBottom:'1rem'}}>Or build your own</div>
 
-        <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:'1rem'}}>
-          {/* Selected slots */}
-          {[0,1,2].map(i => (
-            <div key={i} style={{
-              flex:1,minWidth:160,
-              background: selected[i] ? 'rgba(0,196,160,.06)' : 'rgba(255,255,255,.02)',
-              border:`1px ${selected[i]?'solid':'dashed'} ${selected[i]?'rgba(0,196,160,.3)':'rgba(255,255,255,.1)'}`,
-              borderRadius:8,padding:'.85rem 1rem',
-              display:'flex',alignItems:'center',justifyContent:'space-between',gap:8,
-              minHeight:52,transition:'all .2s',
-            }}>
-              {selected[i] ? (
-                <>
-                  <div style={{display:'flex',alignItems:'center',gap:10}}>
-                    <div style={{width:32,height:32,borderRadius:6,
-                      background:'rgba(255,255,255,.06)',border:'1px solid var(--border)',
-                      display:'flex',alignItems:'center',justifyContent:'center',
-                      fontSize:11,fontWeight:500,color:'var(--muted)',overflow:'hidden',flexShrink:0}}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={`https://logo.clearbit.com/${(selected[i].website||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]}`}
-                        alt={selected[i].name}
-                        onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='block' }}
-                        style={{width:24,height:24,objectFit:'contain',borderRadius:3}}
-                      />
-                      <span style={{display:'none',fontSize:11,fontWeight:500,color:'var(--muted)'}}>
-                        {selected[i].name.slice(0,2).toUpperCase()}
-                      </span>
-                    </div>
-                    <div>
-                      <div style={{fontSize:13,fontWeight:500,color:'var(--text)'}}>{selected[i].name}</div>
-                      <div style={{fontSize:10,color:'var(--dim)'}}>{selected[i].category}</div>
-                    </div>
-                  </div>
-                  <button onClick={() => removeCompany(selected[i].id)}
-                    style={{background:'none',border:'none',color:'var(--dim)',cursor:'pointer',
-                      fontSize:16,lineHeight:1,padding:'0 2px',transition:'color .15s'}}
-                    onMouseEnter={e=>e.target.style.color='var(--red)'}
-                    onMouseLeave={e=>e.target.style.color='var(--dim)'}>
-                    ×
-                  </button>
-                </>
-              ) : (
-                <span style={{fontSize:12,fontWeight:300,color:'var(--dim)'}}>
-                  + Add company {i+1}
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Search to add */}
+        {/* Search FIRST — more intuitive */}
         {selected.length < 3 && (
-          <div style={{position:'relative',maxWidth:400}}>
+          <div style={{position:'relative',maxWidth:500,marginBottom:'1.25rem'}}>
+            <div style={{fontSize:12,fontWeight:300,color:'var(--muted)',marginBottom:8}}>
+              Search and add up to 3 companies to compare:
+            </div>
             <div style={{display:'flex',alignItems:'center',
-              background:'rgba(255,255,255,.03)',border:'1px solid var(--border)',
-              borderRadius:6,transition:'border-color .2s'}}
-              onFocus={e=>e.currentTarget.style.borderColor='rgba(0,196,160,.35)'}
-              onBlur={e=>e.currentTarget.style.borderColor='var(--border)'}>
-              <span style={{padding:'0 12px',color:'var(--dim)',fontSize:14}}>⌕</span>
+              background:'rgba(255,255,255,.03)',border:'1px solid rgba(0,196,160,.25)',
+              borderRadius:6,transition:'border-color .2s',boxShadow:'0 0 0 3px rgba(0,196,160,.06)'}}
+              onFocus={e=>e.currentTarget.style.borderColor='rgba(0,196,160,.5)'}
+              onBlur={e=>e.currentTarget.style.borderColor='rgba(0,196,160,.25)'}>
+              <span style={{padding:'0 12px',color:'var(--accent)',fontSize:14}}>⌕</span>
               <input type="text" value={search} onChange={e=>setSearch(e.target.value)}
-                placeholder="Search company to add..."
-                style={{flex:1,padding:'10px 0',fontSize:13,fontFamily:'var(--font)',
+                placeholder={`Search company to add (${3 - selected.length} slot${3-selected.length!==1?'s':''} remaining)...`}
+                autoFocus
+                style={{flex:1,padding:'12px 0',fontSize:13,fontFamily:'var(--font)',
                   fontWeight:300,background:'transparent',border:'none',outline:'none',
                   color:'var(--text)'}} />
+              {search && (
+                <button onClick={()=>setSearch('')}
+                  style={{padding:'0 12px',background:'none',border:'none',
+                    color:'var(--dim)',cursor:'pointer',fontSize:14}}>✕</button>
+              )}
             </div>
+
+            {/* Search dropdown */}
             {searchResults.length > 0 && (
               <div style={{position:'absolute',top:'calc(100% + 4px)',left:0,right:0,
                 background:'var(--navy2)',border:'1px solid var(--border)',borderRadius:8,
-                overflow:'hidden',zIndex:50,boxShadow:'0 8px 32px rgba(0,0,0,0.3)'}}>
+                overflow:'hidden',zIndex:50,boxShadow:'0 8px 32px rgba(0,0,0,0.4)'}}>
                 {searchResults.map(c => (
                   <div key={c.id} onClick={() => addCompany(c)}
-                    style={{display:'flex',alignItems:'center',gap:12,padding:'.7rem 1rem',
-                      cursor:'pointer',fontSize:13,color:'var(--text)',transition:'background .15s',
-                      borderBottom:'1px solid var(--border)'}}
-                    onMouseEnter={e=>e.currentTarget.style.background='rgba(255,255,255,.04)'}
+                    style={{display:'flex',alignItems:'center',gap:12,padding:'.75rem 1rem',
+                      cursor:'pointer',fontSize:13,color:'var(--text)',
+                      borderBottom:'1px solid var(--border)',transition:'background .15s'}}
+                    onMouseEnter={e=>e.currentTarget.style.background='rgba(0,196,160,.06)'}
                     onMouseLeave={e=>e.currentTarget.style.background='transparent'}>
-                    <div style={{width:28,height:28,borderRadius:5,background:'rgba(255,255,255,.06)',
+                    <div style={{width:32,height:32,borderRadius:6,
+                      background:'rgba(255,255,255,.06)',border:'1px solid var(--border)',
                       display:'flex',alignItems:'center',justifyContent:'center',
-                      fontSize:10,fontWeight:500,color:'var(--muted)',flexShrink:0}}>
-                      {c.name.slice(0,2).toUpperCase()}
+                      fontSize:11,fontWeight:500,color:'var(--muted)',flexShrink:0,overflow:'hidden'}}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={`https://www.google.com/s2/favicons?domain=${(c.website||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]}&sz=32`}
+                        alt={c.name}
+                        onError={e=>{e.target.style.display='none'}}
+                        style={{width:20,height:20,objectFit:'contain'}}
+                      />
                     </div>
-                    <div>
-                      <div style={{fontWeight:400}}>{c.name}</div>
+                    <div style={{flex:1}}>
+                      <div style={{fontWeight:400,color:'var(--text)'}}>{c.name}</div>
                       <div style={{fontSize:11,color:'var(--dim)'}}>{c.category}</div>
                     </div>
-                    <div style={{marginLeft:'auto',color:'var(--gold)',fontSize:11}}>
-                      ★ {c.rating}
-                    </div>
+                    <div style={{color:'var(--gold)',fontSize:11}}>★ {c.rating}</div>
+                    <div style={{fontSize:11,color:'var(--accent)',fontWeight:500}}>+ Add</div>
                   </div>
                 ))}
               </div>
             )}
+          </div>
+        )}
+
+        {/* Selected slots — shown after search */}
+        {selected.length > 0 && (
+          <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:'1rem'}}>
+            {selected.map((c, i) => (
+              <div key={c.id} style={{
+                flex:1, minWidth:160,
+                background:'rgba(0,196,160,.06)',
+                border:'1px solid rgba(0,196,160,.3)',
+                borderRadius:8, padding:'.85rem 1rem',
+                display:'flex', alignItems:'center', justifyContent:'space-between',
+                gap:8, minHeight:52, transition:'all .2s',
+              }}>
+                <div style={{display:'flex',alignItems:'center',gap:10}}>
+                  <div style={{width:32,height:32,borderRadius:6,
+                    background:'rgba(255,255,255,.06)',border:'1px solid var(--border)',
+                    display:'flex',alignItems:'center',justifyContent:'center',
+                    fontSize:11,fontWeight:500,color:'var(--muted)',overflow:'hidden',flexShrink:0}}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://www.google.com/s2/favicons?domain=${(c.website||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]}&sz=32`}
+                      alt={c.name}
+                      onError={e=>{e.target.style.display='none'}}
+                      style={{width:20,height:20,objectFit:'contain'}}
+                    />
+                  </div>
+                  <div>
+                    <div style={{fontSize:13,fontWeight:500,color:'var(--text)'}}>{c.name}</div>
+                    <div style={{fontSize:10,color:'var(--dim)'}}>{c.category}</div>
+                  </div>
+                </div>
+                <button onClick={() => removeCompany(c.id)}
+                  style={{background:'none',border:'none',color:'var(--dim)',cursor:'pointer',
+                    fontSize:16,lineHeight:1,padding:'0 2px',transition:'color .15s'}}
+                  onMouseEnter={e=>e.target.style.color='var(--red)'}
+                  onMouseLeave={e=>e.target.style.color='var(--dim)'}>
+                  ×
+                </button>
+              </div>
+            ))}
+            {/* Empty slots indicator */}
+            {selected.length < 3 && [...Array(3 - selected.length)].map((_, i) => (
+              <div key={i} style={{
+                flex:1, minWidth:160,
+                background:'transparent',
+                border:'1px dashed rgba(255,255,255,.1)',
+                borderRadius:8, padding:'.85rem 1rem',
+                display:'flex', alignItems:'center',
+                minHeight:52, color:'var(--dim)', fontSize:12, fontWeight:300,
+              }}>
+                + Add company {selected.length + i + 1}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Empty state — no selections yet */}
+        {selected.length === 0 && (
+          <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:'1rem'}}>
+            {[1,2,3].map(i => (
+              <div key={i} style={{
+                flex:1, minWidth:160,
+                background:'transparent',
+                border:'1px dashed rgba(255,255,255,.1)',
+                borderRadius:8, padding:'.85rem 1rem',
+                display:'flex', alignItems:'center',
+                minHeight:52, color:'var(--dim)', fontSize:12, fontWeight:300,
+              }}>
+                + Company {i}
+              </div>
+            ))}
           </div>
         )}
       </div>
@@ -283,7 +322,7 @@ function ComparePageInner() {
                       overflow:'hidden',flexShrink:0}}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={`https://logo.clearbit.com/${(c.website||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]}`}
+                        src={`https://www.google.com/s2/favicons?domain=${(c.website||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]}&sz=64`}
                         alt={c.name}
                         onError={e=>{e.target.style.display='none'}}
                         style={{width:24,height:24,objectFit:'contain',borderRadius:3}}
