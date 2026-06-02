@@ -370,6 +370,47 @@ function Sidebar({ category, setCategory, sort, setSort, compare, setCompare, co
   )
 }
 
+// Fetches logo from Clearbit using company domain
+// Falls back to initials if logo not found
+function CompanyLogo({ website, name }) {
+  const [imgError, setImgError] = useState(false)
+
+  // Extract clean domain from URL
+  const domain = (website||'')
+    .replace('https://','')
+    .replace('http://','')
+    .replace('www.','')
+    .split('/')[0]
+
+  const logoUrl = `https://logo.clearbit.com/${domain}`
+  const initials = (name||'').slice(0,2).toUpperCase()
+
+  if (!domain || imgError) {
+    return (
+      <span style={{
+        fontFamily:'var(--font)', fontWeight:500,
+        fontSize:12, color:'var(--muted)', letterSpacing:'0.04em'
+      }}>
+        {initials}
+      </span>
+    )
+  }
+
+  return (
+    <img
+      src={logoUrl}
+      alt={`${name} logo`}
+      onError={() => setImgError(true)}
+      style={{
+        width: 28, height: 28,
+        objectFit: 'contain',
+        borderRadius: 4,
+        filter: 'brightness(1.1)',
+      }}
+    />
+  )
+}
+
 function CompanyCard({ company: c, index, inCompare, onToggleCompare }) {
   const delay = `${Math.min(index * 0.04, 0.5)}s`
   const catKey = (c.category||'').replace(/[\s\/]/g,'')
@@ -391,9 +432,12 @@ function CompanyCard({ company: c, index, inCompare, onToggleCompare }) {
         background:'linear-gradient(90deg,transparent,rgba(255,255,255,.05),transparent)'}} />
 
       <div className="card-main">
-        {/* Logo */}
+        {/* Logo — Clearbit auto-fetches from domain */}
         <div className="logo-wrap">
-          {(c.name||'').slice(0,2).toUpperCase()}
+          <CompanyLogo
+            website={c.website}
+            name={c.name}
+          />
           <div className="rank-badge">{c.rank}</div>
         </div>
 

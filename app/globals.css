@@ -13,9 +13,9 @@
   --gold:    #f59e0b;
   --red:     #f87171;
   --green:   #22c55e;
-  --text:    #f4f7ff;
-  --muted:   #8596ba;
-  --dim:     #4a6080;
+  --text:    #ffffff;
+  --muted:   #a0b0cc;
+  --dim:     #5a7099;
   --border:  rgba(255,255,255,0.06);
   --borderh: rgba(255,255,255,0.12);
   --r:       10px;
@@ -256,7 +256,7 @@ nav, main, header, section, footer, .page-body,
 .hero h1 em  { font-style: normal; color: var(--accent); font-weight: 400; }
 .hero h1 strong { font-style: normal; font-weight: 200; color: rgba(238,242,255,0.3); }
 .hero-sub {
-  font-size: 14px; font-weight: 300; color: var(--muted);
+  font-size: 14px; font-weight: 300; color: #8fa8c8;
   line-height: 1.8; max-width: 480px; margin: 0 auto 2.5rem;
   letter-spacing: 0.01em;
   opacity: 0; animation: fadeUp 0.6s ease 0.3s forwards;
@@ -431,10 +431,11 @@ nav, main, header, section, footer, .page-body,
 .card-main { display: flex; gap: 1rem; align-items: flex-start; }
 .logo-wrap {
   width: 46px; height: 46px; flex-shrink: 0; border-radius: 8px;
-  background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06); border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font); font-weight: 500; font-size: 12px;
   color: var(--muted); position: relative; letter-spacing: 0.04em;
+  overflow: hidden;
 }
 .rank-badge {
   position: absolute; bottom: -5px; right: -5px;
@@ -451,7 +452,7 @@ nav, main, header, section, footer, .page-body,
 .card-title-group { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
 .company-name {
   font-family: var(--font); font-size: 15px;
-  font-weight: 400; color: var(--text); letter-spacing: 0.01em;
+  font-weight: 500; color: #ffffff; letter-spacing: 0.01em;
 }
 .badge {
   font-size: 9px; font-weight: 500; letter-spacing: 0.08em;
@@ -486,7 +487,7 @@ nav, main, header, section, footer, .page-body,
 .company-url { font-size: 11px; color: var(--dim); margin-bottom: 6px; font-weight: 300; }
 .company-url a { color: inherit; text-decoration: none; transition: color 0.15s; }
 .company-url a:hover { color: var(--blue); }
-.company-desc { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+.company-desc { font-size: 13px; font-weight: 300; color: #8fa8c8; line-height: 1.7; margin-bottom: 1rem; }
 .card-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 1rem; }
 .tag {
   font-size: 10px; font-weight: 300; letter-spacing: 0.04em;
