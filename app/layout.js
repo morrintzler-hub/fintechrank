@@ -14,8 +14,8 @@ export default function RootLayout({ children }) {
       </head>
       <body>
 
-        {/* Intro animation */}
-        <div id="fr-intro" role="presentation">
+        {/* Intro — only rendered, JS decides whether to show */}
+        <div id="fr-intro" role="presentation" style={{display:'none'}}>
           <div className="intro-rule"></div>
           <div className="intro-symbols">
             <div className="intro-sym" data-sym="$">$</div>
@@ -47,16 +47,13 @@ export default function RootLayout({ children }) {
             The Fintech <span className="nav-acc">Rank</span>
           </a>
           <div className="nav-links">
-            <a href="/">Compare</a>
+            <a href="/">Home</a>
+            <a href="/compare">Compare</a>
             <a href="/category/payments">Categories</a>
-            <a href="/#reviews">Reviews</a>
           </div>
           <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
-            <button
-              className="theme-toggle"
-              id="themeToggle"
-              title="Toggle light/dark mode"
-              aria-label="Toggle theme">
+            <button className="theme-toggle" id="themeToggle"
+              title="Toggle light/dark mode" aria-label="Toggle theme">
               🌙
             </button>
             <a href="mailto:hello@thefintechrank.com" className="nav-cta">
@@ -87,8 +84,8 @@ export default function RootLayout({ children }) {
           <div className="footer-links">
             <h4>Company</h4>
             <a href="#">About</a>
+            <a href="/compare">Compare tool</a>
             <a href="#">Methodology</a>
-            <a href="#">Advertise</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Contact</a>
           </div>
@@ -110,7 +107,6 @@ export default function RootLayout({ children }) {
               if (btn) btn.textContent = document.documentElement.classList.contains('light') ? '☀️' : '🌙';
             }
             updateIcon();
-
             if (btn) {
               btn.addEventListener('click', function() {
                 document.documentElement.classList.toggle('light');
@@ -120,32 +116,48 @@ export default function RootLayout({ children }) {
               });
             }
 
-            // ── INTRO ──────────────────────────────────────────
+            // ── INTRO — only on homepage, only first visit ─────
+            var isHome = window.location.pathname === '/' || window.location.pathname === '';
             var intro = document.getElementById('fr-intro');
-            if (intro) {
-              if (sessionStorage.getItem('tfr_intro')) {
-                intro.style.display = 'none';
-              } else {
-                sessionStorage.setItem('tfr_intro', '1');
-                document.body.style.overflow = 'hidden';
-                function dismiss() {
-                  intro.classList.add('hide');
-                  setTimeout(function() {
-                    intro.style.display = 'none';
-                    document.body.style.overflow = '';
-                  }, 700);
-                }
-                intro.addEventListener('click', dismiss);
-                setTimeout(dismiss, 2600);
+            if (intro && isHome && !sessionStorage.getItem('tfr_intro_v3')) {
+              sessionStorage.setItem('tfr_intro_v3', '1');
+              intro.style.display = 'flex';
+              document.body.style.overflow = 'hidden';
+              function dismiss() {
+                intro.classList.add('hide');
+                setTimeout(function() {
+                  intro.style.display = 'none';
+                  document.body.style.overflow = '';
+                }, 700);
               }
+              intro.addEventListener('click', dismiss);
+              setTimeout(dismiss, 2600);
             }
 
             // ── NAV SCROLL ─────────────────────────────────────
             var nav = document.getElementById('mainNav');
+            var isLight = function() {
+              return document.documentElement.classList.contains('light');
+            };
             if (nav) {
-              window.addEventListener('scroll', function() {
-                nav.classList.toggle('nav-scrolled', window.scrollY > 20);
-              }, { passive: true });
+              function updateNav() {
+                var scrolled = window.scrollY > 20;
+                nav.classList.toggle('nav-scrolled', scrolled);
+                if (isLight()) {
+                  nav.style.background = scrolled
+                    ? 'rgba(240,244,248,0.98)'
+                    : 'rgba(240,244,248,0.92)';
+                  nav.style.borderBottomColor = 'rgba(0,0,0,0.1)';
+                } else {
+                  nav.style.background = '';
+                  nav.style.borderBottomColor = '';
+                }
+              }
+              window.addEventListener('scroll', updateNav, { passive: true });
+              // Re-run when theme changes
+              document.getElementById('themeToggle') && document.getElementById('themeToggle').addEventListener('click', function() {
+                setTimeout(updateNav, 50);
+              });
             }
 
             // ── SCROLL ANIMATIONS ──────────────────────────────
@@ -161,7 +173,6 @@ export default function RootLayout({ children }) {
                   }
                 });
               }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
               function observe() {
                 document.querySelectorAll(
                   '.fade-up:not(.visible),.fade-in:not(.visible),.slide-left:not(.visible),.slide-right:not(.visible)'
@@ -170,7 +181,6 @@ export default function RootLayout({ children }) {
               observe();
               new MutationObserver(observe).observe(document.body, { childList: true, subtree: true });
             }
-
             if (document.readyState === 'loading') {
               document.addEventListener('DOMContentLoaded', initObserver);
             } else {
@@ -179,7 +189,6 @@ export default function RootLayout({ children }) {
 
           })();
         `}} />
-
       </body>
     </html>
   )

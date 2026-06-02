@@ -104,18 +104,18 @@ export default function HomePage() {
       return 0
     })
 
-  function toggleCompare(id, name) {
+  function toggleCompare(id, name, slug) {
     setCompare(prev => {
       if (prev.find(x => x.id===id)) return prev.filter(x => x.id!==id)
       if (prev.length >= 3) return prev
-      return [...prev, { id, name }]
+      return [...prev, { id, name, slug }]
     })
   }
 
   function doCompare() {
     if (compare.length < 2) return
-    const ids = compare.map(x => x.id).join(',')
-    window.location.href = `/compare?ids=${ids}`
+    const slugs = compare.map(x => x.slug || x.id).join(',')
+    window.location.href = `/compare?ids=${slugs}`
   }
 
   return (
@@ -186,7 +186,7 @@ export default function HomePage() {
                 <CompanyCard
                   key={c.id} company={c} index={i}
                   inCompare={!!compare.find(x => x.id===c.id)}
-                  onToggleCompare={() => toggleCompare(c.id, c.name)}
+                  onToggleCompare={() => toggleCompare(c.id, c.name, c.slug)}
                 />
               ))}
             </div>
@@ -371,25 +371,25 @@ function Sidebar({ category, setCategory, sort, setSort, compare, setCompare, co
 }
 
 // Fetches logo from Clearbit using company domain
-// Falls back to initials if logo not found
+// Falls back to styled initials if logo not found
 function CompanyLogo({ website, name }) {
   const [imgError, setImgError] = useState(false)
+  const [loaded, setLoaded] = useState(false)
 
-  // Extract clean domain from URL
-  const domain = (website||'')
-    .replace('https://','')
-    .replace('http://','')
-    .replace('www.','')
+  const domain = (website || '')
+    .replace(/^https?:\/\//, '')
+    .replace(/^www\./, '')
     .split('/')[0]
+    .split('?')[0]
+    .trim()
 
-  const logoUrl = `https://logo.clearbit.com/${domain}`
-  const initials = (name||'').slice(0,2).toUpperCase()
+  const initials = (name || '').slice(0, 2).toUpperCase()
 
   if (!domain || imgError) {
     return (
       <span style={{
-        fontFamily:'var(--font)', fontWeight:500,
-        fontSize:12, color:'var(--muted)', letterSpacing:'0.04em'
+        fontFamily: 'var(--font)', fontWeight: 500,
+        fontSize: 13, color: 'var(--muted)', letterSpacing: '0.04em'
       }}>
         {initials}
       </span>
@@ -397,17 +397,30 @@ function CompanyLogo({ website, name }) {
   }
 
   return (
-    <img
-      src={logoUrl}
-      alt={`${name} logo`}
-      onError={() => setImgError(true)}
-      style={{
-        width: 28, height: 28,
-        objectFit: 'contain',
-        borderRadius: 4,
-        filter: 'brightness(1.1)',
-      }}
-    />
+    <>
+      {!loaded && (
+        <span style={{
+          fontFamily: 'var(--font)', fontWeight: 500,
+          fontSize: 13, color: 'var(--muted)', letterSpacing: '0.04em',
+          position: 'absolute'
+        }}>
+          {initials}
+        </span>
+      )}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`https://logo.clearbit.com/${domain}`}
+        alt={`${name} logo`}
+        onLoad={() => setLoaded(true)}
+        onError={() => setImgError(true)}
+        style={{
+          width: loaded ? 30 : 0,
+          height: loaded ? 30 : 0,
+          objectFit: 'contain',
+          borderRadius: 4,
+        }}
+      />
+    </>
   )
 }
 

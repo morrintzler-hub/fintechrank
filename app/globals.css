@@ -645,15 +645,7 @@ footer {
   .bg-orb { display: none; }
 }
 
-/* ── DARK MODE (default) — improved readability ─────────── */
-:root {
-  --text:    #ffffff;
-  --muted:   #b8c8e0;
-  --dim:     #6a85a8;
-  --border:  rgba(255,255,255,0.09);
-  --borderh: rgba(255,255,255,0.18);
-  --card-bg: rgba(255,255,255,0.04);
-}
+/* Dark mode — values set in :root above */
 
 /* Override card background for better contrast */
 .company-card {
@@ -856,3 +848,71 @@ html .fade-up, html .fade-in, html .slide-left, html .slide-right {
     background-color 0.25s ease,
     border-color 0.25s ease !important;
 }
+
+/* ── LIGHT MODE NAV SCROLLED FIX ── */
+html.light .nav-scrolled {
+  background: rgba(240,244,248,0.98) !important;
+  border-bottom-color: rgba(0,0,0,0.1) !important;
+}
+
+/* ── FORCE READABLE TEXT EVERYWHERE IN DARK MODE ── */
+.company-name    { color: #ffffff !important; font-weight: 500 !important; }
+.company-desc    { color: #c8d8ec !important; }
+.company-url a   { color: #7a95b8 !important; }
+.pricing         { color: #c8d8ec !important; }
+.pricing strong  { color: #ffffff !important; }
+.rating-num      { color: #c8d8ec !important; }
+.tag             { color: #8fa8c8 !important; }
+.cat-btn         { color: #c8d8ec !important; }
+.sort-opt        { color: #c8d8ec !important; }
+.sidebar-title   { color: #7a95b8 !important; }
+.compare-panel-title { color: #ffffff !important; }
+.cslot           { color: #7a95b8 !important; }
+.cmp-hint        { color: #7a95b8 !important; }
+.results-info    { color: #c8d8ec !important; }
+.results-info strong { color: #ffffff !important; }
+.footer-tagline  { color: #c8d8ec !important; }
+.footer-links a  { color: #c8d8ec !important; }
+.footer-bottom   { color: #7a95b8 !important; }
+.btn-review      { color: #c8d8ec !important; border-color: rgba(255,255,255,0.12) !important; }
+.hero-sub        { color: #c8d8ec !important; }
+.stat-lbl        { color: #7a95b8 !important; }
+.search-box input { color: #ffffff !important; }
+.nav-links a     { color: #c8d8ec !important; }
+
+/* ── FORCE BLACK TEXT IN LIGHT MODE ── */
+html.light .company-name    { color: #0a1520 !important; font-weight: 600 !important; }
+html.light .company-desc    { color: #1e3048 !important; }
+html.light .company-url a   { color: #5a7a9a !important; }
+html.light .pricing         { color: #1e3048 !important; }
+html.light .pricing strong  { color: #0a1520 !important; }
+html.light .rating-num      { color: #5a7a9a !important; }
+html.light .tag              { color: #2a4060 !important; border-color: rgba(0,0,0,0.12) !important; background: #eef3f9 !important; }
+html.light .cat-btn          { color: #1e3048 !important; }
+html.light .sort-opt         { color: #1e3048 !important; }
+html.light .sidebar-title    { color: #5a7a9a !important; }
+html.light .compare-panel-title { color: #0a1520 !important; }
+html.light .cslot            { color: #5a7a9a !important; }
+html.light .cmp-hint         { color: #5a7a9a !important; }
+html.light .results-info     { color: #1e3048 !important; }
+html.light .results-info strong { color: #0a1520 !important; }
+html.light .footer-tagline   { color: #1e3048 !important; }
+html.light .footer-links a   { color: #1e3048 !important; }
+html.light .footer-bottom    { color: #5a7a9a !important; }
+html.light .btn-review       { color: #1e3048 !important; border-color: rgba(0,0,0,0.15) !important; }
+html.light .hero-sub         { color: #1e3048 !important; }
+html.light .stat-num         { color: #0a1520 !important; }
+html.light .stat-lbl         { color: #5a7a9a !important; }
+html.light .search-box input { color: #0a1520 !important; }
+html.light .nav-links a      { color: #1e3048 !important; }
+html.light .nav-links a:hover { color: #0a1520 !important; }
+html.light .nav-logo         { color: #0a1520 !important; }
+html.light .hero h1          { color: #0a1520 !important; }
+html.light .hero h1 strong   { color: rgba(10,21,32,0.3) !important; }
+html.light .hero-eyebrow     { color: var(--accent) !important; }
+html.light .sort-opt.active  { color: var(--accent) !important; }
+html.light .cat-btn.active   { color: var(--accent) !important; }
+html.light .cat-count        { color: #5a7a9a !important; }
+html.light .cat-btn.active .cat-count { color: var(--accent) !important; }
+html.light .footer-links h4  { color: #5a7a9a !important; }
+html.light .footer-brand     { color: #0a1520 !important; }
