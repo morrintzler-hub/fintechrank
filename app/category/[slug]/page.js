@@ -93,7 +93,7 @@ export default function CategoryPage() {
                 <div className="logo-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={`https://logo.clearbit.com/${(c.website||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]}?size=64`}
+                    src={`https://www.google.com/s2/favicons?domain=${(c.website||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]}&sz=64`}
                     alt={c.name}
                     width={32} height={32}
                     onError={e=>{e.target.style.display='none';e.target.nextSibling.style.display='block'}}
