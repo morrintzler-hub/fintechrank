@@ -8,16 +8,16 @@ const CAT_COLORS = {
   Crypto:'#c084fc', Lending:'#f87171', Business:'#4ade80'
 }
 
-// Quick-search pills — match tags that exist in the database
+// Quick-search pills — each maps to either a category or exact tag
 const SUGGEST_PILLS = [
-  { label: 'Payments',     query: 'Payments' },
-  { label: 'Neobank',      query: 'Neobank' },
-  { label: 'Crypto',       query: 'Crypto' },
-  { label: 'BNPL',         query: 'BNPL' },
-  { label: 'Payroll',      query: 'Payroll' },
-  { label: 'Remittance',   query: 'Remittance' },
-  { label: 'Africa',       query: 'Africa' },
-  { label: 'India',        query: 'India' },
+  { label: 'Payments',   type: 'category', value: 'Payments' },
+  { label: 'Neobank',    type: 'tag',      value: 'Neobank' },
+  { label: 'Crypto',     type: 'tag',      value: 'Crypto' },
+  { label: 'BNPL',       type: 'tag',      value: 'BNPL' },
+  { label: 'Payroll',    type: 'tag',      value: 'Payroll' },
+  { label: 'Remittance', type: 'tag',      value: 'Remittance' },
+  { label: 'Africa',     type: 'tag',      value: 'Africa' },
+  { label: 'India',      type: 'tag',      value: 'India' },
 ]
 
 function stars(r) {
@@ -29,6 +29,7 @@ export default function HomePage() {
   const [companies, setCompanies]   = useState([])
   const [loading, setLoading]       = useState(true)
   const [search, setSearch]         = useState('')
+  const [pillFilter, setPillFilter] = useState(null) // {type, value}
   const [category, setCategory]     = useState('all')
   const [sort, setSort]             = useState('rank')
   const [compare, setCompare]       = useState([])
@@ -65,15 +66,35 @@ export default function HomePage() {
 
   const filtered = companies
     .filter(c => {
+      // Sidebar category filter
       const matchCat = category === 'all' || c.category === category
-      const q = search.toLowerCase().trim()
-      const tags = getTags(c)
-      const matchSearch = !q ||
-        c.name.toLowerCase().includes(q) ||
-        (c.description||'').toLowerCase().includes(q) ||
-        c.category.toLowerCase().includes(q) ||
-        tags.some(t => t.toLowerCase().includes(q))
-      return matchCat && matchSearch
+
+      // Pill filter - exact category or exact tag match
+      let matchPill = true
+      if (pillFilter) {
+        if (pillFilter.type === 'category') {
+          matchPill = c.category === pillFilter.value
+        } else {
+          const tags = getTags(c)
+          matchPill = tags.some(t =>
+            t.toLowerCase() === pillFilter.value.toLowerCase()
+          )
+        }
+      }
+
+      // Text search - only when no pill active
+      let matchSearch = true
+      if (search && !pillFilter) {
+        const q = search.toLowerCase().trim()
+        const tags = getTags(c)
+        matchSearch =
+          c.name.toLowerCase().includes(q) ||
+          (c.description||'').toLowerCase().includes(q) ||
+          c.category.toLowerCase().includes(q) ||
+          tags.some(t => t.toLowerCase().includes(q))
+      }
+
+      return matchCat && matchPill && matchSearch
     })
     .sort((a,b) => {
       if (sort==='rank')    return a.rank - b.rank
@@ -99,7 +120,12 @@ export default function HomePage() {
 
   return (
     <div>
-      <Hero search={search} setSearch={setSearch} counts={counts} />
+      <Hero
+        search={search} setSearch={setSearch}
+        counts={counts}
+        pillFilter={pillFilter} setPillFilter={setPillFilter}
+        setVisible={setVisible}
+      />
 
       <div style={{maxWidth:1160,margin:'0 auto',padding:'2.5rem 1.5rem 5rem',
         display:'grid',gridTemplateColumns:'220px 1fr',gap:'2.5rem',alignItems:'start'}}>
@@ -111,7 +137,7 @@ export default function HomePage() {
           counts={counts} onCompare={doCompare}
         />
 
-        <div>
+        <div className="content-area">
           {/* Toolbar */}
           <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',
             marginBottom:'1.25rem',flexWrap:'wrap',gap:8}}>
@@ -124,13 +150,13 @@ export default function HomePage() {
                 {filtered.length}
               </strong>{' '}companies
             </div>
-            {search && (
-              <button onClick={() => setSearch('')}
+            {(search || pillFilter) && (
+              <button onClick={() => { setSearch(''); setPillFilter(null); setVisible(20) }}
                 style={{fontSize:11,padding:'4px 10px',borderRadius:2,
                   border:'1px solid var(--border)',background:'transparent',
                   color:'var(--muted)',cursor:'pointer',letterSpacing:'.04em',
                   fontFamily:'var(--font)'}}>
-                Clear "{search}" x
+                Clear filter x
               </button>
             )}
           </div>
@@ -185,7 +211,16 @@ export default function HomePage() {
   )
 }
 
-function Hero({ search, setSearch, counts }) {
+function Hero({ search, setSearch, counts, pillFilter, setPillFilter, setVisible }) {
+  function handlePill(pill) {
+    setPillFilter(prev =>
+      prev && prev.value === pill.value ? null : { type: pill.type, value: pill.value }
+    )
+    setSearch('')
+    setVisible(20)
+    document.querySelector('.content-area')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <header className="hero">
       <div className="hero-eyebrow">Independent Fintech Research</div>
@@ -208,29 +243,39 @@ function Hero({ search, setSearch, counts }) {
           <input
             type="text"
             value={search}
-            onChange={e => setSearch(e.target.value)}
+            onChange={e => { setSearch(e.target.value); setPillFilter(null) }}
             placeholder="Search company, feature, or use case..."
             autoComplete="off"
           />
-          {search && (
-            <button className="search-clear" onClick={() => setSearch('')}>
+          {(search || pillFilter) && (
+            <button className="search-clear"
+              onClick={() => { setSearch(''); setPillFilter(null); setVisible(20) }}>
               ✕
             </button>
           )}
         </div>
 
-        {/* Quick search pills */}
+        {/* Quick filter pills */}
         <div className="search-suggest">
           {SUGGEST_PILLS.map(p => (
-            <button key={p.label} className="spill"
-              onClick={() => setSearch(p.query)}>
+            <button key={p.label}
+              className="spill"
+              onClick={() => handlePill(p)}
+              style={{
+                borderColor: pillFilter?.value === p.value
+                  ? 'rgba(0,196,160,0.5)' : '',
+                color: pillFilter?.value === p.value
+                  ? 'var(--accent)' : '',
+                background: pillFilter?.value === p.value
+                  ? 'rgba(0,196,160,0.08)' : '',
+              }}>
               {p.label}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Stats — pulled from live data */}
+      {/* Stats */}
       <div className="hero-stats">
         {[
           [counts.all || 100, 'Companies'],

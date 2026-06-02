@@ -13,9 +13,9 @@
   --gold:    #f59e0b;
   --red:     #f87171;
   --green:   #22c55e;
-  --text:    #eef2ff;
-  --muted:   #6475a0;
-  --dim:     #374f72;
+  --text:    #f4f7ff;
+  --muted:   #8596ba;
+  --dim:     #4a6080;
   --border:  rgba(255,255,255,0.06);
   --borderh: rgba(255,255,255,0.12);
   --r:       10px;
@@ -205,15 +205,15 @@ nav, main, header, section, footer, .page-body,
   border-bottom-color: rgba(255,255,255,0.08) !important;
 }
 .nav-logo {
-  font-family: var(--font); font-weight: 200; font-size: 1.1rem;
+  font-family: var(--font); font-weight: 500; font-size: 1.1rem;
   color: var(--text); text-decoration: none;
-  display: flex; align-items: center; gap: 10px; letter-spacing: 0.08em;
+  display: flex; align-items: center; gap: 10px; letter-spacing: 0.06em;
 }
 .nav-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-  box-shadow: 0 0 8px rgba(0,196,160,0.5);
+  width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 10px rgba(0,196,160,0.6);
 }
-.nav-acc { color: var(--accent); font-weight: 500; }
+.nav-acc { color: var(--accent); font-weight: 700; }
 .nav-links { display: flex; gap: 2rem; }
 .nav-links a {
   font-size: 12px; font-weight: 300; letter-spacing: 0.06em;
