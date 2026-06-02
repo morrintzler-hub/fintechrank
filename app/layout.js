@@ -3,11 +3,6 @@ import './globals.css'
 export const metadata = {
   title: 'The Fintech Rank — Compare the World\'s Top 100 Fintech Companies',
   description: 'Unbiased ratings, verified pricing, and side-by-side comparisons across the world\'s top 100 fintech platforms.',
-  openGraph: {
-    title: 'The Fintech Rank',
-    description: 'Compare the world\'s top 100 fintech companies',
-    type: 'website',
-  },
 }
 
 export default function RootLayout({ children }) {
@@ -19,7 +14,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
 
-        {/* Intro animation - first visit only */}
+        {/* Intro animation */}
         <div id="fr-intro" role="presentation">
           <div className="intro-rule"></div>
           <div className="intro-symbols">
@@ -38,7 +33,7 @@ export default function RootLayout({ children }) {
           <div className="intro-rule-bottom"></div>
         </div>
 
-        {/* Gradient navy background layers */}
+        {/* Backgrounds */}
         <div className="bg-base" aria-hidden="true"></div>
         <div className="bg-orb orb-1" aria-hidden="true"></div>
         <div className="bg-orb orb-2" aria-hidden="true"></div>
@@ -56,20 +51,25 @@ export default function RootLayout({ children }) {
             <a href="/category/payments">Categories</a>
             <a href="/#reviews">Reviews</a>
           </div>
-          <a href="mailto:hello@thefintechrank.com" className="nav-cta">
-            Submit a Company
-          </a>
+          <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
+            <button
+              className="theme-toggle"
+              id="themeToggle"
+              title="Toggle light/dark mode"
+              aria-label="Toggle theme">
+              🌙
+            </button>
+            <a href="mailto:hello@thefintechrank.com" className="nav-cta">
+              Submit a Company
+            </a>
+          </div>
         </nav>
 
-        {/* Main content */}
         <main>{children}</main>
 
-        {/* Footer */}
         <footer>
           <div>
-            <div className="footer-brand">
-              The Fintech <span>Rank</span>
-            </div>
+            <div className="footer-brand">The Fintech <span>Rank</span></div>
             <div className="footer-tagline">
               Independent research on the world's top 100 fintech companies.
               Updated by our community in real time.
@@ -94,14 +94,33 @@ export default function RootLayout({ children }) {
           </div>
         </footer>
         <div className="footer-bottom">
-          2025 The Fintech Rank - Independent research -
+          2025 The Fintech Rank · Independent research ·
           Affiliate disclosure: some links may earn us a commission at no extra cost to you.
         </div>
 
-        {/* Scroll animations + intro + nav scroll effect */}
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
-            // Intro - show once per session
+
+            // ── THEME ──────────────────────────────────────────
+            var saved = localStorage.getItem('tfr_theme') || 'dark';
+            if (saved === 'light') document.documentElement.classList.add('light');
+
+            var btn = document.getElementById('themeToggle');
+            function updateIcon() {
+              if (btn) btn.textContent = document.documentElement.classList.contains('light') ? '☀️' : '🌙';
+            }
+            updateIcon();
+
+            if (btn) {
+              btn.addEventListener('click', function() {
+                document.documentElement.classList.toggle('light');
+                var theme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+                localStorage.setItem('tfr_theme', theme);
+                updateIcon();
+              });
+            }
+
+            // ── INTRO ──────────────────────────────────────────
             var intro = document.getElementById('fr-intro');
             if (intro) {
               if (sessionStorage.getItem('tfr_intro')) {
@@ -121,7 +140,7 @@ export default function RootLayout({ children }) {
               }
             }
 
-            // Nav scroll effect
+            // ── NAV SCROLL ─────────────────────────────────────
             var nav = document.getElementById('mainNav');
             if (nav) {
               window.addEventListener('scroll', function() {
@@ -129,7 +148,7 @@ export default function RootLayout({ children }) {
               }, { passive: true });
             }
 
-            // Scroll animations
+            // ── SCROLL ANIMATIONS ──────────────────────────────
             function initObserver() {
               var obs = new IntersectionObserver(function(entries) {
                 entries.forEach(function(e) {
@@ -157,6 +176,7 @@ export default function RootLayout({ children }) {
             } else {
               initObserver();
             }
+
           })();
         `}} />
 
