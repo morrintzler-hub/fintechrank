@@ -127,8 +127,7 @@ export default function HomePage() {
         setVisible={setVisible}
       />
 
-      <div style={{maxWidth:1160,margin:'0 auto',padding:'2.5rem 1.5rem 5rem',
-        display:'grid',gridTemplateColumns:'220px 1fr',gap:'2.5rem',alignItems:'start'}}>
+      <div className="page-body">
 
         <Sidebar
           category={category} setCategory={setCategory}
@@ -357,17 +356,22 @@ function Sidebar({ category, setCategory, sort, setSort, compare, setCompare, co
             </div>
           ))}
         </div>
-        <a
-          href={compare.length >= 2 ? `/compare?ids=${compare.map(x=>x.slug||x.id).join(',')}` : '#'}
-          onClick={e => { if (compare.length < 2) e.preventDefault() }}
-          className={`btn-cmp${compare.length>=2?' ready':''}`}
-          style={{
-            display:'block',textAlign:'center',textDecoration:'none',
-            opacity: compare.length>=2 ? 1 : 0.35,
-            cursor: compare.length>=2 ? 'pointer' : 'not-allowed',
-          }}>
-          {compare.length >= 2 ? 'Compare now →' : 'Compare now'}
-        </a>
+        {compare.length >= 2 ? (
+          <a
+            href={'/compare?ids=' + compare.map(x=>x.slug||x.id).join(',')}
+            style={{display:'block',width:'100%',padding:'9px',borderRadius:'var(--rsm)',
+              background:'var(--accent)',color:'#000',textAlign:'center',
+              textDecoration:'none',fontSize:12,fontWeight:500,letterSpacing:'.04em',
+              fontFamily:'var(--font)',transition:'opacity .15s'}}>
+            Compare now →
+          </a>
+        ) : (
+          <div style={{padding:'9px',borderRadius:'var(--rsm)',background:'var(--navy3)',
+            color:'var(--dim)',textAlign:'center',fontSize:12,fontWeight:500,
+            letterSpacing:'.04em',opacity:.5}}>
+            Compare now
+          </div>
+        )}
         <div className="cmp-hint">
           {compare.length === 0 && 'Select 2-3 companies'}
           {compare.length === 1 && 'Add 1 more to compare'}
