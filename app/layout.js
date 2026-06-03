@@ -3,6 +3,9 @@ import { headers } from 'next/headers'
 
 export const metadata = {
   metadataBase: new URL('https://www.thefintechrank.com'),
+  verification: {
+    google: 'Lk5FsVy1yXc_kyNMrwCl3Rgf7uIvxevkktmEqMjmFlA',
+  },
   title: {
     default: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
     template: '%s | The Fintech Rank',
