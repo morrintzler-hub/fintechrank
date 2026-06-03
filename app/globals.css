@@ -82,13 +82,7 @@ body {
 }
 
 .bg-grid {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
-  background-size: 52px 52px;
-  mask-image: radial-gradient(ellipse 90% 90% at 50% 30%, black 10%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 30%, black 10%, transparent 75%);
+  display: none;
 }
 
 /* All content above backgrounds */
@@ -696,9 +690,9 @@ html.light body {
 
 html.light .bg-base {
   background:
-    radial-gradient(ellipse 100% 60% at 50% 0%, #dce8f5 0%, transparent 55%),
-    radial-gradient(ellipse 70% 40% at 0% 60%, #e8f0f8 0%, transparent 60%),
-    linear-gradient(170deg, #eef3f9 0%, #f0f4f8 100%);
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,196,160,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 0% 60%, rgba(59,130,246,0.04) 0%, transparent 55%),
+    linear-gradient(170deg, #f5f7fa 0%, #f8f9fb 40%, #f5f7fa 100%);
 }
 
 html.light .bg-orb { display: none; }
@@ -919,13 +913,18 @@ html.light .footer-brand     { color: #0a1520 !important; }
 
 /* ── DATA-THEME FALLBACK — mirrors all html.light rules ── */
 /* Ensures theme persists across Next.js page navigation   */
-[data-theme="light"] body { background: #f0f4f8; color: #0a1520; }
+[data-theme="light"] body { background: #f8f9fb; color: #0a1520; }
 [data-theme="light"] .nav { background: rgba(240,244,248,0.92) !important; border-bottom-color: rgba(0,0,0,0.08) !important; }
 [data-theme="light"] .nav-scrolled { background: rgba(240,244,248,0.98) !important; }
 [data-theme="light"] .nav-logo { color: #0a1520 !important; }
 [data-theme="light"] .nav-links a { color: #1e3048 !important; }
 [data-theme="light"] .nav-acc { color: var(--accent) !important; }
-[data-theme="light"] .bg-base { background: radial-gradient(ellipse 100% 60% at 50% 0%, #dce8f5 0%, transparent 55%), linear-gradient(170deg, #eef3f9 0%, #f0f4f8 100%) !important; }
+[data-theme="light"] .bg-base {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,196,160,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 0% 60%, rgba(59,130,246,0.04) 0%, transparent 55%),
+    linear-gradient(170deg, #f5f7fa 0%, #f8f9fb 40%, #f5f7fa 100%) !important;
+}
 [data-theme="light"] .bg-orb { display: none; }
 [data-theme="light"] .company-card { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
 [data-theme="light"] .company-name { color: #0a1520 !important; }
@@ -1043,4 +1042,271 @@ html.light .nav-dropdown-menu a:hover,
 
 @media (max-width: 768px) {
   .nav-dropdown-menu { display: none; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE FIXES
+══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── NAV ── */
+  .nav {
+    padding: 0 1rem;
+    height: 54px;
+    flex-wrap: nowrap;
+  }
+
+  .nav-logo {
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-links { display: none !important; }
+
+  .nav-cta {
+    font-size: 10px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .theme-toggle {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 48px 1.25rem 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    margin-bottom: 2rem;
+  }
+
+  .search-wrap { max-width: 100%; }
+
+  .search-suggest {
+    gap: 5px;
+  }
+
+  .spill {
+    font-size: 10px;
+    padding: 4px 9px;
+  }
+
+  .hero-stats {
+    max-width: 100%;
+    gap: 0;
+  }
+
+  .stat-item { padding: 0 0.75rem; }
+
+  .stat-num { font-size: 1.3rem; }
+
+  .stat-lbl { font-size: 8px; }
+
+  /* ── PAGE BODY ── */
+  .page-body {
+    grid-template-columns: 1fr !important;
+    padding: 1.25rem 1rem 3rem !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Sidebar horizontal on mobile */
+  .sidebar {
+    position: static !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sidebar-section {
+    margin-bottom: 0;
+  }
+
+  /* Category pills horizontal scroll on mobile */
+  .cat-pills-mobile {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cat-pills-mobile::-webkit-scrollbar { display: none; }
+
+  /* Hide sort and compare on mobile - keep only categories */
+  .sidebar .sidebar-section:nth-child(2),
+  .sidebar .compare-panel {
+    display: none;
+  }
+
+  /* ── COMPANY CARDS ── */
+  .company-card {
+    padding: 1rem;
+  }
+
+  .card-main {
+    gap: 0.75rem;
+  }
+
+  .logo-wrap {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .card-header {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .card-right-meta {
+    gap: 8px;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .card-footer > div:last-child {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+
+  .btn-review, .btn-visit {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .company-desc {
+    font-size: 12px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-tags { display: none; }
+
+  /* ── CONTENT AREA ── */
+  .content-area {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 1.25rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .footer-bottom {
+    padding: 1rem 1.25rem !important;
+    font-size: 10px !important;
+  }
+}
+
+/* ── VERY SMALL SCREENS ── */
+@media (max-width: 380px) {
+  .hero h1 { font-size: 1.8rem; }
+  .nav-cta { display: none; }
+  .stat-item { padding: 0 0.5rem; }
+}
+
+/* ── LIGHT MODE CARD SHADES ── */
+html.light .company-card,
+[data-theme="light"] .company-card {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.07) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+html.light .company-card:hover,
+[data-theme="light"] .company-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.09) !important;
+  border-color: rgba(0,0,0,0.12) !important;
+}
+html.light .compare-panel,
+[data-theme="light"] .compare-panel {
+  background: #f0f2f5 !important;
+  border-color: rgba(0,0,0,0.07) !important;
+}
+html.light .cslot,
+[data-theme="light"] .cslot {
+  border-color: rgba(0,0,0,0.1) !important;
+}
+html.light .logo-wrap,
+[data-theme="light"] .logo-wrap {
+  background: #f0f2f5 !important;
+  border-color: rgba(0,0,0,0.07) !important;
+}
+html.light .search-box,
+[data-theme="light"] .search-box {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.1) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+}
+html.light .hero-stats,
+[data-theme="light"] .hero-stats {
+  border-top-color: rgba(0,0,0,0.08) !important;
+}
+html.light .stat-item,
+[data-theme="light"] .stat-item {
+  border-right-color: rgba(0,0,0,0.08) !important;
+}
+html.light .nav,
+[data-theme="light"] .nav {
+  background: rgba(248,249,251,0.92) !important;
+  border-bottom-color: rgba(0,0,0,0.07) !important;
+}
+html.light .nav-scrolled,
+[data-theme="light"] .nav-scrolled {
+  background: rgba(248,249,251,0.98) !important;
+}
+html.light footer,
+[data-theme="light"] footer {
+  background: #f0f2f5 !important;
+  border-top-color: rgba(0,0,0,0.07) !important;
+}
+html.light .footer-bottom,
+[data-theme="light"] .footer-bottom {
+  background: #e8eaed !important;
+  border-top-color: rgba(0,0,0,0.07) !important;
+}
+html.light .tag,
+[data-theme="light"] .tag {
+  background: #f0f2f5 !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+html.light .spill,
+[data-theme="light"] .spill {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.1) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+html.light .sidebar-section,
+[data-theme="light"] .sidebar-section {
+  background: transparent !important;
+}
+html.light .cat-btn:hover,
+[data-theme="light"] .cat-btn:hover {
+  background: rgba(0,0,0,0.04) !important;
 }

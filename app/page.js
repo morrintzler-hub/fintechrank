@@ -137,7 +137,7 @@ export default function HomePage() {
           counts={counts} onCompare={doCompare}
         />
 
-        <div className="content-area">
+        <div className="content-area" style={{minWidth:0,overflow:'hidden'}}>
           {/* Toolbar */}
           <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',
             marginBottom:'1.25rem',flexWrap:'wrap',gap:8}}>
@@ -357,22 +357,21 @@ function Sidebar({ category, setCategory, sort, setSort, compare, setCompare, co
             </div>
           ))}
         </div>
-        {compare.length >= 2 ? (
-          <a
-            href={`/compare?ids=${compare.map(x => x.slug).join(',')}`}
-            className="btn-cmp ready"
-            style={{display:'block',textAlign:'center',textDecoration:'none'}}>
-            Compare now →
-          </a>
-        ) : (
-          <button className="btn-cmp" disabled style={{cursor:'not-allowed'}}>
-            Compare now
-          </button>
-        )}
+        <a
+          href={compare.length >= 2 ? `/compare?ids=${compare.map(x=>x.slug||x.id).join(',')}` : '#'}
+          onClick={e => { if (compare.length < 2) e.preventDefault() }}
+          className={`btn-cmp${compare.length>=2?' ready':''}`}
+          style={{
+            display:'block',textAlign:'center',textDecoration:'none',
+            opacity: compare.length>=2 ? 1 : 0.35,
+            cursor: compare.length>=2 ? 'pointer' : 'not-allowed',
+          }}>
+          {compare.length >= 2 ? 'Compare now →' : 'Compare now'}
+        </a>
         <div className="cmp-hint">
           {compare.length === 0 && 'Select 2-3 companies'}
-          {compare.length === 1 && 'Add 1 more company'}
-          {compare.length >= 2 && `${compare.length} companies ready`}
+          {compare.length === 1 && 'Add 1 more to compare'}
+          {compare.length >= 2 && compare.length + ' companies selected'}
         </div>
       </div>
 

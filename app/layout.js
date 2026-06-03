@@ -41,7 +41,6 @@ export default function RootLayout({ children }) {
         <div className="bg-orb orb-1" aria-hidden="true"></div>
         <div className="bg-orb orb-2" aria-hidden="true"></div>
         <div className="bg-orb orb-3" aria-hidden="true"></div>
-        <div className="bg-grid" aria-hidden="true"></div>
 
         <nav className="nav" id="mainNav">
           <a href="/" className="nav-logo">
