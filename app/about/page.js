@@ -70,7 +70,7 @@ export default function AboutPage() {
             ['Community score', 'Derived from our discrepancy report resolution rate and accuracy rating'],
           ].map(([name, desc]) => (
             <div key={name} style={{display:'flex',gap:12,padding:'.75rem',
-              background:'rgba(255,255,255,.025)',border:'1px solid var(--border)',
+              background:'var(--card-bg)',border:'1px solid var(--border)',
               borderRadius:'var(--rsm)'}}>
               <div style={{width:4,height:'auto',borderRadius:2,background:'var(--accent)',flexShrink:0}} />
               <div>

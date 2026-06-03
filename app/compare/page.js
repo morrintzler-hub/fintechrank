@@ -303,7 +303,7 @@ function ComparePageInner() {
           <div style={{fontSize:9,fontWeight:600,letterSpacing:'.2em',textTransform:'uppercase',
             color:'var(--dim)',marginBottom:'1.25rem'}}>Comparison</div>
 
-          <div style={{background:'rgba(255,255,255,.025)',border:'1px solid var(--border)',
+          <div style={{background:'var(--card-bg)',border:'1px solid var(--border)',
             borderRadius:10,overflow:'hidden'}}>
 
             {/* Company header row */}

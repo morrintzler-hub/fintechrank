@@ -94,7 +94,7 @@ function ArticleCard({ post, large }) {
       {/* Image area */}
       <div style={{
         height: large ? 200 : 140,
-        background: post.gradient,
+        background: `linear-gradient(135deg, var(--navy3) 0%, var(--navy4) 50%, var(--navy3) 100%)`,
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
@@ -102,6 +102,8 @@ function ArticleCard({ post, large }) {
         flexShrink: 0,
         overflow: 'hidden',
       }}>
+      {/* Color accent overlay using post color */}
+      <div style={{position:'absolute',inset:0,background:post.color,opacity:0.08,pointerEvents:'none'}} />
         {/* Grid pattern overlay */}
         <div style={{
           position: 'absolute', inset: 0,
@@ -144,7 +146,7 @@ function ArticleCard({ post, large }) {
       </div>
 
       {/* Content */}
-      <div style={{ padding: '1rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <div style={{ padding: '1rem', flex: 1, display: 'flex', flexDirection: 'column', background: 'var(--card-bg)' }}>
         <div style={{
           fontSize: 10, color: 'var(--dim)', marginBottom: 8,
           display: 'flex', alignItems: 'center', gap: 8,
