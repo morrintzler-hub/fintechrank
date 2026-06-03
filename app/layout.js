@@ -2,8 +2,53 @@ import './globals.css'
 import { headers } from 'next/headers'
 
 export const metadata = {
-  title: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
-  description: "Unbiased ratings, verified pricing, and side-by-side comparisons across the world's top 100 fintech platforms.",
+  metadataBase: new URL('https://www.thefintechrank.com'),
+  title: {
+    default: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
+    template: '%s | The Fintech Rank',
+  },
+  description: "Unbiased ratings, verified pricing, and side-by-side comparisons across the world's top 100 fintech companies. Updated in real time by our community.",
+  keywords: ['fintech', 'fintech comparison', 'best fintech apps', 'payment processing comparison', 'neobank comparison', 'crypto exchange comparison', 'fintech reviews'],
+  authors: [{ name: 'The Fintech Rank' }],
+  creator: 'The Fintech Rank',
+  publisher: 'The Fintech Rank',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    url: 'https://www.thefintechrank.com',
+    siteName: 'The Fintech Rank',
+    title: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
+    description: "Unbiased ratings, verified pricing, and side-by-side feature comparisons across payments, banking, investing, crypto, lending, and business fintech.",
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'The Fintech Rank — Compare the Top 100 Fintech Companies',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
+    description: "Unbiased ratings, verified pricing, and side-by-side comparisons. Updated in real time.",
+    images: ['/og-image.png'],
+    creator: '@thefintechrank',
+  },
+  alternates: {
+    canonical: 'https://www.thefintechrank.com',
+  },
 }
 
 export default function RootLayout({ children }) {
