@@ -5,24 +5,20 @@ export const metadata = {
   description: "Unbiased ratings, verified pricing, and side-by-side comparisons across the world's top 100 fintech platforms.",
 }
 
-// Server component reads cookie to set theme before render
-import { cookies } from 'next/headers'
-
 export default function RootLayout({ children }) {
-  // Read theme from cookie on server - this prevents ANY flash or loss
-  const cookieStore = cookies()
-  const theme = cookieStore.get('tfr_theme')?.value || 'dark'
-  const isLight = theme === 'light'
-
   return (
-    <html lang="en" className={isLight ? 'light' : ''} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          try {
+            var t = localStorage.getItem('tfr_theme');
+            if (t === 'light') document.documentElement.classList.add('light');
+          } catch(e) {}
+        `}} />
       </head>
       <body>
-
-        {/* Intro - only on homepage */}
         <div id="fr-intro" role="presentation" style={{display:'none'}}>
           <div className="intro-rule"></div>
           <div className="intro-symbols">
@@ -41,14 +37,12 @@ export default function RootLayout({ children }) {
           <div className="intro-rule-bottom"></div>
         </div>
 
-        {/* Backgrounds */}
         <div className="bg-base" aria-hidden="true"></div>
         <div className="bg-orb orb-1" aria-hidden="true"></div>
         <div className="bg-orb orb-2" aria-hidden="true"></div>
         <div className="bg-orb orb-3" aria-hidden="true"></div>
         <div className="bg-grid" aria-hidden="true"></div>
 
-        {/* Nav */}
         <nav className="nav" id="mainNav">
           <a href="/" className="nav-logo">
             <span className="nav-dot"></span>
@@ -71,13 +65,8 @@ export default function RootLayout({ children }) {
             <a href="/blog">Blog</a>
           </div>
           <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
-            <button className="theme-toggle" id="themeToggle"
-              title="Toggle light/dark mode" aria-label="Toggle theme">
-              {isLight ? '☀️' : '🌙'}
-            </button>
-            <a href="mailto:hello@thefintechrank.com" className="nav-cta">
-              Submit a Company
-            </a>
+            <button className="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+            <a href="mailto:hello@thefintechrank.com" className="nav-cta">Submit a Company</a>
           </div>
         </nav>
 
@@ -105,8 +94,8 @@ export default function RootLayout({ children }) {
             <a href="/about">About</a>
             <a href="/compare">Compare tool</a>
             <a href="/about">Methodology</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Contact</a>
+            <a href="/blog">Blog</a>
+            <a href="mailto:hello@thefintechrank.com">Contact</a>
           </div>
         </footer>
         <div className="footer-bottom">
@@ -116,45 +105,47 @@ export default function RootLayout({ children }) {
 
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
-
-            // ── THEME TOGGLE ───────────────────────────────────
-            // Sets cookie so server renders correct theme on next navigation
             var btn = document.getElementById('themeToggle');
-            if (btn) {
-              btn.addEventListener('click', function() {
-                var isLight = document.documentElement.classList.toggle('light');
-                var theme = isLight ? 'light' : 'dark';
-                // Set cookie - read by server on next page load
-                document.cookie = 'tfr_theme=' + theme + ';path=/;max-age=31536000;SameSite=Lax';
-                btn.textContent = isLight ? '☀️' : '🌙';
-                // Update nav background immediately
-                updateNavBg();
-              });
+            function setTheme(light) {
+              if (light) {
+                document.documentElement.classList.add('light');
+              } else {
+                document.documentElement.classList.remove('light');
+              }
+              try { localStorage.setItem('tfr_theme', light ? 'light' : 'dark'); } catch(e) {}
+              if (btn) btn.textContent = light ? '☀️' : '🌙';
+              updateNav();
             }
 
-            // ── NAV SCROLL ─────────────────────────────────────
-            function updateNavBg() {
+            function updateNav() {
               var nav = document.getElementById('mainNav');
               if (!nav) return;
               var light = document.documentElement.classList.contains('light');
               var scrolled = window.scrollY > 20;
               nav.classList.toggle('nav-scrolled', scrolled);
               if (light) {
-                nav.style.background = scrolled
-                  ? 'rgba(240,244,248,0.98)'
-                  : 'rgba(240,244,248,0.92)';
+                nav.style.background = scrolled ? 'rgba(240,244,248,0.98)' : 'rgba(240,244,248,0.92)';
                 nav.style.borderBottomColor = 'rgba(0,0,0,0.1)';
-                nav.style.color = '#0a1520';
               } else {
                 nav.style.background = '';
                 nav.style.borderBottomColor = '';
-                nav.style.color = '';
               }
             }
-            window.addEventListener('scroll', updateNavBg, { passive: true });
-            updateNavBg();
 
-            // ── INTRO ──────────────────────────────────────────
+            // Set initial icon
+            var isLight = document.documentElement.classList.contains('light');
+            if (btn) btn.textContent = isLight ? '☀️' : '🌙';
+
+            if (btn) {
+              btn.addEventListener('click', function() {
+                setTheme(!document.documentElement.classList.contains('light'));
+              });
+            }
+
+            window.addEventListener('scroll', updateNav, { passive: true });
+            updateNav();
+
+            // Intro
             var isHome = window.location.pathname === '/';
             var intro = document.getElementById('fr-intro');
             if (intro && isHome && !sessionStorage.getItem('tfr_intro_v3')) {
@@ -172,7 +163,7 @@ export default function RootLayout({ children }) {
               setTimeout(dismiss, 2600);
             }
 
-            // ── SCROLL ANIMATIONS ──────────────────────────────
+            // Scroll animations
             var obs = new IntersectionObserver(function(entries) {
               entries.forEach(function(e) {
                 if (e.isIntersecting) {
@@ -186,13 +177,10 @@ export default function RootLayout({ children }) {
             }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
             function observe() {
-              document.querySelectorAll(
-                '.fade-up:not(.visible),.fade-in:not(.visible),.slide-left:not(.visible),.slide-right:not(.visible)'
-              ).forEach(function(el) { obs.observe(el); });
+              document.querySelectorAll('.fade-up:not(.visible),.fade-in:not(.visible),.slide-left:not(.visible),.slide-right:not(.visible)').forEach(function(el) { obs.observe(el); });
             }
             observe();
             new MutationObserver(observe).observe(document.body, {childList:true, subtree:true});
-
           })();
         `}} />
       </body>

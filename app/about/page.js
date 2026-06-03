@@ -1,3 +1,4 @@
+'use client'
 export default function AboutPage() {
   return (
     <div style={{maxWidth:780,margin:'0 auto',padding:'3rem 2rem 5rem',position:'relative',zIndex:1}}>
