@@ -1,4 +1,5 @@
 import './globals.css'
+import { headers } from 'next/headers'
 
 export const metadata = {
   title: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
@@ -6,28 +7,16 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  // Read theme set by middleware - server-side, no flash
+  const headersList = headers()
+  const theme = headersList.get('x-theme') || 'dark'
+  const isLight = theme === 'light'
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={isLight ? 'light' : ''} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <script dangerouslySetInnerHTML={{ __html: `
-          (function() {
-            try {
-              // Check localStorage first
-              var t = localStorage.getItem('tfr_theme');
-              // Also check cookie as backup
-              if (!t) {
-                var m = document.cookie.match(/tfr_theme=([^;]+)/);
-                if (m) t = m[1];
-              }
-              if (t === 'light') {
-                document.documentElement.classList.add('light');
-                document.documentElement.setAttribute('data-theme', 'light');
-              }
-            } catch(e) {}
-          })();
-        `}} />
       </head>
       <body>
         <div id="fr-intro" role="presentation" style={{display:'none'}}>
@@ -76,7 +65,9 @@ export default function RootLayout({ children }) {
             <a href="/blog">Blog</a>
           </div>
           <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
-            <button className="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+            <button className="theme-toggle" id="themeToggle" title="Toggle theme">
+              {isLight ? '☀️' : '🌙'}
+            </button>
             <a href="mailto:hello@thefintechrank.com" className="nav-cta">Submit a Company</a>
           </div>
         </nav>
@@ -117,19 +108,15 @@ export default function RootLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
             var btn = document.getElementById('themeToggle');
+
             function setTheme(light) {
               if (light) {
                 document.documentElement.classList.add('light');
-                document.documentElement.setAttribute('data-theme', 'light');
               } else {
                 document.documentElement.classList.remove('light');
-                document.documentElement.setAttribute('data-theme', 'dark');
               }
-              try {
-                var val = light ? 'light' : 'dark';
-                localStorage.setItem('tfr_theme', val);
-                document.cookie = 'tfr_theme=' + val + ';path=/;max-age=31536000;SameSite=Lax';
-              } catch(e) {}
+              // Set cookie - read by middleware on next request
+              document.cookie = 'tfr_theme=' + (light ? 'light' : 'dark') + ';path=/;max-age=31536000;SameSite=Lax';
               if (btn) btn.textContent = light ? '☀️' : '🌙';
               updateNav();
             }
@@ -149,25 +136,11 @@ export default function RootLayout({ children }) {
               }
             }
 
-            // Set initial icon
-            var isLight = document.documentElement.classList.contains('light');
-            if (btn) btn.textContent = isLight ? '☀️' : '🌙';
-
             if (btn) {
               btn.addEventListener('click', function() {
                 setTheme(!document.documentElement.classList.contains('light'));
               });
             }
-
-            // Sync theme on page focus (handles back/forward navigation)
-            window.addEventListener('focus', function() {
-              try {
-                var t = localStorage.getItem('tfr_theme');
-                var isLight = document.documentElement.classList.contains('light');
-                if (t === 'light' && !isLight) setTheme(true);
-                if (t !== 'light' && isLight) setTheme(false);
-              } catch(e) {}
-            });
 
             window.addEventListener('scroll', updateNav, { passive: true });
             updateNav();
