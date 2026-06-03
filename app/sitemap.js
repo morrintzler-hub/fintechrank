@@ -1,9 +1,6 @@
-import { supabase } from '../lib/supabase'
-
 export default async function sitemap() {
-  const base = 'https://www.thefintechrank.com'
+  const base = 'https://thefintechrank.com'
 
-  // Static pages
   const static_pages = [
     { url: base, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
     { url: `${base}/compare`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
@@ -17,26 +14,30 @@ export default async function sitemap() {
     { url: `${base}/category/business`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ]
 
-  // Dynamic review pages from Supabase
-  let review_pages = []
-  try {
-    const { data } = await supabase
-      .from('companies')
-      .select('slug, updated_at')
-      .eq('is_active', true)
-      .order('rank')
+  // Hardcoded review pages - no Supabase dependency so sitemap never fails
+  const slugs = [
+    'stripe','paypal','revolut','wise','monzo','coinbase','adyen','klarna',
+    'nubank','chime','robinhood','binance','sofi','brex','checkout-com',
+    'toast','marqeta','airwallex','rapyd','flutterwave','razorpay','paytm',
+    'mercado-pago','venmo','cash-app','remitly','worldremit','zelle','m-pesa',
+    'starling-bank','n26','current','varo-bank','bunq','lunar','dave',
+    'aspiration','oaknorth','wealthfront','betterment','etoro','acorns',
+    'public','webull','trading-212','freetrade','stash','m1-finance',
+    'kraken','gemini','blockchain-com','opensea','chainalysis','fireblocks',
+    'consensys','ripple','circle','ledger','affirm','lendingclub','upstart',
+    'prosper','avant','funding-circle','creditas','zopa','kabbage','tala',
+    'ramp','mercury','navan','gusto','deel','melio','bill','tipalti',
+    'wise-business','payoneer','sumup','izettle','paysafe','sezzle','afterpay',
+    'greenlight','tink','solaris','anchorage-digital','bitpanda','alchemy',
+    'carta','fundbox','figure','earnin','novo','qonto','pine-labs','phonepe','ynab'
+  ]
 
-    if (data) {
-      review_pages = data.map(c => ({
-        url: `${base}/review/${c.slug}`,
-        lastModified: c.updated_at ? new Date(c.updated_at) : new Date(),
-        changeFrequency: 'weekly',
-        priority: 0.7,
-      }))
-    }
-  } catch (e) {
-    console.error('Sitemap: error fetching companies', e)
-  }
+  const review_pages = slugs.map(slug => ({
+    url: `${base}/review/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
 
   return [...static_pages, ...review_pages]
 }
