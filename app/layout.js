@@ -12,10 +12,21 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script dangerouslySetInnerHTML={{ __html: `
-          try {
-            var t = localStorage.getItem('tfr_theme');
-            if (t === 'light') document.documentElement.classList.add('light');
-          } catch(e) {}
+          (function() {
+            try {
+              // Check localStorage first
+              var t = localStorage.getItem('tfr_theme');
+              // Also check cookie as backup
+              if (!t) {
+                var m = document.cookie.match(/tfr_theme=([^;]+)/);
+                if (m) t = m[1];
+              }
+              if (t === 'light') {
+                document.documentElement.classList.add('light');
+                document.documentElement.setAttribute('data-theme', 'light');
+              }
+            } catch(e) {}
+          })();
         `}} />
       </head>
       <body>
@@ -109,10 +120,16 @@ export default function RootLayout({ children }) {
             function setTheme(light) {
               if (light) {
                 document.documentElement.classList.add('light');
+                document.documentElement.setAttribute('data-theme', 'light');
               } else {
                 document.documentElement.classList.remove('light');
+                document.documentElement.setAttribute('data-theme', 'dark');
               }
-              try { localStorage.setItem('tfr_theme', light ? 'light' : 'dark'); } catch(e) {}
+              try {
+                var val = light ? 'light' : 'dark';
+                localStorage.setItem('tfr_theme', val);
+                document.cookie = 'tfr_theme=' + val + ';path=/;max-age=31536000;SameSite=Lax';
+              } catch(e) {}
               if (btn) btn.textContent = light ? '☀️' : '🌙';
               updateNav();
             }
@@ -141,6 +158,16 @@ export default function RootLayout({ children }) {
                 setTheme(!document.documentElement.classList.contains('light'));
               });
             }
+
+            // Sync theme on page focus (handles back/forward navigation)
+            window.addEventListener('focus', function() {
+              try {
+                var t = localStorage.getItem('tfr_theme');
+                var isLight = document.documentElement.classList.contains('light');
+                if (t === 'light' && !isLight) setTheme(true);
+                if (t !== 'light' && isLight) setTheme(false);
+              } catch(e) {}
+            });
 
             window.addEventListener('scroll', updateNav, { passive: true });
             updateNav();
