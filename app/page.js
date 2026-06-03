@@ -351,19 +351,29 @@ function Sidebar({ category, setCategory, sort, setSort, compare, setCompare, co
                 <button className="cslot-rm"
                   onClick={() => setCompare(prev =>
                     prev.filter(x => x.id !== compare[i].id))}>
-                  x
+                  ×
                 </button>
               )}
             </div>
           ))}
         </div>
-        <button
-          className={`btn-cmp${compare.length>=2?' ready':''}`}
-          onClick={onCompare}
-          disabled={compare.length < 2}>
-          Compare now
-        </button>
-        <div className="cmp-hint">Select 2-3 companies</div>
+        {compare.length >= 2 ? (
+          <a
+            href={`/compare?ids=${compare.map(x => x.slug).join(',')}`}
+            className="btn-cmp ready"
+            style={{display:'block',textAlign:'center',textDecoration:'none'}}>
+            Compare now →
+          </a>
+        ) : (
+          <button className="btn-cmp" disabled style={{cursor:'not-allowed'}}>
+            Compare now
+          </button>
+        )}
+        <div className="cmp-hint">
+          {compare.length === 0 && 'Select 2-3 companies'}
+          {compare.length === 1 && 'Add 1 more company'}
+          {compare.length >= 2 && `${compare.length} companies ready`}
+        </div>
       </div>
 
     </aside>
