@@ -7,7 +7,7 @@ const POSTS = [
     cat: 'Comparison', color: '#00c4a0',
     date: '2025-06-15', time: '12 min',
     excerpt: 'The three giants of payment processing compared across fees, developer experience, global coverage, and enterprise features. Which one is right for your business in 2025?',
-    gradient: 'linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2440 100%)',
+    gradient: 'linear-gradient(135deg, var(--bg3) 0%, #1a3a5c 50%, #0d2440 100%)',
     icon: '💳', featured: true,
   },
   {
@@ -15,7 +15,7 @@ const POSTS = [
     cat: 'Guide', color: '#60a5fa',
     date: '2025-06-10', time: '10 min',
     excerpt: "A deep dive into Europe's leading digital banks. Features, fees, and which one suits your lifestyle and spending habits best.",
-    gradient: 'linear-gradient(135deg, #0a1628 0%, #1a2a4a 50%, #0d1e38 100%)',
+    gradient: 'linear-gradient(135deg, var(--bg3) 0%, #1a2a4a 50%, #0d1e38 100%)',
     icon: '🏦', featured: true,
   },
   {
@@ -82,7 +82,7 @@ function ArticleCard({ post, large }) {
         borderRadius: 'var(--r)',
         overflow: 'hidden',
         border: `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'var(--border)'}`,
-        background: 'var(--navy2)',
+        background: 'var(--bg2)',
         transition: 'border-color 0.2s, transform 0.2s, box-shadow 0.2s',
         transform: hovered ? 'translateY(-2px)' : 'none',
         boxShadow: hovered ? '0 8px 32px rgba(0,0,0,0.3)' : 'none',
@@ -94,7 +94,7 @@ function ArticleCard({ post, large }) {
       {/* Image area */}
       <div style={{
         height: large ? 200 : 140,
-        background: `linear-gradient(135deg, var(--navy3) 0%, var(--navy4) 50%, var(--navy3) 100%)`,
+        background: `linear-gradient(135deg, var(--bg3) 0%, var(--bg4) 50%, var(--bg3) 100%)`,
         position: 'relative',
         display: 'flex',
         alignItems: 'center',

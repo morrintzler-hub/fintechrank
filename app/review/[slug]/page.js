@@ -139,7 +139,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
       <div className="fade-in" style={{padding:'2.5rem 2rem 2rem',borderBottom:'1px solid var(--border)',background:`radial-gradient(ellipse 60% 40% at 30% 0%, rgba(37,99,235,.18) 0%, transparent 65%)`}}>
         <div style={{maxWidth:1000,margin:'0 auto',display:'flex',justifyContent:'space-between',alignItems:'flex-start',gap:'2rem',flexWrap:'wrap'}}>
           <div style={{display:'flex',gap:'1.25rem',flex:1,minWidth:260}}>
-            <div style={{width:64,height:64,flexShrink:0,borderRadius:14,background:'var(--navy3)',border:'1px solid var(--borderh)',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--heading)',fontWeight:800,fontSize:18,color:'var(--muted)'}}>
+            <div style={{width:64,height:64,flexShrink:0,borderRadius:14,background:'var(--bg3)',border:'1px solid var(--borderh)',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--heading)',fontWeight:800,fontSize:18,color:'var(--muted)'}}>
               {c.name.slice(0,2).toUpperCase()}
             </div>
             <div>
@@ -152,7 +152,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
             </div>
           </div>
           <div style={{display:'flex',gap:'1rem',alignItems:'flex-start',flexWrap:'wrap'}}>
-            <div style={{background:'var(--navy2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1rem 1.25rem',textAlign:'center',minWidth:130}}>
+            <div style={{background:'var(--bg2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1rem 1.25rem',textAlign:'center',minWidth:130}}>
               <div style={{fontFamily:'var(--heading)',fontSize:'2.6rem',fontWeight:800,lineHeight:1}}>{c.rating}</div>
               <div style={{color:'var(--gold)',fontSize:14,letterSpacing:1,margin:'4px 0'}}>{'★'.repeat(Math.round(c.rating))}</div>
               <div style={{fontSize:11,color:'var(--dim)'}}>{(c.review_count||0).toLocaleString()} reviews</div>
@@ -188,10 +188,10 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
           {/* Features */}
           {features.length > 0 && (
             <Section title="Features" delay=".2s">
-              <div style={{background:'var(--navy2)',border:'1px solid var(--border)',borderRadius:'var(--r)',overflow:'hidden'}}>
+              <div style={{background:'var(--bg2)',border:'1px solid var(--border)',borderRadius:'var(--r)',overflow:'hidden'}}>
                 {Object.entries(featGroups).map(([grp, items]) => (
                   <div key={grp}>
-                    <div style={{padding:'.5rem .9rem',background:'var(--navy3)',fontSize:10,fontWeight:600,textTransform:'uppercase',letterSpacing:'.1em',color:'var(--dim)'}}>{grp}</div>
+                    <div style={{padding:'.5rem .9rem',background:'var(--bg3)',fontSize:10,fontWeight:600,textTransform:'uppercase',letterSpacing:'.1em',color:'var(--dim)'}}>{grp}</div>
                     {items.map((f,i) => (
                       <div key={i} style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'.65rem .9rem',borderBottom:'1px solid var(--border)',fontSize:13}}>
                         <span style={{color:'var(--muted)'}}>{f.features?.name}</span>
@@ -209,7 +209,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
 
           {/* Pricing */}
           <Section title="Pricing" delay=".3s">
-            <div style={{background:'var(--navy2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1.25rem'}}>
+            <div style={{background:'var(--bg2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1.25rem'}}>
               <div style={{fontFamily:'var(--heading)',fontSize:'1.4rem',fontWeight:700,marginBottom:4}}>{c.pricing}</div>
               <div style={{fontSize:13,color:'var(--muted)',marginBottom:'1rem'}}>Pricing model: {c.pricing_model}</div>
               <a href={c.affiliate_url||c.website} target="_blank" rel="noopener noreferrer" className="btn-primary">
@@ -247,7 +247,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
         <div style={{display:'flex',flexDirection:'column',gap:'1.25rem',position:'sticky',top:80}}>
           <QuickFacts company={c} />
           {c.tag_list?.length > 0 && (
-            <div className="slide-right" style={{background:'var(--navy2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1.1rem'}}>
+            <div className="slide-right" style={{background:'var(--bg2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1.1rem'}}>
               <div style={{fontFamily:'var(--heading)',fontSize:13,fontWeight:700,marginBottom:'.85rem'}}>Tags</div>
               <div style={{display:'flex',flexWrap:'wrap',gap:6}}>
                 {(c.tag_list||[]).map(t=>(
@@ -256,7 +256,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
               </div>
             </div>
           )}
-          <div className="slide-right" style={{background:'var(--navy2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1.1rem',animationDelay:'.15s'}}>
+          <div className="slide-right" style={{background:'var(--bg2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1.1rem',animationDelay:'.15s'}}>
             <div style={{fontFamily:'var(--heading)',fontSize:13,fontWeight:700,marginBottom:'.85rem'}}>Founded</div>
             <div style={{fontSize:'1.6rem',fontFamily:'var(--heading)',fontWeight:800,color:'var(--text)'}}>{c.founded_year}</div>
             <div style={{fontSize:12,color:'var(--muted)',marginTop:4}}>{c.hq_country}</div>
@@ -274,7 +274,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
               {reports.map(r => {
                 const s = statusStyle[r.status] || statusStyle.pending
                 return (
-                  <div key={r.id} style={{display:'flex',gap:12,padding:'.75rem',background:'var(--navy2)',border:'1px solid var(--border)',borderRadius:'var(--rsm)',alignItems:'flex-start'}}>
+                  <div key={r.id} style={{display:'flex',gap:12,padding:'.75rem',background:'var(--bg2)',border:'1px solid var(--border)',borderRadius:'var(--rsm)',alignItems:'flex-start'}}>
                     <div style={{flex:1,minWidth:0}}>
                       <div style={{display:'flex',alignItems:'center',gap:7,marginBottom:3,flexWrap:'wrap'}}>
                         <span style={{fontSize:10,fontWeight:600,color:'var(--accent)',textTransform:'uppercase',letterSpacing:'.06em'}}>{r.report_type}</span>
@@ -297,7 +297,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
           <>
             <div className="fade-up"
               onClick={() => setReportOpen(o=>!o)}
-              style={{background:'var(--navy2)',border:`1px solid ${reportOpen?'rgba(245,158,11,.3)':'var(--border)'}`,borderRadius:reportOpen?'var(--r) var(--r) 0 0':'var(--r)',padding:'1rem 1.25rem',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'1rem',cursor:'pointer',transition:'border-color .2s',flexWrap:'wrap'}}
+              style={{background:'var(--bg2)',border:`1px solid ${reportOpen?'rgba(245,158,11,.3)':'var(--border)'}`,borderRadius:reportOpen?'var(--r) var(--r) 0 0':'var(--r)',padding:'1rem 1.25rem',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'1rem',cursor:'pointer',transition:'border-color .2s',flexWrap:'wrap'}}
             >
               <div style={{display:'flex',alignItems:'center',gap:12}}>
                 <div style={{width:36,height:36,borderRadius:8,background:'rgba(245,158,11,.1)',border:'1px solid rgba(245,158,11,.2)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:16,flexShrink:0}}>⚠️</div>
@@ -313,14 +313,14 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
             </div>
 
             {/* Form panel */}
-            <div style={{background:'var(--navy2)',border:'1px solid rgba(245,158,11,.25)',borderTop:'none',borderRadius:'0 0 var(--r) var(--r)',overflow:'hidden',maxHeight:reportOpen?900:0,transition:'max-height .4s cubic-bezier(.4,0,.2,1)'}}>
+            <div style={{background:'var(--bg2)',border:'1px solid rgba(245,158,11,.25)',borderTop:'none',borderRadius:'0 0 var(--r) var(--r)',overflow:'hidden',maxHeight:reportOpen?900:0,transition:'max-height .4s cubic-bezier(.4,0,.2,1)'}}>
               <div style={{padding:'1.5rem'}}>
                 {/* Type grid */}
                 <div style={{fontSize:10,fontWeight:600,letterSpacing:'.1em',textTransform:'uppercase',color:'var(--dim)',marginBottom:8}}>Type of discrepancy</div>
                 <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(130px,1fr))',gap:7,marginBottom:'1.1rem'}}>
                   {[['💰','Pricing / Fees','Rates, plans'],['⚙️','Features','Missing or wrong'],['🌍','Availability','Country / region'],['📋','Terms & Policies','TOS, refunds'],['⭐','Rating','Score accuracy'],['📝','Other','Anything else']].map(([icon,name,desc]) => (
                     <button key={name} onClick={()=>setSelectedType(name)}
-                      style={{padding:'.65rem',borderRadius:'var(--rsm)',border:`1px solid ${selectedType===name?'rgba(245,158,11,.45)':'var(--border)'}`,background:selectedType===name?'rgba(245,158,11,.06)':'var(--navy3)',cursor:'pointer',textAlign:'left',fontFamily:'var(--font)',transition:'all .15s'}}>
+                      style={{padding:'.65rem',borderRadius:'var(--rsm)',border:`1px solid ${selectedType===name?'rgba(245,158,11,.45)':'var(--border)'}`,background:selectedType===name?'rgba(245,158,11,.06)':'var(--bg3)',cursor:'pointer',textAlign:'left',fontFamily:'var(--font)',transition:'all .15s'}}>
                       <span style={{fontSize:16,display:'block',marginBottom:4}}>{icon}</span>
                       <span style={{fontSize:12,fontWeight:500,color:'var(--text)',display:'block'}}>{name}</span>
                       <span style={{fontSize:10,color:'var(--muted)',marginTop:1,display:'block'}}>{desc}</span>
@@ -332,7 +332,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
                 <FormField label="What's incorrect?" required>
                   <textarea value={formData.desc} onChange={e=>setFormData(p=>({...p,desc:e.target.value}))} maxLength={500}
                     placeholder={`e.g. The ${c.name} pricing listed is outdated — I verified the current fee on their website today.`}
-                    style={{width:'100%',background:'var(--navy3)',border:'1px solid var(--border)',borderRadius:'var(--rsm)',padding:'9px 12px',fontSize:13,fontFamily:'var(--font)',color:'var(--text)',outline:'none',resize:'vertical',minHeight:90,lineHeight:1.6}} />
+                    style={{width:'100%',background:'var(--bg3)',border:'1px solid var(--border)',borderRadius:'var(--rsm)',padding:'9px 12px',fontSize:13,fontFamily:'var(--font)',color:'var(--text)',outline:'none',resize:'vertical',minHeight:90,lineHeight:1.6}} />
                   <div style={{fontSize:10,color:'var(--dim)',textAlign:'right',marginTop:3}}>{formData.desc.length} / 500</div>
                 </FormField>
 
@@ -351,14 +351,14 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
                   </FormField>
                 </div>
 
-                <div style={{display:'flex',alignItems:'flex-start',gap:9,padding:'.85rem',background:'var(--navy3)',borderRadius:'var(--rsm)',marginBottom:'1.1rem',border:'1px solid var(--border)'}}>
+                <div style={{display:'flex',alignItems:'flex-start',gap:9,padding:'.85rem',background:'var(--bg3)',borderRadius:'var(--rsm)',marginBottom:'1.1rem',border:'1px solid var(--border)'}}>
                   <input type="checkbox" checked={privacy} onChange={e=>setPrivacy(e.target.checked)} style={{width:15,height:15,flexShrink:0,marginTop:2,accentColor:'var(--gold)',cursor:'pointer'}} />
                   <div style={{fontSize:11,color:'var(--muted)',lineHeight:1.6}}>I confirm this report is accurate to the best of my knowledge. My email (if provided) will only be used to notify me when resolved.</div>
                 </div>
 
                 <div style={{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap'}}>
                   <button onClick={submitReport} disabled={submitting||!formData.desc.trim()||!privacy}
-                    style={{padding:'10px 24px',borderRadius:'var(--rsm)',border:'none',background:submitting||!formData.desc.trim()||!privacy?'var(--navy3)':'var(--gold)',color:submitting||!formData.desc.trim()||!privacy?'var(--dim)':'#000',fontFamily:'var(--font)',fontSize:13,fontWeight:600,cursor:submitting||!formData.desc.trim()||!privacy?'not-allowed':'pointer',display:'flex',alignItems:'center',gap:7,transition:'all .2s'}}>
+                    style={{padding:'10px 24px',borderRadius:'var(--rsm)',border:'none',background:submitting||!formData.desc.trim()||!privacy?'var(--bg3)':'var(--gold)',color:submitting||!formData.desc.trim()||!privacy?'var(--dim)':'#000',fontFamily:'var(--font)',fontSize:13,fontWeight:600,cursor:submitting||!formData.desc.trim()||!privacy?'not-allowed':'pointer',display:'flex',alignItems:'center',gap:7,transition:'all .2s'}}>
                     {submitting ? '⟳ Submitting…' : 'Submit report'}
                   </button>
                   <button onClick={()=>setReportOpen(false)} className="btn-secondary">Cancel</button>
@@ -376,7 +376,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
                       </div>
                       <div style={{marginLeft:'auto',fontSize:10,padding:'2px 8px',borderRadius:10,background:'rgba(34,197,94,.15)',color:'var(--green)'}}>✓ Reviewed</div>
                     </div>
-                    <div style={{padding:'1rem',background:'var(--navy2)'}}>
+                    <div style={{padding:'1rem',background:'var(--bg2)'}}>
                       <div style={{fontSize:13,color:'var(--muted)',lineHeight:1.7,marginBottom:'.85rem'}}>{aiResponse}</div>
                       <div style={{display:'flex',gap:7,flexWrap:'wrap'}}>
                         <span style={{fontSize:10,padding:'2px 8px',borderRadius:20,border:'1px solid',background:priority==='High'?'rgba(248,113,113,.1)':'rgba(245,158,11,.1)',color:priority==='High'?'var(--red)':'var(--gold)',borderColor:priority==='High'?'rgba(248,113,113,.25)':'rgba(245,158,11,.25)'}}>⚡ {priority} priority</span>
@@ -394,7 +394,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
             <div style={{fontSize:'2rem',marginBottom:'.75rem'}}>✅</div>
             <div style={{fontFamily:'var(--heading)',fontSize:'1.05rem',fontWeight:700,marginBottom:'.5rem'}}>Report received — thank you!</div>
             <div style={{fontSize:13,color:'var(--muted)',lineHeight:1.65,maxWidth:400,margin:'0 auto .9rem'}}>Our team will review this within {priority==='High'?'4 hours':'48 hours'}. {formData.email ? "We'll email you when it's resolved." : ''}</div>
-            <div style={{fontSize:11,fontFamily:'monospace',background:'var(--navy3)',border:'1px solid var(--border)',borderRadius:5,padding:'3px 10px',display:'inline-block',color:'var(--muted)'}}>{reportId} · {priority} priority</div>
+            <div style={{fontSize:11,fontFamily:'monospace',background:'var(--bg3)',border:'1px solid var(--border)',borderRadius:5,padding:'3px 10px',display:'inline-block',color:'var(--muted)'}}>{reportId} · {priority} priority</div>
             <br/>
             <button onClick={()=>{setSubmitted(false);setReportOpen(false);setFormData({desc:'',fix:'',url:'',name:'',email:''});setPrivacy(false);setSelectedType(null);setAiResponse(null)}} className="btn-secondary" style={{marginTop:'1rem'}}>Submit another report</button>
           </div>
@@ -404,7 +404,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
   )
 }
 
-const inputStyle = {width:'100%',background:'var(--navy3)',border:'1px solid var(--border)',borderRadius:'var(--rsm)',padding:'9px 12px',fontSize:13,fontFamily:'DM Sans, sans-serif',color:'var(--text)',outline:'none'}
+const inputStyle = {width:'100%',background:'var(--bg3)',border:'1px solid var(--border)',borderRadius:'var(--rsm)',padding:'9px 12px',fontSize:13,fontFamily:'DM Sans, sans-serif',color:'var(--text)',outline:'none'}
 
 function FormField({ label, required, children }) {
   return (
@@ -429,7 +429,7 @@ function Section({ title, children, delay='0s' }) {
 function PCCard({ type, items }) {
   const isP = type==='pros'
   return (
-    <div style={{background:'var(--navy2)',border:'1px solid var(--border)',borderTop:`2px solid ${isP?'var(--green)':'var(--red)'}`,borderRadius:'var(--r)',overflow:'hidden'}}>
+    <div style={{background:'var(--bg2)',border:'1px solid var(--border)',borderTop:`2px solid ${isP?'var(--green)':'var(--red)'}`,borderRadius:'var(--r)',overflow:'hidden'}}>
       <div style={{padding:'.6rem .9rem',fontSize:10,fontWeight:600,textTransform:'uppercase',letterSpacing:'.1em',color:isP?'var(--green)':'var(--red)',display:'flex',alignItems:'center',gap:6,borderBottom:`1px solid ${isP?'rgba(34,197,94,.12)':'rgba(248,113,113,.1)'}`}}>
         <div style={{width:5,height:5,borderRadius:'50%',background:isP?'var(--green)':'var(--red)'}} />
         {isP ? 'What we love' : 'Watch out for'}
@@ -458,7 +458,7 @@ function QuickFacts({ company: c }) {
     ['Last verified', new Date().toLocaleDateString('en-GB',{month:'short',year:'numeric'})],
   ]
   return (
-    <div className="slide-right" style={{background:'var(--navy2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1.1rem',overflow:'hidden'}}>
+    <div className="slide-right" style={{background:'var(--bg2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1.1rem',overflow:'hidden'}}>
       <div style={{fontFamily:'var(--heading)',fontSize:13,fontWeight:700,marginBottom:'.85rem'}}>Quick Facts</div>
       {facts.filter(([,v])=>v).map(([k,v]) => (
         <div key={k} style={{display:'flex',justifyContent:'space-between',alignItems:'center',fontSize:12,padding:'.4rem 0',borderBottom:'1px solid var(--border)'}}>

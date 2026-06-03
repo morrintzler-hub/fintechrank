@@ -366,7 +366,7 @@ function Sidebar({ category, setCategory, sort, setSort, compare, setCompare, co
             Compare now →
           </a>
         ) : (
-          <div style={{padding:'9px',borderRadius:'var(--rsm)',background:'var(--navy3)',
+          <div style={{padding:'9px',borderRadius:'var(--rsm)',background:'var(--bg3)',
             color:'var(--dim)',textAlign:'center',fontSize:12,fontWeight:500,
             letterSpacing:'.04em',opacity:.5}}>
             Compare now

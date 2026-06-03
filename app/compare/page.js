@@ -168,7 +168,7 @@ function ComparePageInner() {
               Search and add up to 3 companies to compare:
             </div>
             <div style={{display:'flex',alignItems:'center',
-              background:'rgba(255,255,255,.03)',border:'1px solid rgba(0,196,160,.25)',
+              background:'var(--bg2)',border:'1px solid rgba(0,196,160,.25)',
               borderRadius:6,transition:'border-color .2s',boxShadow:'0 0 0 3px rgba(0,196,160,.06)'}}
               onFocus={e=>e.currentTarget.style.borderColor='rgba(0,196,160,.5)'}
               onBlur={e=>e.currentTarget.style.borderColor='rgba(0,196,160,.25)'}>
@@ -189,7 +189,7 @@ function ComparePageInner() {
             {/* Search dropdown */}
             {searchResults.length > 0 && (
               <div style={{position:'absolute',top:'calc(100% + 4px)',left:0,right:0,
-                background:'var(--navy2)',border:'1px solid var(--border)',borderRadius:8,
+                background:'var(--bg2)',border:'1px solid var(--border)',borderRadius:8,
                 overflow:'hidden',zIndex:50,boxShadow:'0 8px 32px rgba(0,0,0,0.4)'}}>
                 {searchResults.map(c => (
                   <div key={c.id} onClick={() => addCompany(c)}
@@ -309,7 +309,7 @@ function ComparePageInner() {
             {/* Company header row */}
             <div style={{display:'grid',
               gridTemplateColumns:`200px repeat(${selected.length}, 1fr)`,
-              borderBottom:'1px solid var(--border)',background:'rgba(255,255,255,.03)'}}>
+              borderBottom:'1px solid var(--border)',background:'var(--bg2)'}}>
               <div style={{padding:'.85rem 1.25rem'}}></div>
               {selected.map(c => (
                 <div key={c.id} style={{padding:'.85rem 1.25rem',
@@ -416,7 +416,7 @@ function ComparePageInner() {
         </div>
       ) : (
         <div className="fade-up" style={{textAlign:'center',padding:'3rem',
-          background:'rgba(255,255,255,.02)',border:'1px solid var(--border)',
+          background:'var(--bg2)',border:'1px solid var(--border)',
           borderRadius:10}}>
           <div style={{fontSize:'2rem',marginBottom:'.75rem'}}>⇄</div>
           <div style={{fontFamily:'var(--font)',fontWeight:400,fontSize:'1rem',

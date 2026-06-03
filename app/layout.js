@@ -7,63 +7,34 @@ export const metadata = {
     default: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
     template: '%s | The Fintech Rank',
   },
-  description: "Unbiased ratings, verified pricing, and side-by-side comparisons across the world's top 100 fintech companies. Updated in real time by our community.",
-  keywords: ['fintech', 'fintech comparison', 'best fintech apps', 'payment processing comparison', 'neobank comparison', 'crypto exchange comparison', 'fintech reviews'],
-  authors: [{ name: 'The Fintech Rank' }],
-  creator: 'The Fintech Rank',
-  publisher: 'The Fintech Rank',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  description: "Unbiased ratings, verified pricing, and side-by-side comparisons across the world's top 100 fintech companies.",
+  keywords: ['fintech','fintech comparison','best fintech apps','payment processing','neobank','crypto exchange'],
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     url: 'https://www.thefintechrank.com',
     siteName: 'The Fintech Rank',
     title: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
-    description: "Unbiased ratings, verified pricing, and side-by-side feature comparisons across payments, banking, investing, crypto, lending, and business fintech.",
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'The Fintech Rank — Compare the Top 100 Fintech Companies',
-      },
-    ],
+    description: "Unbiased ratings, verified pricing, and side-by-side feature comparisons.",
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
-    description: "Unbiased ratings, verified pricing, and side-by-side comparisons. Updated in real time.",
-    images: ['/og-image.png'],
-    creator: '@thefintechrank',
-  },
-  alternates: {
-    canonical: 'https://www.thefintechrank.com',
-  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: 'https://www.thefintechrank.com' },
 }
 
 export default function RootLayout({ children }) {
-  // Read theme set by middleware - server-side, no flash
+  // Read theme from middleware cookie for server-side rendering
   const headersList = headers()
-  const theme = headersList.get('x-theme') || 'dark'
-  const isLight = theme === 'light'
+  const theme = headersList.get('x-theme') || 'light'
 
   return (
-    <html lang="en" className={isLight ? 'light' : ''} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body>
+
+        {/* Intro animation - homepage only */}
         <div id="fr-intro" role="presentation" style={{display:'none'}}>
           <div className="intro-rule"></div>
           <div className="intro-symbols">
@@ -82,11 +53,10 @@ export default function RootLayout({ children }) {
           <div className="intro-rule-bottom"></div>
         </div>
 
+        {/* Subtle background */}
         <div className="bg-base" aria-hidden="true"></div>
-        <div className="bg-orb orb-1" aria-hidden="true"></div>
-        <div className="bg-orb orb-2" aria-hidden="true"></div>
-        <div className="bg-orb orb-3" aria-hidden="true"></div>
 
+        {/* Nav */}
         <nav className="nav" id="mainNav">
           <a href="/" className="nav-logo">
             <span className="nav-dot"></span>
@@ -107,31 +77,11 @@ export default function RootLayout({ children }) {
               </div>
             </div>
             <a href="/blog">Blog</a>
+            <a href="/about">About</a>
           </div>
-          <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
-            <button className="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
-              {isLight ? (
-                // Sun icon
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="5"/>
-                  <line x1="12" y1="1" x2="12" y2="3"/>
-                  <line x1="12" y1="21" x2="12" y2="23"/>
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                  <line x1="1" y1="12" x2="3" y2="12"/>
-                  <line x1="21" y1="12" x2="23" y2="12"/>
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                </svg>
-              ) : (
-                // Moon icon
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-              )}
-            </button>
-            <a href="mailto:hello@thefintechrank.com" className="nav-cta">Submit a Company</a>
-          </div>
+          <a href="mailto:hello@thefintechrank.com" className="nav-cta">
+            Submit a Company
+          </a>
         </nav>
 
         <main>{children}</main>
@@ -157,8 +107,8 @@ export default function RootLayout({ children }) {
             <h4>Company</h4>
             <a href="/about">About</a>
             <a href="/compare">Compare tool</a>
-            <a href="/about">Methodology</a>
             <a href="/blog">Blog</a>
+            <a href="/about">Methodology</a>
             <a href="mailto:hello@thefintechrank.com">Contact</a>
           </div>
         </footer>
@@ -169,51 +119,19 @@ export default function RootLayout({ children }) {
 
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
-            var btn = document.getElementById('themeToggle');
-
-            function setTheme(light) {
-              if (light) {
-                document.documentElement.classList.add('light');
-              } else {
-                document.documentElement.classList.remove('light');
-              }
-              // Set cookie - read by middleware on next request
-              document.cookie = 'tfr_theme=' + (light ? 'light' : 'dark') + ';path=/;max-age=31536000;SameSite=Lax';
-              if (btn) btn.innerHTML = light
-                ? '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'
-                : '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d=\'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z\'/></svg>';
-              updateNav();
+            // Nav scroll effect
+            var nav = document.getElementById('mainNav');
+            if (nav) {
+              window.addEventListener('scroll', function() {
+                nav.classList.toggle('nav-scrolled', window.scrollY > 20);
+              }, { passive: true });
             }
 
-            function updateNav() {
-              var nav = document.getElementById('mainNav');
-              if (!nav) return;
-              var light = document.documentElement.classList.contains('light');
-              var scrolled = window.scrollY > 20;
-              nav.classList.toggle('nav-scrolled', scrolled);
-              if (light) {
-                nav.style.background = scrolled ? 'rgba(240,244,248,0.98)' : 'rgba(240,244,248,0.92)';
-                nav.style.borderBottomColor = 'rgba(0,0,0,0.1)';
-              } else {
-                nav.style.background = '';
-                nav.style.borderBottomColor = '';
-              }
-            }
-
-            if (btn) {
-              btn.addEventListener('click', function() {
-                setTheme(!document.documentElement.classList.contains('light'));
-              });
-            }
-
-            window.addEventListener('scroll', updateNav, { passive: true });
-            updateNav();
-
-            // Intro
+            // Intro - homepage only, once per session
             var isHome = window.location.pathname === '/';
             var intro = document.getElementById('fr-intro');
-            if (intro && isHome && !sessionStorage.getItem('tfr_intro_v3')) {
-              sessionStorage.setItem('tfr_intro_v3', '1');
+            if (intro && isHome && !sessionStorage.getItem('tfr_intro_v4')) {
+              sessionStorage.setItem('tfr_intro_v4', '1');
               intro.style.display = 'flex';
               document.body.style.overflow = 'hidden';
               function dismiss() {
@@ -241,7 +159,9 @@ export default function RootLayout({ children }) {
             }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
             function observe() {
-              document.querySelectorAll('.fade-up:not(.visible),.fade-in:not(.visible),.slide-left:not(.visible),.slide-right:not(.visible)').forEach(function(el) { obs.observe(el); });
+              document.querySelectorAll(
+                '.fade-up:not(.visible),.fade-in:not(.visible),.slide-left:not(.visible),.slide-right:not(.visible)'
+              ).forEach(function(el) { obs.observe(el); });
             }
             observe();
             new MutationObserver(observe).observe(document.body, {childList:true, subtree:true});
