@@ -2,7 +2,7 @@
 import { useEffect, useState, Suspense, lazy } from 'react'
 import { supabase } from '../lib/supabase'
 import FeatureWidget from '../components/FeatureWidget'
-const MeshBackground = lazy(() => import('../components/MeshBackground'))
+import HeroSection from '../components/HeroSection'
 
 const CATEGORIES = ['all','Payments','Banking','Investing','Crypto','Lending','Business']
 const CAT_COLORS = {
@@ -122,12 +122,13 @@ export default function HomePage() {
 
   return (
     <div>
-      <Hero
-        search={search} setSearch={setSearch}
-        counts={counts}
-        pillFilter={pillFilter} setPillFilter={setPillFilter}
-        setVisible={setVisible}
-      />
+      <HeroSection
+          search={search} setSearch={setSearch}
+          counts={counts}
+          pills={SUGGEST_PILLS}
+          pillFilter={pillFilter} setPillFilter={setPillFilter}
+          setVisible={setVisible}
+        />
 
 
       {/* Feature widgets — full width, fast stagger */}
@@ -264,7 +265,7 @@ export default function HomePage() {
   )
 }
 
-function Hero({ search, setSearch, counts, pillFilter, setPillFilter, setVisible }) {
+) {
   function handlePill(pill) {
     setPillFilter(prev =>
       prev && prev.value === pill.value ? null : { type: pill.type, value: pill.value }
