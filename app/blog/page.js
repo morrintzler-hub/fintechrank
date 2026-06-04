@@ -3,12 +3,12 @@ import { useState } from 'react'
 
 const POSTS = [
   {
-    title: 'Stripe vs PayPal vs Adyen: The Complete 2025 Comparison',
-    cat: 'Comparison', color: '#00c4a0',
-    date: '2025-06-15', time: '12 min',
-    excerpt: 'The three giants of payment processing compared across fees, developer experience, global coverage, and enterprise features. Which one is right for your business in 2025?',
-    gradient: 'linear-gradient(135deg, var(--bg3) 0%, #1a3a5c 50%, #0d2440 100%)',
-    icon: '💳', featured: true,
+    title: 'Stripe vs PayPal 2025: The Complete Comparison for Businesses',
+    cat: 'Comparison', color: '#009e80',
+    date: '2025-06-03', time: '12 min',
+    excerpt: 'The two biggest names in payments compared across fees, developer experience, global coverage, and which one is right for your business in 2025.',
+    gradient: 'linear-gradient(135deg, var(--bg3) 0%, var(--bg4) 50%, var(--bg3) 100%)',
+    icon: '💳', featured: true, slug: 'stripe-vs-paypal-2025', published: true,
   },
   {
     title: "Best Neobanks in Europe 2025: Monzo vs Revolut vs Starling vs N26",
