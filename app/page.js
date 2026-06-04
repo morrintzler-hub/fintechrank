@@ -130,56 +130,52 @@ export default function HomePage() {
       />
 
 
-      {/* Feature widgets — vertical stacked, premium */}
+      {/* Feature widgets — full width, fast stagger */}
       <div style={{
-        maxWidth: 900,
+        maxWidth: 1400,
         margin: '0 auto',
-        padding: '5rem 2rem 2rem',
+        padding: '3rem 2rem 2rem',
         display: 'flex',
         flexDirection: 'column',
-        gap: 24,
+        gap: 16,
       }}>
         <FeatureWidget
           href="/compare"
-          number="01"
           tag="Compare"
-          title="Find the right platform for your business"
+          title="Find the right fintech for your business"
           subtitle="Side-by-side comparison across any 2–3 companies"
-          description="Compare fees, features, global coverage, and ratings across 100 fintech companies. From Stripe vs Adyen to Revolut vs Wise — get the complete picture before you commit."
-          color="#38bdf8"
+          description="Compare fees, features, global coverage, and ratings across 100 fintech companies. From Stripe vs Adyen to Revolut vs Wise — get the full picture before you decide."
+          color="#009e80"
           cta="Start comparing"
           delay={0}
         />
         <FeatureWidget
           href="/category/payments"
-          number="02"
           tag="Categories"
           title="Every corner of fintech, covered"
-          subtitle="Payments, banking, crypto, investing, lending, business"
-          description="Six categories, 100 companies, verified data. Whether you're choosing a payment processor, a neobank for your team, or a crypto exchange — we have the comparison."
-          color="#38bdf8"
+          subtitle="Payments · Banking · Crypto · Investing · Lending · Business"
+          description="Six categories, 100 companies, verified data. Whether you need a payment processor, a neobank, or a crypto exchange — the comparison is already here."
+          color="#009e80"
           cta="Browse categories"
           delay={1}
         />
         <FeatureWidget
           href="/blog/stripe-vs-paypal-2025"
-          number="03"
           tag="Research"
           title="Stripe vs PayPal 2026: The complete breakdown"
-          subtitle="New article — 12 minute read"
-          description="Fees, developer experience, international coverage, and checkout conversion compared. Our most comprehensive payment platform analysis yet."
-          color="#38bdf8"
+          subtitle="New article · 12 minute read"
+          description="Fees, developer experience, international coverage, and checkout conversion compared. Our most in-depth payment platform analysis."
+          color="#009e80"
           cta="Read the article"
           delay={2}
         />
         <FeatureWidget
           href="/about"
-          number="04"
           tag="Methodology"
-          title="Independent research, no sponsored rankings"
+          title="Independent research. No sponsored rankings"
           subtitle="Data you can actually trust"
-          description="Every rating is based on real user reviews, verified pricing, and community-reported accuracy. No company can pay to rank higher. Ever."
-          color="#38bdf8"
+          description="Every rating is based on verified pricing and community-reported accuracy. No company can pay to rank higher. Ever."
+          color="#009e80"
           cta="Our methodology"
           delay={3}
         />
