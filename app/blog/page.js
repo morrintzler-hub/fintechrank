@@ -74,11 +74,14 @@ function formatDate(d) {
 
 function ArticleCard({ post, large }) {
   const [hovered, setHovered] = useState(false)
+  const El = post.published ? 'a' : 'div'
   return (
-    <div
+    <El
+      href={post.published ? `/blog/${post.slug}` : undefined}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
+        textDecoration: 'none',
         borderRadius: 'var(--r)',
         overflow: 'hidden',
         border: `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'var(--border)'}`,
@@ -134,14 +137,16 @@ function ArticleCard({ post, large }) {
         }}>
           {post.cat}
         </div>
-        {/* Coming soon badge */}
+        {/* Status badge */}
         <div style={{
           position: 'absolute', top: 10, right: 12,
           fontSize: 9, fontWeight: 500, padding: '3px 8px',
-          borderRadius: 3, background: 'rgba(245,158,11,0.15)',
-          color: '#fbbf24', border: '1px solid rgba(245,158,11,0.25)',
+          borderRadius: 3,
+          background: post.published ? 'rgba(0,158,128,0.15)' : 'rgba(245,158,11,0.15)',
+          color: post.published ? '#009e80' : '#fbbf24',
+          border: `1px solid ${post.published ? 'rgba(0,158,128,0.25)' : 'rgba(245,158,11,0.25)'}`,
         }}>
-          Coming soon
+          {post.published ? 'Read now' : 'Coming soon'}
         </div>
       </div>
 
