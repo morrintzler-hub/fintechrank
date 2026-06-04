@@ -85,7 +85,41 @@ export default function RootLayout({ children }) {
           <a href="mailto:hello@thefintechrank.com" className="nav-cta">
             Submit a Company
           </a>
+          <button className="nav-hamburger" id="navHamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </nav>
+
+        {/* Mobile drawer overlay */}
+        <div className="nav-drawer-overlay" id="navOverlay"></div>
+
+        {/* Mobile drawer */}
+        <div className="nav-drawer" id="navDrawer">
+          <div className="nav-drawer-header">
+            <a href="/" className="nav-drawer-logo">The Fintech <span>Rank</span></a>
+            <button className="nav-drawer-close" id="navClose">✕</button>
+          </div>
+          <div className="nav-drawer-links">
+            <a href="/"><span className="dot" style={{background:'var(--accent)'}}></span>Home</a>
+            <a href="/compare"><span className="dot" style={{background:'#2563eb'}}></span>Compare</a>
+            <div className="nav-drawer-divider"></div>
+            <div className="nav-drawer-section">Categories</div>
+            <a href="/category/payments"><span className="dot" style={{background:'#2563eb'}}></span>Payments</a>
+            <a href="/category/banking"><span className="dot" style={{background:'#009e80'}}></span>Banking</a>
+            <a href="/category/investing"><span className="dot" style={{background:'#d97706'}}></span>Investing</a>
+            <a href="/category/crypto"><span className="dot" style={{background:'#7c3aed'}}></span>Crypto</a>
+            <a href="/category/lending"><span className="dot" style={{background:'#dc2626'}}></span>Lending</a>
+            <a href="/category/business"><span className="dot" style={{background:'#16a34a'}}></span>Business</a>
+            <div className="nav-drawer-divider"></div>
+            <a href="/blog"><span className="dot" style={{background:'#6366f1'}}></span>Blog</a>
+            <a href="/about"><span className="dot" style={{background:'var(--dim)'}}></span>About</a>
+          </div>
+          <div className="nav-drawer-footer">
+            <a href="mailto:hello@thefintechrank.com" className="nav-drawer-cta">Submit a Company</a>
+          </div>
+        </div>
 
         <main>{children}</main>
 
@@ -116,12 +150,40 @@ export default function RootLayout({ children }) {
           </div>
         </footer>
         <div className="footer-bottom">
-          2025 The Fintech Rank · Independent research ·
+          2026 The Fintech Rank · Independent research ·
           Affiliate disclosure: some links may earn us a commission at no extra cost to you.
         </div>
 
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
+            // Hamburger menu
+            var hamburger = document.getElementById('navHamburger');
+            var drawer = document.getElementById('navDrawer');
+            var overlay = document.getElementById('navOverlay');
+            var closeBtn = document.getElementById('navClose');
+
+            function openDrawer() {
+              drawer.classList.add('open');
+              overlay.classList.add('open');
+              document.body.style.overflow = 'hidden';
+            }
+            function closeDrawer() {
+              drawer.classList.remove('open');
+              overlay.classList.remove('open');
+              document.body.style.overflow = '';
+            }
+
+            if (hamburger) hamburger.addEventListener('click', openDrawer);
+            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+            if (overlay) overlay.addEventListener('click', closeDrawer);
+
+            // Close drawer on link click
+            if (drawer) {
+              drawer.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', closeDrawer);
+              });
+            }
+
             // Nav scroll effect
             var nav = document.getElementById('mainNav');
             if (nav) {
@@ -145,7 +207,7 @@ export default function RootLayout({ children }) {
                 }, 700);
               }
               intro.addEventListener('click', dismiss);
-              setTimeout(dismiss, 2600);
+              setTimeout(dismiss, 3800);
             }
 
             // Scroll animations
