@@ -275,9 +275,12 @@ export default function HeroSection({
                 const active = pillFilter && pillFilter.value === pill.value
                 return (
                   <button key={i} onClick={() => {
-                    setPillFilter(active ? null : pill)
-                    setSearch('')
-                    setVisible && setVisible(20)
+                    // Redirect to category page or compare with filter
+                    if (pill.type === 'category') {
+                      window.location.href = '/category/' + pill.value.toLowerCase()
+                    } else {
+                      window.location.href = '/compare?tag=' + encodeURIComponent(pill.value)
+                    }
                   }} style={{
                     fontSize: 13, fontWeight: active ? 600 : 400,
                     padding: '6px 14px', borderRadius: 8,
