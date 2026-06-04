@@ -144,6 +144,7 @@ export default function HomePage() {
         <FeatureWidget
           href="/compare"
           tag="Compare"
+          variant="shimmer"
           title="Find the right fintech for your business"
           subtitle="Side-by-side comparison across any 2–3 companies"
           description="Compare fees, features, global coverage, and ratings across 100 fintech companies. From Stripe vs Adyen to Revolut vs Wise — get the full picture before you decide."
@@ -153,6 +154,7 @@ export default function HomePage() {
         <FeatureWidget
           href="/category/payments"
           tag="Categories"
+          variant="pulse"
           title="Every corner of fintech, covered"
           subtitle="Payments · Banking · Crypto · Investing · Lending · Business"
           description="Six categories, 100 companies, verified data. Whether you need a payment processor, a neobank, or a crypto exchange — the comparison is already here."
@@ -162,6 +164,7 @@ export default function HomePage() {
         <FeatureWidget
           href="/blog/stripe-vs-paypal-2025"
           tag="Research"
+          variant="progress"
           title="Stripe vs PayPal 2026: The complete breakdown"
           subtitle="New article · 12 minute read"
           description="Fees, developer experience, international coverage, and checkout conversion compared. Our most in-depth payment platform analysis."
@@ -171,11 +174,22 @@ export default function HomePage() {
         <FeatureWidget
           href="/about"
           tag="Methodology"
+          variant="verify"
           title="Independent research. No sponsored rankings"
           subtitle="Data you can actually trust"
           description="Every rating is based on verified pricing and community-reported accuracy. No company can pay to rank higher. Ever."
           cta="Our methodology"
           delay={3}
+        />
+        <FeatureWidget
+          href="/review/stripe"
+          tag="Featured review"
+          variant="shimmer"
+          title="Stripe — the gold standard for developer payments"
+          subtitle="4.8 · 2,840 reviews · Payments"
+          description="From 1.5% + 25p per transaction. Supports 135+ currencies, advanced fraud tools, and the best API in the payments industry. Used by millions of businesses worldwide."
+          cta="Read full review"
+          delay={4}
         />
       </div>
 
