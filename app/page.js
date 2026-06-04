@@ -2,7 +2,7 @@
 import { useEffect, useState, Suspense, lazy } from 'react'
 import { supabase } from '../lib/supabase'
 import FeatureWidget from '../components/FeatureWidget'
-const DataPulseHero = lazy(() => import('../components/DataPulseHero'))
+const MeshBackground = lazy(() => import('../components/MeshBackground'))
 
 const CATEGORIES = ['all','Payments','Banking','Investing','Crypto','Lending','Business']
 const CAT_COLORS = {
@@ -247,7 +247,11 @@ function Hero({ search, setSearch, counts, pillFilter, setPillFilter, setVisible
   }
 
   return (
-    <header className="hero">
+    <header className="hero" style={{position:'relative',overflow:'hidden'}}>
+      <Suspense fallback={null}>
+        <MeshBackground height={560} />
+      </Suspense>
+      <div style={{position:'relative',zIndex:1}}>
       <div className="hero-eyebrow">Independent Fintech Research</div>
 
       <h1>
@@ -300,13 +304,6 @@ function Hero({ search, setSearch, counts, pillFilter, setPillFilter, setVisible
         </div>
       </div>
 
-            {/* Data pulse visualization - lazy loaded, doesn't block FCP */}
-      <div style={{ marginTop: '2rem', marginBottom: '0.5rem' }}>
-        <Suspense fallback={<div style={{ height: 240 }} />}>
-          <DataPulseHero accentColor="#009e80" />
-        </Suspense>
-      </div>
-
       {/* Stats */}
       <div className="hero-stats">
         {[
@@ -321,6 +318,7 @@ function Hero({ search, setSearch, counts, pillFilter, setPillFilter, setVisible
           </div>
         ))}
       </div>
+      </div>{/* end zIndex */}
     </header>
   )
 }
