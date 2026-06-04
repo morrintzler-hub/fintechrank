@@ -74,14 +74,12 @@ function formatDate(d) {
 
 function ArticleCard({ post, large }) {
   const [hovered, setHovered] = useState(false)
-  const El = post.published ? 'a' : 'div'
   return (
-    <El
-      href={post.published ? `/blog/${post.slug}` : undefined}
+    <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        textDecoration: 'none',
+        position: 'relative',
         borderRadius: 'var(--r)',
         overflow: 'hidden',
         border: `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'var(--border)'}`,
@@ -89,10 +87,15 @@ function ArticleCard({ post, large }) {
         transition: 'border-color 0.2s, transform 0.2s, box-shadow 0.2s',
         transform: hovered ? 'translateY(-2px)' : 'none',
         boxShadow: hovered ? '0 8px 32px rgba(0,0,0,0.3)' : 'none',
-        cursor: 'default',
+        cursor: post.published ? 'pointer' : 'default',
         display: 'flex',
         flexDirection: 'column',
       }}>
+      {post.published && (
+        <a href={`/blog/${post.slug}`} style={{
+          position: 'absolute', inset: 0, zIndex: 2, borderRadius: 'var(--r)'
+        }} aria-label={post.title} />
+      )}
 
       {/* Image area */}
       <div style={{
