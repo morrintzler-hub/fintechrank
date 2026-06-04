@@ -274,14 +274,7 @@ export default function HeroSection({
               {pills.map((pill, i) => {
                 const active = pillFilter && pillFilter.value === pill.value
                 return (
-                  <button key={i} onClick={() => {
-                    // Redirect to category page or compare with filter
-                    if (pill.type === 'category') {
-                      window.location.href = '/category/' + pill.value.toLowerCase()
-                    } else {
-                      window.location.href = '/compare?tag=' + encodeURIComponent(pill.value)
-                    }
-                  }} style={{
+                  <a key={i} href={pill.href || '/category/' + pill.value.toLowerCase()} style={{
                     fontSize: 13, fontWeight: active ? 600 : 400,
                     padding: '6px 14px', borderRadius: 8,
                     border: `1px solid ${active ? ACCENT : 'rgba(188,202,195,0.6)'}`,
@@ -293,7 +286,7 @@ export default function HeroSection({
                     transition: 'all 0.15s',
                   }}>
                     {pill.label || pill.value}
-                  </button>
+                  </a>
                 )
               })}
             </div>

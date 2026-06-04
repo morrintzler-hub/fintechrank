@@ -5,14 +5,12 @@ import HeroSection from '../components/HeroSection'
 import FeatureWidget from '../components/FeatureWidget'
 
 const SUGGEST_PILLS = [
-  { type:'tag',      value:'Payments',   label:'Payments'   },
-  { type:'tag',      value:'Neobank',    label:'Neobank'    },
-  { type:'tag',      value:'Crypto',     label:'Crypto'     },
-  { type:'tag',      value:'BNPL',       label:'BNPL'       },
-  { type:'tag',      value:'Payroll',    label:'Payroll'    },
-  { type:'tag',      value:'Remittance', label:'Remittance' },
-  { type:'category', value:'Africa',     label:'Africa'     },
-  { type:'category', value:'India',      label:'India'      },
+  { type:'category', value:'payments',   label:'Payments',   href:'/category/payments'   },
+  { type:'category', value:'banking',    label:'Banking',    href:'/category/banking'    },
+  { type:'category', value:'crypto',     label:'Crypto',     href:'/category/crypto'     },
+  { type:'category', value:'investing',  label:'Investing',  href:'/category/investing'  },
+  { type:'category', value:'lending',    label:'Lending',    href:'/category/lending'    },
+  { type:'category', value:'business',   label:'Business',   href:'/category/business'   },
 ]
 
 export default function HomePage() {
