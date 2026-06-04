@@ -1,6 +1,8 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense, lazy } from 'react'
 import { supabase } from '../lib/supabase'
+import FeatureWidget from '../components/FeatureWidget'
+const DataPulseHero = lazy(() => import('../components/DataPulseHero'))
 
 const CATEGORIES = ['all','Payments','Banking','Investing','Crypto','Lending','Business']
 const CAT_COLORS = {
@@ -126,6 +128,30 @@ export default function HomePage() {
         pillFilter={pillFilter} setPillFilter={setPillFilter}
         setVisible={setVisible}
       />
+
+
+      {/* Feature widgets */}
+      <div style={{maxWidth:1400,margin:'0 auto',padding:'0 2rem 3rem'}}>
+        <div style={{fontSize:10,fontWeight:700,letterSpacing:'.18em',textTransform:'uppercase',
+          color:'var(--dim)',marginBottom:'1.25rem',display:'flex',alignItems:'center',gap:10}}>
+          <span>Explore the platform</span>
+          <div style={{flex:1,height:1,background:'var(--border)'}} />
+        </div>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:14}}>
+          <FeatureWidget href="/compare" icon="⚖️" title="Compare Companies"
+            description="Side-by-side comparison of any 2–3 fintech platforms. Fees, features, ratings."
+            color="#2563eb" stat="100" statLabel="Companies" cta="Start comparing →" delay={0} />
+          <FeatureWidget href="/category/payments" icon="🌐" title="Browse Categories"
+            description="Payments, banking, crypto, investing, lending, and business finance."
+            color="#009e80" stat="6" statLabel="Categories" cta="Browse all →" delay={0.1} />
+          <FeatureWidget href="/blog/stripe-vs-paypal-2025" icon="📖" title="Read the Blog"
+            description="In-depth comparisons and original research. New article live now."
+            color="#7c3aed" stat="New" statLabel="Article" cta="Read now →" delay={0.2} />
+          <FeatureWidget href="/about" icon="🔍" title="Our Methodology"
+            description="No sponsored rankings. Verified pricing, real data, community feedback."
+            color="#d97706" stat="100%" statLabel="Independent" cta="Learn more →" delay={0.3} />
+        </div>
+      </div>
 
       <div className="page-body">
 
@@ -272,6 +298,13 @@ function Hero({ search, setSearch, counts, pillFilter, setPillFilter, setVisible
             </button>
           ))}
         </div>
+      </div>
+
+            {/* Data pulse visualization - lazy loaded, doesn't block FCP */}
+      <div style={{ marginTop: '2rem', marginBottom: '0.5rem' }}>
+        <Suspense fallback={<div style={{ height: 240 }} />}>
+          <DataPulseHero accentColor="#009e80" />
+        </Suspense>
       </div>
 
       {/* Stats */}
