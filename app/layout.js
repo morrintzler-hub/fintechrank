@@ -156,33 +156,55 @@ export default function RootLayout({ children }) {
 
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
-            // Hamburger menu
-            var hamburger = document.getElementById('navHamburger');
-            var drawer = document.getElementById('navDrawer');
-            var overlay = document.getElementById('navOverlay');
-            var closeBtn = document.getElementById('navClose');
+            // Hamburger menu — re-init on every page navigation
+            function initHamburger() {
+              var hamburger = document.getElementById('navHamburger');
+              var drawer = document.getElementById('navDrawer');
+              var overlay = document.getElementById('navOverlay');
+              var closeBtn = document.getElementById('navClose');
 
-            function openDrawer() {
-              drawer.classList.add('open');
-              overlay.classList.add('open');
-              document.body.style.overflow = 'hidden';
-            }
-            function closeDrawer() {
-              drawer.classList.remove('open');
-              overlay.classList.remove('open');
-              document.body.style.overflow = '';
+              if (!hamburger || !drawer) return;
+
+              function openDrawer() {
+                drawer.classList.add('open');
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+              }
+              function closeDrawer() {
+                drawer.classList.remove('open');
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+              }
+
+              // Remove old listeners by cloning
+              var newHamburger = hamburger.cloneNode(true);
+              hamburger.parentNode.replaceChild(newHamburger, hamburger);
+              newHamburger.addEventListener('click', openDrawer);
+
+              if (closeBtn) {
+                var newClose = closeBtn.cloneNode(true);
+                closeBtn.parentNode.replaceChild(newClose, closeBtn);
+                newClose.addEventListener('click', closeDrawer);
+              }
+              if (overlay) overlay.addEventListener('click', closeDrawer);
+              if (drawer) {
+                drawer.querySelectorAll('a').forEach(function(a) {
+                  a.addEventListener('click', closeDrawer);
+                });
+              }
             }
 
-            if (hamburger) hamburger.addEventListener('click', openDrawer);
-            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-            if (overlay) overlay.addEventListener('click', closeDrawer);
+            // Run on load
+            initHamburger();
 
-            // Close drawer on link click
-            if (drawer) {
-              drawer.querySelectorAll('a').forEach(function(a) {
-                a.addEventListener('click', closeDrawer);
-              });
-            }
+            // Re-run after Next.js navigation (polling for DOM changes)
+            var lastPath = window.location.pathname;
+            setInterval(function() {
+              if (window.location.pathname !== lastPath) {
+                lastPath = window.location.pathname;
+                setTimeout(initHamburger, 100);
+              }
+            }, 200);
 
             // Nav scroll effect
             var nav = document.getElementById('mainNav');

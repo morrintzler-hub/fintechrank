@@ -199,9 +199,9 @@ nav, main, header, section, footer,
 .card-footer { display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border);gap:12px;flex-wrap:wrap; }
 .pricing { font-size:12px;font-weight:400;color:var(--muted); }
 .pricing strong { color:var(--text);font-weight:500; }
-.btn-review { font-size:12px;font-weight:400;padding:7px 14px;border-radius:var(--rsm);border:1px solid var(--border);background:transparent;color:var(--muted);text-decoration:none;transition:all 0.15s;display:inline-block; }
+.btn-review { font-size:12px;font-weight:400;padding:5px 12px;border-radius:var(--rsm);border:1px solid var(--border);background:transparent;color:var(--muted);text-decoration:none;transition:all 0.15s;display:inline-block; }
 .btn-review:hover { border-color:var(--borderh);color:var(--text);background:var(--bg2); }
-.btn-visit { font-size:12px;font-weight:500;padding:7px 14px;border-radius:var(--rsm);border:none;background:var(--accent);color:#fff;text-decoration:none;transition:opacity 0.15s;display:inline-block; }
+.btn-visit { font-size:12px;font-weight:500;padding:5px 12px;border-radius:var(--rsm);border:none;background:var(--accent);color:#fff;text-decoration:none;transition:opacity 0.15s;display:inline-block; }
 .btn-visit:hover { opacity:0.88; }
 .btn-secondary { display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--rsm);border:1px solid var(--border);background:transparent;color:var(--muted);font-family:var(--font);font-size:14px;cursor:pointer;text-decoration:none;transition:all 0.15s; }
 .btn-secondary:hover { border-color:var(--borderh);color:var(--text); }
