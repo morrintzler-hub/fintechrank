@@ -71,7 +71,8 @@ function ComparePageInner() {
   const searchParams                        = useSearchParams()
   const [allCompanies, setAllCompanies]     = useState([])
   const [selected, setSelected]             = useState([])
-  const [search, setSearch]                 = useState('')
+  const [search, setSearch]                 = useState(searchParams.get('q') || '')
+  const notFound                            = searchParams.get('notfound') === '1'
   const [category, setCategory]             = useState('all')
   const [sortBy, setSortBy]                 = useState('rank')
   const [loading, setLoading]               = useState(true)
@@ -292,6 +293,34 @@ function ComparePageInner() {
               {' companies'}
             </div>
           </div>
+
+          {/* Not found banner */}
+          {notFound && search && (
+            <div style={{
+              padding:'14px 16px',
+              borderRadius:10,
+              background:'rgba(220,38,38,0.04)',
+              border:'1px solid rgba(220,38,38,0.15)',
+              marginBottom:12,
+              display:'flex', alignItems:'center', gap:12,
+            }}>
+              <span style={{fontSize:18}}>🔍</span>
+              <div>
+                <div style={{fontFamily:'Manrope,sans-serif',fontWeight:600,
+                  fontSize:14,color:'#191c1e',marginBottom:2}}>
+                  No exact match for "{search}"
+                </div>
+                <div style={{fontFamily:'Manrope,sans-serif',fontWeight:400,
+                  fontSize:13,color:'#6d7a74'}}>
+                  Showing similar results below. Can't find what you need?{' '}
+                  <a href="mailto:hello@thefintechrank.com?subject=Missing company: {search}"
+                    style={{color:'#008489',textDecoration:'none',fontWeight:500}}>
+                    Suggest a company →
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Company cards */}
           <div style={{display:'flex',flexDirection:'column',gap:10}}>

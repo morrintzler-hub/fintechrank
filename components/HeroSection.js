@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useRef, useState, useCallback } from 'react'
+import { supabase } from '../lib/supabase'
 
 const ACCENT = '#008489'
 const ACCENT_LIGHT = 'rgba(0,132,137,0.15)'
@@ -12,6 +13,44 @@ export default function HeroSection({
   pillFilter, setPillFilter,
   setVisible,
 }) {
+  const [searching, setSearching] = useState(false)
+
+  async function handleSearch(q) {
+    if (!q.trim()) return
+    setSearching(true)
+    try {
+      // Look for matching companies
+      const { data } = await supabase
+        .from('companies')
+        .select('slug, name')
+        .eq('is_active', true)
+        .ilike('name', `%${q.trim()}%`)
+        .limit(5)
+
+      if (data && data.length === 1) {
+        // Exact or single match — go straight to review
+        window.location.href = `/review/${data[0].slug}`
+      } else if (data && data.length > 1) {
+        // Check for exact name match first
+        const exact = data.find(c =>
+          c.name.toLowerCase() === q.trim().toLowerCase()
+        )
+        if (exact) {
+          window.location.href = `/review/${exact.slug}`
+        } else {
+          // Multiple matches — go to compare with filter
+          window.location.href = `/compare?q=${encodeURIComponent(q.trim())}`
+        }
+      } else {
+        // No match — go to compare with "no results" message
+        window.location.href = `/compare?q=${encodeURIComponent(q.trim())}&notfound=1`
+      }
+    } catch(e) {
+      window.location.href = `/compare?q=${encodeURIComponent(q.trim())}`
+    } finally {
+      setSearching(false)
+    }
+  }
   const canvasRef  = useRef(null)
   const rafRef     = useRef(null)
   const mouseRef   = useRef({ x: -1000, y: -1000 })
@@ -236,7 +275,7 @@ export default function HeroSection({
             <input
               type="text" value={search}
               onChange={e => setSearch(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && onSearch && onSearch(search)}
+              onKeyDown={e => e.key === 'Enter' && handleSearch(search)}
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
               placeholder="Search company, feature, or use case..."
@@ -253,17 +292,16 @@ export default function HeroSection({
                 color: '#6d7a74', fontSize: 18, padding: '0 8px', lineHeight: 1,
               }}>×</button>
             )}
-            <button onClick={() => onSearch && onSearch(search)} style={{
+            <button onClick={() => handleSearch(search)} disabled={searching} style={{
               flexShrink: 0, padding: '11px 22px', borderRadius: 10,
               border: 'none', background: ACCENT,
               color: '#fff', fontFamily: 'Manrope, sans-serif',
-              fontWeight: 600, fontSize: 14, cursor: 'pointer',
+              fontWeight: 600, fontSize: 14,
+              cursor: searching ? 'wait' : 'pointer',
+              opacity: searching ? 0.7 : 1,
               transition: 'opacity 0.15s',
-            }}
-              onMouseEnter={e => e.target.style.opacity = '0.88'}
-              onMouseLeave={e => e.target.style.opacity = '1'}
-            >
-              Search
+            }}>
+              {searching ? '...' : 'Search'}
             </button>
           </div>
 
