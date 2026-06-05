@@ -139,8 +139,18 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
       <div className="fade-in" style={{padding:'2.5rem 2rem 2rem',borderBottom:'1px solid var(--border)',background:`radial-gradient(ellipse 60% 40% at 30% 0%, rgba(37,99,235,.18) 0%, transparent 65%)`}}>
         <div style={{maxWidth:1000,margin:'0 auto',display:'flex',justifyContent:'space-between',alignItems:'flex-start',gap:'2rem',flexWrap:'wrap'}}>
           <div style={{display:'flex',gap:'1.25rem',flex:1,minWidth:260}}>
-            <div style={{width:64,height:64,flexShrink:0,borderRadius:14,background:'var(--bg3)',border:'1px solid var(--borderh)',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--heading)',fontWeight:800,fontSize:18,color:'var(--muted)'}}>
-              {c.name.slice(0,2).toUpperCase()}
+            <div style={{width:64,height:64,flexShrink:0,borderRadius:14,background:'var(--bg3)',border:'1px solid var(--borderh)',display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden',position:'relative'}}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`https://www.google.com/s2/favicons?domain=${(c.website||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]}&sz=64`}
+                alt={`${c.name} logo`}
+                width={40} height={40}
+                onError={e=>{e.target.style.display='none';e.target.nextSibling.style.display='flex'}}
+                style={{width:40,height:40,objectFit:'contain',borderRadius:6}}
+              />
+              <div style={{display:'none',position:'absolute',inset:0,alignItems:'center',justifyContent:'center',fontFamily:'var(--heading)',fontWeight:800,fontSize:18,color:'var(--muted)'}}>
+                {c.name.slice(0,2).toUpperCase()}
+              </div>
             </div>
             <div>
               <div style={{display:'flex',gap:7,marginBottom:8,flexWrap:'wrap'}}>
