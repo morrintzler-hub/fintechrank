@@ -186,19 +186,44 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Code panel — matches reference */}
+          {/* Animated code panel */}
           <div style={{
             background: 'rgba(247,249,251,0.8)',
             border: '1px solid rgba(188,202,195,0.4)',
             borderRadius: 20,
             padding: 32,
             backdropFilter: 'blur(12px)',
+            position: 'relative',
+            overflow: 'hidden',
           }}>
+            {/* Shimmer sweep */}
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(105deg, transparent 40%, rgba(0,132,137,0.06) 50%, transparent 60%)',
+              animation: 'code-shimmer 4s ease-in-out infinite',
+              pointerEvents: 'none',
+            }}/>
+            {/* Status dot */}
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 8,
+              marginBottom: 16,
+            }}>
+              <div style={{
+                width: 8, height: 8, borderRadius: '50%',
+                background: '#008489',
+                animation: 'pulse-dot 2s ease infinite',
+              }}/>
+              <span style={{
+                fontSize: 10, fontWeight: 700, letterSpacing: '0.14em',
+                textTransform: 'uppercase', color: '#008489',
+                fontFamily: 'Manrope, sans-serif',
+              }}>Live data protocol</span>
+            </div>
             <pre style={{
-              fontFamily: 'JetBrains Mono, monospace',
+              fontFamily: 'monospace',
               fontSize: 12,
               color: '#006954',
-              lineHeight: 1.8,
+              lineHeight: 1.9,
               margin: 0,
               whiteSpace: 'pre-wrap',
             }}>{`{
@@ -215,6 +240,16 @@ export default function HomePage() {
     "features": "WEEKLY"
   }
 }`}</pre>
+            <style>{`
+              @keyframes code-shimmer {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(100%); }
+              }
+              @keyframes pulse-dot {
+                0%,100% { opacity:1; transform:scale(1); }
+                50% { opacity:0.4; transform:scale(0.75); }
+              }
+            `}</style>
           </div>
         </div>
       </div>

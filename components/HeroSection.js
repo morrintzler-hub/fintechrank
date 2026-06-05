@@ -6,6 +6,7 @@ const ACCENT_LIGHT = 'rgba(0,132,137,0.15)'
 
 export default function HeroSection({
   search, setSearch,
+  onSearch,
   counts = {},
   pills = [],
   pillFilter, setPillFilter,
@@ -235,6 +236,7 @@ export default function HeroSection({
             <input
               type="text" value={search}
               onChange={e => setSearch(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && onSearch && onSearch(search)}
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
               placeholder="Search company, feature, or use case..."
@@ -251,7 +253,7 @@ export default function HeroSection({
                 color: '#6d7a74', fontSize: 18, padding: '0 8px', lineHeight: 1,
               }}>×</button>
             )}
-            <button style={{
+            <button onClick={() => onSearch && onSearch(search)} style={{
               flexShrink: 0, padding: '11px 22px', borderRadius: 10,
               border: 'none', background: ACCENT,
               color: '#fff', fontFamily: 'Manrope, sans-serif',
