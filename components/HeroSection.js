@@ -334,7 +334,7 @@ export default function HeroSection({
         </div>
 
         {/* Stats row */}
-        <div style={{
+        <div className="hero-metrics" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           width: '100%', maxWidth: 680,
@@ -372,6 +372,12 @@ export default function HeroSection({
         @keyframes pulse-dot {
           0%,100% { opacity:1; transform:scale(1); }
           50% { opacity:0.4; transform:scale(0.75); }
+        }
+        @media (max-width: 640px) {
+          .hero-metrics { grid-template-columns: repeat(2, 1fr) !important; }
+          .hero-metrics > div:nth-child(2) { border-right: none !important; }
+          .hero-metrics > div:nth-child(3) { border-top: 1px solid rgba(188,202,195,0.3); }
+          .hero-metrics > div:nth-child(4) { border-top: 1px solid rgba(188,202,195,0.3); border-right: none !important; }
         }
       `}</style>
     </section>

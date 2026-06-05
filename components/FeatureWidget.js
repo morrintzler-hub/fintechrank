@@ -66,7 +66,7 @@ export default function FeatureWidget({
         onMouseLeave={() => setHovered(false)}>
         <div style={{
           position: 'relative',
-          padding: 'clamp(28px,4vw,48px) clamp(24px,4vw,48px)',
+          padding: 'clamp(20px,4vw,48px) clamp(18px,4vw,48px)',
           borderRadius: 24,
           border: `1px solid ${hovered ? 'rgba(0,132,137,0.35)' : 'rgba(188,202,195,0.35)'}`,
           background: variant === 'progress' ? 'rgba(0,132,137,0.02)' : '#ffffff',
@@ -246,6 +246,7 @@ export default function FeatureWidget({
               flexShrink: 0,
               display: 'inline-flex', alignItems: 'center', gap: 8,
               fontSize: 14, fontWeight: 600,
+              // hidden on very small screens via CSS .fw-cta
               color: hovered ? ACCENT : '#6d7a74',
               fontFamily: 'Manrope, sans-serif',
               transition: 'color 0.2s, transform 0.2s',

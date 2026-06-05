@@ -191,11 +191,12 @@ function ComparePageInner() {
       {/* Main 3-column layout */}
       <div style={{
         maxWidth:1400,margin:'0 auto',
-        padding:'0 2rem 4rem',
+        padding:'0 1rem 4rem',
         display:'grid',
         gridTemplateColumns:'220px 1fr 260px',
         gap:24,alignItems:'start',
-      }}>
+      }}
+        className="compare-grid">
 
         {/* ── LEFT SIDEBAR ── */}
         <div style={{position:'sticky',top:80}}>

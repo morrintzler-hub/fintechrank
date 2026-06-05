@@ -447,3 +447,93 @@ footer { border-top:1px solid var(--border);padding:2.5rem;max-width:1400px;marg
     overflow: hidden;
   }
 }
+
+/* ══════════════════════════════════════════
+   MOBILE — comprehensive overrides
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Compare page — stack columns */
+  .compare-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 1rem 3rem !important;
+    gap: 16px !important;
+  }
+
+  /* Hide sidebar category filter on mobile — use horizontal scroll */
+  .compare-grid > div:first-child {
+    position: static !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+    padding-bottom: 8px !important;
+    scrollbar-width: none !important;
+  }
+  .compare-grid > div:first-child::-webkit-scrollbar { display: none; }
+  .compare-grid > div:first-child > div { flex-shrink: 0; }
+
+  /* Hide right compare panel on mobile */
+  .compare-grid > div:last-child { display: none !important; }
+
+  /* Page body grid */
+  .page-body {
+    grid-template-columns: 1fr !important;
+    padding: 1rem 1rem 3rem !important;
+    gap: 12px !important;
+  }
+
+  /* Nav */
+  .nav {
+    padding: 0 1rem !important;
+    height: 54px !important;
+  }
+  .nav-links { display: none !important; }
+  .nav-cta {
+    font-size: 10px !important;
+    padding: 6px 10px !important;
+    white-space: nowrap !important;
+  }
+  .nav-hamburger { display: flex !important; }
+
+  /* Hero section */
+  .hero {
+    padding: 80px 1rem 40px !important;
+    min-height: 500px !important;
+  }
+  .hero h1 { font-size: clamp(1.9rem, 8vw, 2.6rem) !important; }
+  .hero-sub { font-size: 14px !important; margin-bottom: 1.5rem !important; }
+
+  /* Feature widgets */
+  .fw-card { padding: 24px 20px !important; }
+  .fw-cta { display: none !important; }
+
+  /* Company cards */
+  .company-card { padding: 1rem !important; }
+  .card-footer { flex-direction: column !important; gap: 8px !important; }
+  .card-footer > div:last-child { display: flex !important; gap: 8px !important; }
+  .btn-review, .btn-visit { flex: 1 !important; text-align: center !important; font-size: 11px !important; }
+  .card-tags { display: none !important; }
+  .company-desc {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* Footer */
+  footer {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 1rem !important;
+    gap: 1.5rem !important;
+  }
+  .footer-bottom { padding: 1rem !important; font-size: 11px !important; }
+
+  /* Review page */
+  .review-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .nav-cta { display: none !important; }
+  .hero h1 { font-size: 1.75rem !important; }
+}

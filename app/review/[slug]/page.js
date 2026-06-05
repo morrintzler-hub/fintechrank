@@ -178,7 +178,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
       </div>
 
       {/* Content */}
-      <div style={{maxWidth:1000,margin:'0 auto',padding:'2rem 2rem 2rem',display:'grid',gridTemplateColumns:'1fr 280px',gap:'2rem',alignItems:'start'}}>
+      <div style={{maxWidth:1000,margin:'0 auto',padding:'2rem 2rem 2rem',display:'grid',gridTemplateColumns:'1fr 280px',gap:'2rem',alignItems:'start'}} className="review-grid">
         <div>
           {/* Overview */}
           <Section title="Overview" delay="0s">
