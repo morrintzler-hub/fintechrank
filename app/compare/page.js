@@ -188,6 +188,51 @@ function ComparePageInner() {
         </div>
       </div>
 
+      {/* Mobile selected companies bar */}
+      {selected.length > 0 && (
+        <div className="compare-mobile-bar" style={{
+          display:'none',
+          position:'sticky',top:54,zIndex:100,
+          background:'#ffffff',
+          borderBottom:'1px solid rgba(188,202,195,0.4)',
+          padding:'10px 1rem',
+          boxShadow:'0 2px 8px rgba(0,0,0,0.06)',
+        }}>
+          <div style={{display:'flex',alignItems:'center',gap:8,overflowX:'auto'}}>
+            <span style={{fontSize:11,fontWeight:600,color:'#6d7a74',whiteSpace:'nowrap',fontFamily:'Manrope,sans-serif'}}>
+              Comparing:
+            </span>
+            {selected.map(c=>(
+              <div key={c.id} style={{
+                display:'flex',alignItems:'center',gap:6,
+                padding:'4px 10px',borderRadius:6,
+                background:'rgba(0,132,137,0.08)',
+                border:'1px solid rgba(0,132,137,0.2)',
+                whiteSpace:'nowrap',flexShrink:0,
+              }}>
+                <span style={{fontSize:12,fontWeight:500,color:'#008489',fontFamily:'Manrope,sans-serif'}}>{c.name}</span>
+                <button onClick={()=>removeFromCompare(c.id)} style={{
+                  background:'none',border:'none',cursor:'pointer',
+                  color:'#6d7a74',fontSize:14,lineHeight:1,padding:0,
+                }}>×</button>
+              </div>
+            ))}
+            {selected.length >= 2 && (
+              <a href={`/compare?ids=${selected.map(c=>c.slug).join(',')}`}
+                style={{
+                  padding:'5px 12px',borderRadius:6,
+                  background:'#008489',color:'white',
+                  textDecoration:'none',fontSize:11,fontWeight:600,
+                  whiteSpace:'nowrap',flexShrink:0,
+                  fontFamily:'Manrope,sans-serif',
+                }}>
+                Compare →
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Main 3-column layout */}
       <div style={{
         maxWidth:1400,margin:'0 auto',
@@ -454,7 +499,7 @@ function ComparePageInner() {
         </div>
 
         {/* ── RIGHT: Compare panel ── */}
-        <div style={{position:'sticky',top:80}}>
+        <div style={{position:'sticky',top:80}} className="compare-panel-desktop">
           <div style={{
             background:'#ffffff',border:'1px solid rgba(188,202,195,0.4)',
             borderRadius:16,padding:'1.25rem',
@@ -582,6 +627,7 @@ function ComparePageInner() {
               borderRadius:16,overflow:'hidden',
               boxShadow:'0 4px 24px -4px rgba(0,0,0,0.07)',
             }}>
+            <div style={{overflowX:'auto'}}>
               {/* Column headers */}
               <div style={{
                 display:'grid',

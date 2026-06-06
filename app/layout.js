@@ -85,7 +85,7 @@ export default function RootLayout({ children }) {
           <a href="mailto:hello@thefintechrank.com" className="nav-cta">
             Submit a Company
           </a>
-          <button className="nav-hamburger" id="navHamburger" aria-label="Open menu">
+          <button className="nav-hamburger" id="navHamburger" aria-label="Open menu" style={{position:"relative",zIndex:1001}}>
             <span></span>
             <span></span>
             <span></span>
@@ -93,10 +93,10 @@ export default function RootLayout({ children }) {
         </nav>
 
         {/* Mobile drawer overlay */}
-        <div className="nav-drawer-overlay" id="navOverlay"></div>
+        <div className="nav-drawer-overlay" id="navOverlay" style={{zIndex:1001}}></div>
 
         {/* Mobile drawer */}
-        <div className="nav-drawer" id="navDrawer">
+        <div className="nav-drawer" id="navDrawer" style={{zIndex:1002}}>
           <div className="nav-drawer-header">
             <a href="/" className="nav-drawer-logo">The Fintech <span>Rank</span></a>
             <button className="nav-drawer-close" id="navClose">✕</button>
