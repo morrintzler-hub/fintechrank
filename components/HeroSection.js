@@ -338,30 +338,31 @@ export default function HeroSection({
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           width: '100%', maxWidth: 680,
-          paddingTop: 32, marginTop: 12,
+          paddingTop: 24, marginTop: 12,
           borderTop: '1px solid rgba(188,202,195,0.3)',
         }}>
           {METRICS.map((m, i) => (
             <div key={i} style={{
               textAlign: 'center',
-              padding: '0 16px',
+              padding: '8px 8px',
               borderRight: i < 3 ? '1px solid rgba(188,202,195,0.3)' : 'none',
             }}>
               <div style={{
                 fontFamily: 'Manrope, sans-serif',
                 fontWeight: 700,
-                fontSize: 'clamp(20px, 2.5vw, 28px)',
+                fontSize: 'clamp(18px, 2.5vw, 28px)',
                 color: '#191c1e',
                 letterSpacing: '-0.02em',
                 lineHeight: 1,
               }}>{m.v}</div>
               <div style={{
                 fontFamily: 'Manrope, sans-serif',
-                fontSize: 10, fontWeight: 600,
-                letterSpacing: '0.14em',
+                fontSize: 'clamp(8px, 1.8vw, 10px)',
+                fontWeight: 600,
+                letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 color: '#6d7a74',
-                marginTop: 5,
+                marginTop: 4,
               }}>{m.l}</div>
             </div>
           ))}

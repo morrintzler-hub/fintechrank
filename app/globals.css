@@ -564,3 +564,10 @@ footer { border-top:1px solid var(--border);padding:2.5rem;max-width:1400px;marg
   .compare-grid > div:first-child > div { flex-direction: row !important; flex-wrap: nowrap !important; gap: 6px !important; }
   .compare-grid > div:first-child > div > div:first-child { display: none !important; }
 }
+
+@media (max-width: 480px) {
+  .hero-metrics { grid-template-columns: repeat(2, 1fr) !important; max-width: 100% !important; }
+  .hero-metrics > div:nth-child(2) { border-right: none !important; }
+  .hero-metrics > div:nth-child(3) { border-top: 1px solid rgba(188,202,195,0.3) !important; }
+  .hero-metrics > div:nth-child(4) { border-top: 1px solid rgba(188,202,195,0.3) !important; border-right: none !important; }
+}
