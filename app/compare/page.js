@@ -73,26 +73,24 @@ function CompanyLogo({ website, name }) {
 
 function CompareCell({ feature, company }) {
   if (feature === 'rating') {
-    return <span>{company.rating} ({(company.review_count || 0).toLocaleString()})</span>
+    return <span style={{fontSize:11}}>{company.rating}<br/><span style={{fontSize:9,color:'#6d7a74'}}>({(company.review_count || 0).toLocaleString()})</span></span>
+  }
+  if (feature === 'pricing') {
+    const p = company[feature] || '-'
+    return <span style={{fontSize:10,lineHeight:1.3,display:'block'}}>{p.length > 30 ? p.slice(0,30)+'...' : p}</span>
   }
   if (feature === 'website') {
     const domain = (company.website || '')
-      .replace('https://', '')
-      .replace('http://', '')
-      .replace('www.', '')
-      .split('/')[0]
+      .replace('https://', '').replace('http://', '').replace('www.', '').split('/')[0]
     return (
-      <a
-        href={company.website}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ color: '#008489', textDecoration: 'none', fontSize: 11 }}
-      >
-        {domain}
+      <a href={company.website} target="_blank" rel="noopener noreferrer"
+        style={{ color: '#008489', textDecoration: 'none', fontSize: 10 }}>
+        {domain.length > 16 ? domain.slice(0,16)+'...' : domain}
       </a>
     )
   }
-  return <span>{company[feature] || '-'}</span>
+  const val = company[feature] || '-'
+  return <span style={{fontSize:11}}>{val}</span>
 }
 
 function ComparePageInner() {
@@ -138,7 +136,16 @@ function ComparePageInner() {
 
   function addToCompare(c) {
     if (selected.find(s => s.id === c.id) || selected.length >= 3) return
-    setSelected(prev => [...prev, c])
+    setSelected(prev => {
+      const next = [...prev, c]
+      if (next.length >= 2) {
+        setTimeout(() => {
+          const el = document.getElementById('compare-table-mobile')
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 100)
+      }
+      return next
+    })
   }
 
   function removeFromCompare(id) {
@@ -373,7 +380,124 @@ function ComparePageInner() {
             </div>
           )}
 
-          {/* Company cards */}
+
+          {/* Full-width compare table - visible on all screens when 2+ selected */}
+          {selected.length >= 2 && (
+            <div id="compare-table-mobile" style={{
+              marginTop: 32,
+              background: '#ffffff',
+              border: '1px solid rgba(188,202,195,0.4)',
+              borderRadius: 16,
+              overflow: 'hidden',
+              boxShadow: '0 4px 24px -4px rgba(0,0,0,0.07)',
+            }}>
+              <div style={{
+                padding: '16px 20px',
+                borderBottom: '1px solid rgba(188,202,195,0.3)',
+                display: 'flex', alignItems: 'center',
+                justifyContent: 'space-between',
+              }}>
+                <div style={{ fontFamily: 'Manrope,sans-serif', fontWeight: 700, fontSize: 15, color: '#191c1e' }}>
+                  Comparing {selected.length} companies
+                </div>
+                <button onClick={() => setSelected([])} style={{
+                  background: 'none', border: '1px solid rgba(188,202,195,0.5)',
+                  borderRadius: 6, padding: '4px 10px', cursor: 'pointer',
+                  fontSize: 12, color: '#6d7a74', fontFamily: 'Manrope,sans-serif',
+                }}>
+                  Clear all
+                </button>
+              </div>
+              <div style={{ overflowX: 'auto' }}>
+                {/* Headers */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: '130px repeat(' + selected.length + ', 1fr)',
+                  borderBottom: '1px solid rgba(188,202,195,0.3)',
+                  minWidth: 320,
+                }}>
+                  <div style={{ padding: '12px 14px', fontSize: 11, fontWeight: 700,
+                    color: '#6d7a74', textTransform: 'uppercase', letterSpacing: '.06em' }}>
+                    Feature
+                  </div>
+                  {selected.map(c => (
+                    <div key={c.id} style={{
+                      padding: '12px 10px', textAlign: 'center',
+                      borderLeft: '1px solid rgba(188,202,195,0.3)',
+                    }}>
+                      <div style={{
+                        width: 36, height: 36, borderRadius: 8,
+                        background: '#f0f2f5', margin: '0 auto 8px',
+                        overflow: 'hidden', border: '1px solid rgba(188,202,195,0.4)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      }}>
+                        <CompanyLogo website={c.website} name={c.name}/>
+                      </div>
+                      <div style={{ fontSize: 12, fontWeight: 700, color: '#191c1e', marginBottom: 2 }}>
+                        {c.name}
+                      </div>
+                      <div style={{ fontSize: 11, color: '#d97706' }}>{c.rating} / 5</div>
+                    </div>
+                  ))}
+                </div>
+                {/* Rows */}
+                {FEATURES.map((f, fi) => (
+                  <div key={f.key} style={{
+                    display: 'grid',
+                    gridTemplateColumns: '130px repeat(' + selected.length + ', 1fr)',
+                    borderBottom: fi < FEATURES.length - 1 ? '1px solid rgba(188,202,195,0.15)' : 'none',
+                    background: fi % 2 === 0 ? 'transparent' : 'rgba(247,249,251,0.6)',
+                    minWidth: 320,
+                  }}>
+                    <div style={{
+                      padding: '10px 14px', fontSize: 11, fontWeight: 600,
+                      color: '#6d7a74', textTransform: 'uppercase',
+                      letterSpacing: '.04em', alignSelf: 'center',
+                    }}>
+                      {f.label}
+                    </div>
+                    {selected.map(c => (
+                      <div key={c.id} style={{
+                        padding: '10px 8px', fontSize: 12, color: '#191c1e',
+                        textAlign: 'center',
+                        borderLeft: '1px solid rgba(188,202,195,0.15)',
+                        alignSelf: 'center',
+                      }}>
+                        <CompareCell feature={f.key} company={c} />
+                      </div>
+                    ))}
+                  </div>
+                ))}
+                {/* CTA row */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: '130px repeat(' + selected.length + ', 1fr)',
+                  borderTop: '1px solid rgba(188,202,195,0.3)',
+                  minWidth: 320,
+                }}>
+                  <div style={{ padding: '12px 14px' }}/>
+                  {selected.map(c => (
+                    <div key={c.id} style={{
+                      padding: '10px 8px', textAlign: 'center',
+                      borderLeft: '1px solid rgba(188,202,195,0.2)',
+                    }}>
+                      <a href={'/review/' + c.slug} style={{
+                        display: 'inline-block', padding: '6px 14px',
+                        borderRadius: 6, background: '#008489', color: 'white',
+                        textDecoration: 'none', fontSize: 11, fontWeight: 600,
+                        fontFamily: 'Manrope,sans-serif',
+                      }}>
+                        Full review
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+                    {/* Company cards */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {loading ? (
               Array.from({ length: 5 }).map((_, i) => (
@@ -493,7 +617,6 @@ function ComparePageInner() {
             </div>
           )}
         </div>
-
         {/* RIGHT: Compare panel */}
         <div style={{ position: 'sticky', top: 80 }} className="compare-panel-desktop">
           <div style={{
@@ -626,9 +749,9 @@ function ComparePageInner() {
                 {/* Column headers */}
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: '120px repeat(' + selected.length + ', 1fr)',
+                  gridTemplateColumns: '100px repeat(' + selected.length + ', 1fr)',
                   borderBottom: '1px solid rgba(188,202,195,0.3)',
-                  minWidth: 280,
+                  minWidth: 260,
                 }}>
                   <div style={{ padding: '12px 10px' }}/>
                   {selected.map(c => (
@@ -642,7 +765,8 @@ function ComparePageInner() {
                         display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <CompanyLogo website={c.website} name={c.name}/>
                       </div>
-                      <div style={{ fontSize: 11, fontWeight: 700, color: '#191c1e', marginBottom: 2 }}>
+                      <div style={{ fontSize: 10, fontWeight: 700, color: '#191c1e',
+                        marginBottom: 2, lineHeight: 1.2, wordBreak: 'break-word' }}>
                         {c.name}
                       </div>
                       <div style={{ color: '#d97706', fontSize: 10 }}>{c.rating}</div>
@@ -653,21 +777,22 @@ function ComparePageInner() {
                 {FEATURES.map((f, fi) => (
                   <div key={f.key} style={{
                     display: 'grid',
-                    gridTemplateColumns: '120px repeat(' + selected.length + ', 1fr)',
+                    gridTemplateColumns: '100px repeat(' + selected.length + ', 1fr)',
                     borderBottom: fi < FEATURES.length - 1 ? '1px solid rgba(188,202,195,0.2)' : 'none',
                     background: fi % 2 === 0 ? 'transparent' : 'rgba(247,249,251,0.5)',
-                    minWidth: 280,
+                    minWidth: 260,
                   }}>
-                    <div style={{ padding: '9px 10px', fontSize: 11, fontWeight: 600,
-                      color: '#6d7a74', textTransform: 'uppercase', letterSpacing: '.04em',
-                      alignSelf: 'center' }}>
+                    <div style={{ padding: '7px 8px', fontSize: 10, fontWeight: 600,
+                      color: '#6d7a74', textTransform: 'uppercase', letterSpacing: '.03em',
+                      alignSelf: 'center', lineHeight: 1.3 }}>
                       {f.label}
                     </div>
                     {selected.map(c => (
                       <div key={c.id} style={{
-                        padding: '9px 8px', fontSize: 12, color: '#191c1e',
+                        padding: '7px 6px', fontSize: 11, color: '#191c1e',
                         textAlign: 'center', borderLeft: '1px solid rgba(188,202,195,0.2)',
-                        alignSelf: 'center',
+                        alignSelf: 'center', wordBreak: 'break-word',
+                        lineHeight: 1.4,
                       }}>
                         <CompareCell feature={f.key} company={c} />
                       </div>
@@ -678,7 +803,9 @@ function ComparePageInner() {
             </div>
           )}
         </div>
-
+      </div>
+      </div>
+      </div>
       </div>
     </div>
   )

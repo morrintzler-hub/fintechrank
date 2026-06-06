@@ -170,7 +170,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
             <div style={{display:'flex',flexDirection:'column',gap:8,minWidth:140}}>
               <a href={c.affiliate_url || c.website} target="_blank" rel="noopener noreferrer"
                 className="btn-primary" style={{justifyContent:'center'}}>Visit {c.name} ↗</a>
-              <a href="/" className="btn-secondary" style={{justifyContent:'center'}}>← Back to list</a>
+              <a href="/compare" className="btn-secondary" style={{justifyContent:'center'}}>← Back to list</a>
               <div style={{fontSize:10,color:'var(--dim)',textAlign:'center'}}>Affiliate link · we may earn a commission</div>
             </div>
           </div>
