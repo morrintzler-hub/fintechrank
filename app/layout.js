@@ -88,7 +88,6 @@ export default function RootLayout({ children }) {
           </a>
           <HamburgerMenu />
         </nav>
-        </div>
 
         <main>{children}</main>
 
