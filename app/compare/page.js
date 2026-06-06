@@ -17,7 +17,7 @@ const SORT_OPTIONS = [
   { key:'rank',    label:'Top ranked'  },
   { key:'rating',  label:'Highest rated' },
   { key:'reviews', label:'Most reviewed' },
-  { key:'name',    label:'A – Z'        },
+  { key:'name',    label:'A - Z'        },
 ]
 
 const POPULAR = [
@@ -65,6 +65,18 @@ function CompanyLogo({ website, name }) {
       )}
     </div>
   )
+}
+
+
+function CompareCell({ feature, company: c }) {
+  if (feature === 'rating') {
+    return <span>{c.rating} ({(c.review_count||0).toLocaleString()})</span>
+  }
+  if (feature === 'website') {
+    const domain = (c.website||'').replace('https://','').replace('http://','').replace('www.','').split('/')[0]
+    return <a href={c.website} target="_blank" rel="noopener noreferrer" style={{color:'#008489',textDecoration:'none',fontSize:11}}>{domain}</a>
+  }
+  return <span>{c[feature] || '-'}</span>
 }
 
 function ComparePageInner() {
@@ -165,7 +177,7 @@ function ComparePageInner() {
           Find the right fintech for your business
         </h1>
         <p style={{fontSize:15,color:'#3d4945',lineHeight:1.7,maxWidth:560,marginBottom:'1.5rem'}}>
-          Browse 100 companies, filter by category, and compare any 2–3 side by side.
+          Browse 100 companies, filter by category, and compare any 2-3 side by side.
         </p>
 
         {/* Popular presets */}
@@ -614,12 +626,12 @@ function ComparePageInner() {
                 color:'#6d7a74',textAlign:'center',fontSize:13,
                 fontFamily:'Manrope,sans-serif',
               }}>
-                {selected.length === 0 ? 'Select 2–3 companies' : 'Add 1 more company'}
+                {selected.length === 0 ? 'Select 2-3 companies' : 'Add 1 more company'}
               </div>
             )}
           </div>
 
-          {/* Compare table — shown when 2+ selected */}
+          {/* Compare table - shown when 2+ selected */}
           {selected.length >= 2 && showCompare && (
             <div style={{
               marginTop:16,background:'#ffffff',
@@ -672,16 +684,7 @@ function ComparePageInner() {
                       textAlign:'center',borderLeft:'1px solid rgba(188,202,195,0.2)',
                       alignSelf:'center',
                     }}>
-                      {f.key==='rating' ? (
-                        <span>{c.rating} ({(c.review_count||0).toLocaleString()})</span>
-                      ) : f.key==='website' ? (
-                        <a href={c.website} target="_blank" rel="noopener noreferrer"
-                          style={{color:'#008489',textDecoration:'none',fontSize:11}}>
-                          {(c.website||'').replace('https://','').replace('www.','')}
-                        </a>
-                      ) : (
-                        <span>{c[f.key] || '-'}</span>
-                      )}
+                      <CompareCell feature={f.key} company={c} />
                     </div>
                   ))}
                 </div>
