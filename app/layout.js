@@ -1,4 +1,5 @@
 import './globals.css'
+import HamburgerMenu from '../components/HamburgerMenu'
 import { headers } from 'next/headers'
 
 export const metadata = {
@@ -85,40 +86,8 @@ export default function RootLayout({ children }) {
           <a href="mailto:hello@thefintechrank.com" className="nav-cta">
             Submit a Company
           </a>
-          <button className="nav-hamburger" id="navHamburger" aria-label="Open menu" style={{position:"relative",zIndex:1001}}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <HamburgerMenu />
         </nav>
-
-        {/* Mobile drawer overlay */}
-        <div className="nav-drawer-overlay" id="navOverlay" style={{zIndex:1001}}></div>
-
-        {/* Mobile drawer */}
-        <div className="nav-drawer" id="navDrawer" style={{zIndex:1002}}>
-          <div className="nav-drawer-header">
-            <a href="/" className="nav-drawer-logo">The Fintech <span>Rank</span></a>
-            <button className="nav-drawer-close" id="navClose">✕</button>
-          </div>
-          <div className="nav-drawer-links">
-            <a href="/"><span className="dot" style={{background:'var(--accent)'}}></span>Home</a>
-            <a href="/compare"><span className="dot" style={{background:'#2563eb'}}></span>Compare</a>
-            <div className="nav-drawer-divider"></div>
-            <div className="nav-drawer-section">Categories</div>
-            <a href="/category/payments"><span className="dot" style={{background:'#2563eb'}}></span>Payments</a>
-            <a href="/category/banking"><span className="dot" style={{background:'#009e80'}}></span>Banking</a>
-            <a href="/category/investing"><span className="dot" style={{background:'#d97706'}}></span>Investing</a>
-            <a href="/category/crypto"><span className="dot" style={{background:'#7c3aed'}}></span>Crypto</a>
-            <a href="/category/lending"><span className="dot" style={{background:'#dc2626'}}></span>Lending</a>
-            <a href="/category/business"><span className="dot" style={{background:'#16a34a'}}></span>Business</a>
-            <div className="nav-drawer-divider"></div>
-            <a href="/blog"><span className="dot" style={{background:'#6366f1'}}></span>Blog</a>
-            <a href="/about"><span className="dot" style={{background:'var(--dim)'}}></span>About</a>
-          </div>
-          <div className="nav-drawer-footer">
-            <a href="mailto:hello@thefintechrank.com" className="nav-drawer-cta">Submit a Company</a>
-          </div>
         </div>
 
         <main>{children}</main>
@@ -156,56 +125,6 @@ export default function RootLayout({ children }) {
 
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
-            // Hamburger menu — re-init on every page navigation
-            function initHamburger() {
-              var hamburger = document.getElementById('navHamburger');
-              var drawer = document.getElementById('navDrawer');
-              var overlay = document.getElementById('navOverlay');
-              var closeBtn = document.getElementById('navClose');
-
-              if (!hamburger || !drawer) return;
-
-              function openDrawer() {
-                drawer.classList.add('open');
-                overlay.classList.add('open');
-                document.body.style.overflow = 'hidden';
-              }
-              function closeDrawer() {
-                drawer.classList.remove('open');
-                overlay.classList.remove('open');
-                document.body.style.overflow = '';
-              }
-
-              // Remove old listeners by cloning
-              var newHamburger = hamburger.cloneNode(true);
-              hamburger.parentNode.replaceChild(newHamburger, hamburger);
-              newHamburger.addEventListener('click', openDrawer);
-
-              if (closeBtn) {
-                var newClose = closeBtn.cloneNode(true);
-                closeBtn.parentNode.replaceChild(newClose, closeBtn);
-                newClose.addEventListener('click', closeDrawer);
-              }
-              if (overlay) overlay.addEventListener('click', closeDrawer);
-              if (drawer) {
-                drawer.querySelectorAll('a').forEach(function(a) {
-                  a.addEventListener('click', closeDrawer);
-                });
-              }
-            }
-
-            // Run on load
-            initHamburger();
-
-            // Re-run after Next.js navigation (polling for DOM changes)
-            var lastPath = window.location.pathname;
-            setInterval(function() {
-              if (window.location.pathname !== lastPath) {
-                lastPath = window.location.pathname;
-                setTimeout(initHamburger, 100);
-              }
-            }, 200);
-
             // Nav scroll effect
             var nav = document.getElementById('mainNav');
             if (nav) {
