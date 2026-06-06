@@ -71,26 +71,36 @@ function CompanyLogo({ website, name }) {
   )
 }
 
+function truncate(str, n) {
+  if (!str) return '-'
+  return str.length > n ? str.slice(0, n) + '...' : str
+}
+
 function CompareCell({ feature, company }) {
   if (feature === 'rating') {
-    return <span style={{fontSize:11}}>{company.rating}<br/><span style={{fontSize:9,color:'#6d7a74'}}>({(company.review_count || 0).toLocaleString()})</span></span>
+    const reviews = (company.review_count || 0).toLocaleString()
+    return (
+      <span style={{fontSize:11}}>
+        {company.rating}
+        <br/>
+        <span style={{fontSize:9,color:'#6d7a74'}}>({reviews})</span>
+      </span>
+    )
   }
   if (feature === 'pricing') {
-    const p = company[feature] || '-'
-    return <span style={{fontSize:10,lineHeight:1.3,display:'block'}}>{p.length > 30 ? p.slice(0,30)+'...' : p}</span>
+    return <span style={{fontSize:10,lineHeight:1.3,display:'block'}}>{truncate(company[feature], 30)}</span>
   }
   if (feature === 'website') {
-    const domain = (company.website || '')
-      .replace('https://', '').replace('http://', '').replace('www.', '').split('/')[0]
+    const raw = (company.website || '').replace('https://','').replace('http://','').replace('www.','').split('/')[0]
+    const domain = truncate(raw, 16)
     return (
       <a href={company.website} target="_blank" rel="noopener noreferrer"
-        style={{ color: '#008489', textDecoration: 'none', fontSize: 10 }}>
-        {domain.length > 16 ? domain.slice(0,16)+'...' : domain}
+        style={{color:'#008489',textDecoration:'none',fontSize:10}}>
+        {domain}
       </a>
     )
   }
-  const val = company[feature] || '-'
-  return <span style={{fontSize:11}}>{val}</span>
+  return <span style={{fontSize:11}}>{company[feature] || '-'}</span>
 }
 
 function ComparePageInner() {
