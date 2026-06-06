@@ -47,7 +47,7 @@ const catColors = {
 
 function starRating(r) {
   if (!r) return '-'
-  return r + ' / 5'
+  return String(r) + ' / 5'
 }
 
 function CompanyLogo({ website, name }) {
@@ -57,7 +57,7 @@ function CompanyLogo({ website, name }) {
   if (domain && !failed) {
     return (
       <img
-        src={'https://www.google.com/s2/favicons?domain=' + domain + '&sz=64'}
+        src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
         alt={name}
         onError={() => setFailed(true)}
         style={{ width: 28, height: 28, objectFit: 'contain', borderRadius: 4 }}
@@ -71,9 +71,14 @@ function CompanyLogo({ website, name }) {
   )
 }
 
+function gridCols(labelWidth, count) {
+  return labelWidth + ' repeat(' + String(count) + ', 1fr)'
+}
+
 function truncate(str, n) {
   if (!str) return '-'
-  return str.length > n ? str.slice(0, n) + '...' : str
+  if (str.length <= n) return str
+  return str.slice(0, n) + '...'
 }
 
 function CompareCell({ feature, company }) {
@@ -91,7 +96,8 @@ function CompareCell({ feature, company }) {
     return <span style={{fontSize:10,lineHeight:1.3,display:'block'}}>{truncate(company[feature], 30)}</span>
   }
   if (feature === 'website') {
-    const raw = (company.website || '').replace('https://','').replace('http://','').replace('www.','').split('/')[0]
+    const site = company.website || ''
+    const raw = site.replace('https://','').replace('http://','').replace('www.','').split('/')[0]
     const domain = truncate(raw, 16)
     return (
       <a href={company.website} target="_blank" rel="noopener noreferrer"
@@ -422,7 +428,7 @@ function ComparePageInner() {
                 {/* Headers */}
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: '130px repeat(' + selected.length + ', 1fr)',
+                  gridTemplateColumns: gridCols('130px', selected.length),
                   borderBottom: '1px solid rgba(188,202,195,0.3)',
                   minWidth: 320,
                 }}>
@@ -454,7 +460,7 @@ function ComparePageInner() {
                 {FEATURES.map((f, fi) => (
                   <div key={f.key} style={{
                     display: 'grid',
-                    gridTemplateColumns: '130px repeat(' + selected.length + ', 1fr)',
+                    gridTemplateColumns: gridCols('130px', selected.length),
                     borderBottom: fi < FEATURES.length - 1 ? '1px solid rgba(188,202,195,0.15)' : 'none',
                     background: fi % 2 === 0 ? 'transparent' : 'rgba(247,249,251,0.6)',
                     minWidth: 320,
@@ -481,7 +487,7 @@ function ComparePageInner() {
                 {/* CTA row */}
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: '130px repeat(' + selected.length + ', 1fr)',
+                  gridTemplateColumns: gridCols('130px', selected.length),
                   borderTop: '1px solid rgba(188,202,195,0.3)',
                   minWidth: 320,
                 }}>
@@ -558,8 +564,8 @@ function ComparePageInner() {
                         )}
                         <span style={{
                           fontSize: 10, fontWeight: 500, padding: '2px 8px', borderRadius: 3,
-                          background: (catColors[c.category] || '#94a3b8') + '18',
-                          color: catColors[c.category] || '#6d7a74',
+                          background: catBg,
+                          color: catColor,
                         }}>{c.category}</span>
                       </div>
                       <div style={{ flexShrink: 0, textAlign: 'right' }}>
@@ -759,7 +765,7 @@ function ComparePageInner() {
                 {/* Column headers */}
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: '100px repeat(' + selected.length + ', 1fr)',
+                  gridTemplateColumns: gridCols('100px', selected.length),
                   borderBottom: '1px solid rgba(188,202,195,0.3)',
                   minWidth: 260,
                 }}>
@@ -787,7 +793,7 @@ function ComparePageInner() {
                 {FEATURES.map((f, fi) => (
                   <div key={f.key} style={{
                     display: 'grid',
-                    gridTemplateColumns: '100px repeat(' + selected.length + ', 1fr)',
+                    gridTemplateColumns: gridCols('100px', selected.length),
                     borderBottom: fi < FEATURES.length - 1 ? '1px solid rgba(188,202,195,0.2)' : 'none',
                     background: fi % 2 === 0 ? 'transparent' : 'rgba(247,249,251,0.5)',
                     minWidth: 260,
