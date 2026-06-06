@@ -672,15 +672,16 @@ function ComparePageInner() {
                       textAlign:'center',borderLeft:'1px solid rgba(188,202,195,0.2)',
                       alignSelf:'center',
                     }}>
-                      {f.key==='rating'
-                        ? `${c.rating} (${(c.review_count||0).toLocaleString()})`
-                        : f.key==='website'
-                        ? <a href={c.website} target="_blank" rel="noopener noreferrer"
-                            style={{color:'#008489',textDecoration:'none',fontSize:11}}>
-                            {(c.website||'').replace('https://','').replace('www.','')}
-                          </a>
-                        : c[f.key]||'–'
-                      }
+                      {f.key==='rating' ? (
+                        <span>{c.rating} ({(c.review_count||0).toLocaleString()})</span>
+                      ) : f.key==='website' ? (
+                        <a href={c.website} target="_blank" rel="noopener noreferrer"
+                          style={{color:'#008489',textDecoration:'none',fontSize:11}}>
+                          {(c.website||'').replace('https://','').replace('www.','')}
+                        </a>
+                      ) : (
+                        <span>{c[f.key] || '-'}</span>
+                      )}
                     </div>
                   ))}
                 </div>
