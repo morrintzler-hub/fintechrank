@@ -176,7 +176,7 @@ function CompareTable({ selected, sm }) {
         ))}
       </div>
     </div>
-    </div>
+  </div>
   )
 }
 
