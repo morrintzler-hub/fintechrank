@@ -29,12 +29,20 @@ const POPULAR = [
   { label:'Wealthfront vs Betterment vs Acorns', ids:['wealthfront','betterment','acorns'] },
 ]
 const FIELDS = [
-  { key:'category',      label:'Category' },
-  { key:'rating',        label:'Rating'   },
-  { key:'pricing',       label:'Pricing'  },
-  { key:'pricing_model', label:'Model'    },
-  { key:'founded_year',  label:'Founded'  },
-  { key:'hq_country',    label:'HQ'       },
+  { key:'rating',        label:'Our Score',         type:'rating'   },
+  { key:'pricing',       label:'Pricing',           type:'text'     },
+  { key:'pricing_model', label:'Fee model',         type:'badge'    },
+  { key:'mobile_app',    label:'Mobile app',        type:'feature'  },
+  { key:'free_tier',     label:'Free plan',         type:'feature'  },
+  { key:'no_fees',       label:'No monthly fees',   type:'feature'  },
+  { key:'card',          label:'Debit / Credit card',type:'feature' },
+  { key:'bnpl',          label:'Buy now, pay later',type:'feature'  },
+  { key:'crypto',        label:'Crypto support',    type:'feature'  },
+  { key:'stock',         label:'Stock trading',     type:'feature'  },
+  { key:'intl',          label:'International transfers',type:'feature'},
+  { key:'business',      label:'Business accounts', type:'feature'  },
+  { key:'payroll',       label:'Payroll',           type:'feature'  },
+  { key:'api',           label:'API access',        type:'feature'  },
 ]
 const CAT_COLORS = {
   Payments:'#60a5fa', Banking:'#009e80', Investing:'#fbbf24',
@@ -59,19 +67,79 @@ function Logo({ website, name }) {
   return <span style={{fontFamily:'Manrope,sans-serif',fontWeight:600,fontSize:11,color:'#6d7a74'}}>{initials}</span>
 }
 
-function Cell({ field, co }) {
-  if (field==='rating') return (
-    <span style={{fontSize:11}}>
-      {co.rating||'-'}<br/>
-      <span style={{fontSize:9,color:'#94a3b8'}}>{(co.review_count||0).toLocaleString()}</span>
+// Map field keys to feature names in the DB
+const FEATURE_MAP = {
+  mobile_app: 'Mobile app',
+  free_tier:  'Free tier available',
+  no_fees:    'No monthly fees',
+  card:       'Mobile app', // we use logo presence as proxy; actual card field via features
+  bnpl:       'BNPL / Pay later',
+  crypto:     'Crypto support',
+  stock:      'Stock trading',
+  intl:       'International transfers',
+  business:   'Business accounts',
+  payroll:    'Payroll features',
+  api:        'API access',
+}
+
+function FeaturePill({ supported }) {
+  if (supported === null || supported === undefined) return <span style={{fontSize:11,color:'#94a3b8'}}>-</span>
+  return supported ? (
+    <span style={{display:'inline-block',padding:'2px 10px',borderRadius:20,background:'rgba(0,132,137,0.1)',color:'#008489',fontSize:11,fontWeight:600}}>Yes</span>
+  ) : (
+    <span style={{display:'inline-block',padding:'2px 10px',borderRadius:20,background:'rgba(0,0,0,0.05)',color:'#94a3b8',fontSize:11}}>No</span>
+  )
+}
+
+function BadgePill({ value }) {
+  const colors = { freemium:'#008489', 'pay-per-use':'#2563eb', subscription:'#7c3aed', custom:'#d97706', percentage:'#059669' }
+  const c = colors[value] || '#6d7a74'
+  return <span style={{display:'inline-block',padding:'2px 8px',borderRadius:4,background:c+'18',color:c,fontSize:10,fontWeight:600,textTransform:'uppercase',letterSpacing:'.04em'}}>{value||'-'}</span>
+}
+
+function Cell({ field, fieldType, co }) {
+  if (fieldType === 'rating') return (
+    <span style={{fontSize:13,fontWeight:700,color:'#191c1e'}}>
+      {co.rating||'-'}
+      <span style={{fontSize:10,color:'#d97706'}}> / 5</span>
+      <br/>
+      <span style={{fontSize:9,color:'#94a3b8'}}>{(co.review_count||0).toLocaleString()} reviews</span>
     </span>
   )
-  if (field==='pricing') return <span style={{fontSize:10,lineHeight:'1.4',display:'block'}}>{shortText(co.pricing,28)}</span>
+  if (fieldType === 'badge') return <BadgePill value={co[field]}/>
+  if (fieldType === 'text') return <span style={{fontSize:10,lineHeight:'1.4',display:'block'}}>{shortText(co.pricing,32)}</span>
+  if (fieldType === 'feature') {
+    const featureName = FEATURE_MAP[field]
+    const feat = featureName && co._features ? co._features.find(f => f.name === featureName) : null
+    return <FeaturePill supported={feat ? feat.supported : null}/>
+  }
   return <span style={{fontSize:11}}>{co[field]||'-'}</span>
 }
 
 function CompareTable({ selected, sm }) {
-  const gc = sm ? gridColsSm(selected.length) : gridCols(selected.length)
+  const [withFeatures, setWithFeatures] = useState(selected)
+
+  useEffect(() => {
+    if (!selected.length) return
+    const ids = selected.map(c => c.id)
+    supabase
+      .from('company_features')
+      .select('company_id, supported, features(name)')
+      .in('company_id', ids)
+      .then(({ data }) => {
+        if (!data) return
+        const map = {}
+        data.forEach(row => {
+          if (!map[row.company_id]) map[row.company_id] = []
+          map[row.company_id].push({ name: row.features.name, supported: row.supported })
+        })
+        setWithFeatures(selected.map(co => ({ ...co, _features: map[co.id] || [] })))
+      })
+  }, [selected.map(c=>c.id).join(',')])
+
+  const displaySelected = withFeatures.length === selected.length ? withFeatures : selected
+
+  const gc = sm ? gridColsSm(displaySelected.length) : gridCols(displaySelected.length)
   const mw = sm ? 260 : 320
   const lp = sm ? '7px 8px' : '10px 14px'
   const cp = sm ? '7px 6px' : '10px 8px'
@@ -79,7 +147,7 @@ function CompareTable({ selected, sm }) {
     <div style={{overflowX:'auto'}}>
       <div style={{display:'grid',gridTemplateColumns:gc,borderBottom:'1px solid rgba(188,202,195,0.3)',minWidth:mw}}>
         <div style={{padding:lp,fontSize:10,fontWeight:700,color:'#6d7a74',textTransform:'uppercase'}}>Feature</div>
-        {selected.map(co => (
+        {displaySelected.map(co => (
           <div key={co.id} style={{padding:'10px 8px',textAlign:'center',borderLeft:'1px solid rgba(188,202,195,0.3)'}}>
             <div style={{width:sm?28:36,height:sm?28:36,borderRadius:8,background:'#f0f2f5',margin:'0 auto 6px',overflow:'hidden',border:'1px solid rgba(188,202,195,0.4)',display:'flex',alignItems:'center',justifyContent:'center'}}>
               <Logo website={co.website} name={co.name}/>
@@ -92,21 +160,22 @@ function CompareTable({ selected, sm }) {
       {FIELDS.map((f,fi) => (
         <div key={f.key} style={{display:'grid',gridTemplateColumns:gc,borderBottom:fi<FIELDS.length-1?'1px solid rgba(188,202,195,0.15)':'none',background:fi%2===0?'transparent':'rgba(247,249,251,0.6)',minWidth:mw}}>
           <div style={{padding:lp,fontSize:10,fontWeight:600,color:'#6d7a74',textTransform:'uppercase',alignSelf:'center'}}>{f.label}</div>
-          {selected.map(co => (
+          {displaySelected.map(co => (
             <div key={co.id} style={{padding:cp,fontSize:11,color:'#191c1e',textAlign:'center',borderLeft:'1px solid rgba(188,202,195,0.15)',alignSelf:'center',wordBreak:'break-word',lineHeight:1.4}}>
-              <Cell field={f.key} co={co}/>
+              <Cell field={f.key} fieldType={f.type} co={co}/>
             </div>
           ))}
         </div>
       ))}
       <div style={{display:'grid',gridTemplateColumns:gc,borderTop:'1px solid rgba(188,202,195,0.3)',minWidth:mw}}>
         <div style={{padding:lp}}/>
-        {selected.map(co => (
+        {displaySelected.map(co => (
           <div key={co.id} style={{padding:'10px 8px',textAlign:'center',borderLeft:'1px solid rgba(188,202,195,0.2)'}}>
             <a href={'/review/'+co.slug} style={{display:'inline-block',padding:'6px 14px',borderRadius:6,background:'#008489',color:'white',textDecoration:'none',fontSize:11,fontWeight:600,fontFamily:'Manrope,sans-serif'}}>Full review</a>
           </div>
         ))}
       </div>
+    </div>
     </div>
   )
 }
@@ -137,6 +206,7 @@ function Sidebar({ cat, setCat, sort, setSort, all, counts }) {
           </button>
         ))}
       </div>
+    </div>
     </div>
   )
 }
@@ -363,6 +433,7 @@ function CompareInner() {
         </div>
         <RightPanel sel={sel} setSel={setSel} addSel={addSel} remSel={remSel}/>
       </div>
+    </div>
     </div>
   )
 }
