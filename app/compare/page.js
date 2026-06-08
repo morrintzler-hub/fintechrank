@@ -469,6 +469,7 @@ function Inner() {
             </div>
           )}
         </div>
+        </div>
 
         <div style={{ position:'sticky', top:80 }} className="compare-panel-desktop">
           <div style={{ background:'#fff', border:'1px solid rgba(188,202,195,0.4)', borderRadius:16, padding:'1.25rem', boxShadow:'0 4px 24px -4px rgba(0,0,0,0.07)' }}>
@@ -530,7 +531,6 @@ function Inner() {
             </div>
           )}
         </div>
-      </div>
       </div>
 
       </div>
