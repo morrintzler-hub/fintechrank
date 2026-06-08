@@ -302,8 +302,8 @@ function ComparePageInner() {
                 cursor:'pointer', marginBottom:2, fontFamily:'Manrope,sans-serif', transition:'all .15s',
               }
               return (
-              <button key={cat.key} onClick={() => { setCategory(cat.key); setVisible(20) }} style={catBtnStyle}>
-                <div style={{ display:'flex', alignItems:'center', gap:8 }}>
+                <button key={cat.key} onClick={() => { setCategory(cat.key); setVisible(20) }} style={catBtnStyle}>
+                  <div style={{ display:'flex', alignItems:'center', gap:8 }}>
                   {cat.key !== 'all' && (
                     <span style={{ width:6, height:6, borderRadius:'50%', background:cat.color, flexShrink:0 }}/>
                   )}
@@ -311,12 +311,13 @@ function ComparePageInner() {
                     color: isCat ? '#008489' : '#3d4945' }}>
                     {cat.label}
                   </span>
-                </div>
-                <span style={{ fontSize:11, color:'#6d7a74', background:'rgba(0,0,0,0.04)', padding:'1px 7px', borderRadius:3 }}>
+                  </div>
+                  <span style={{ fontSize:11, color:'#6d7a74', background:'rgba(0,0,0,0.04)', padding:'1px 7px', borderRadius:3 }}>
                   {cat.key === 'all' ? allCompanies.length : (counts[cat.key] || 0)}
-                </span>
-              </button>
-            )})}
+                  </span>
+                </button>
+              )
+            })}
           </div>
           <div>
             <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.18em', textTransform:'uppercase',
@@ -326,26 +327,27 @@ function ComparePageInner() {
             {SORT_OPTIONS.map(opt => {
               const isSort = sortBy === opt.key
               return (
-              <button key={opt.key} onClick={() => setSortBy(opt.key)} style={{
-                display:'flex', alignItems:'center', gap:8, width:'100%', padding:'7px 10px', borderRadius:6,
-                border:'none', background:'transparent', cursor:'pointer', fontFamily:'Manrope,sans-serif',
-                marginBottom:2, transition:'background .15s',
+                <button key={opt.key} onClick={() => setSortBy(opt.key)} style={{
+                  display:'flex', alignItems:'center', gap:8, width:'100%', padding:'7px 10px', borderRadius:6,
+                  border:'none', background:'transparent', cursor:'pointer', fontFamily:'Manrope,sans-serif',
+                  marginBottom:2, transition:'background .15s',
               }}>
-                <div style={{
+                  <div style={{
                   width:13, height:13, borderRadius:'50%', flexShrink:0,
                   border: isSort ? '1.5px solid #008489' : '1.5px solid #bccac3',
                   display:'flex', alignItems:'center', justifyContent:'center',
-                }}>
+                  }}>
                   {sortBy === opt.key && (
                     <div style={{ width:6, height:6, borderRadius:'50%', background:'#008489' }}/>
                   )}
-                </div>
-                <span style={{ fontSize:13, color: sortBy === opt.key ? '#008489' : '#3d4945',
+                  </div>
+                  <span style={{ fontSize:13, color: sortBy === opt.key ? '#008489' : '#3d4945',
                   fontWeight: sortBy === opt.key ? 500 : 400 }}>
                   {opt.label}
-                </span>
-              </button>
-            )})}
+                  </span>
+                </button>
+              )
+            })}
           </div>
         </div>
 
