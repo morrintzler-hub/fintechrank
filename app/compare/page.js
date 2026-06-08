@@ -201,11 +201,7 @@ function RightPanel({ sel, setSel, addSel, remSel }) {
           <div style={{padding:'10px',borderRadius:8,background:'#f0f2f5',color:'#6d7a74',textAlign:'center',fontSize:13,fontFamily:'Manrope,sans-serif'}}>{sel.length===0?'Select 2-3 companies':'Add 1 more company'}</div>
         )}
       </div>
-      {sel.length>=2 && (
-        <div style={{marginTop:16,background:'#fff',border:'1px solid rgba(188,202,195,0.4)',borderRadius:16,overflow:'hidden',boxShadow:'0 4px 24px -4px rgba(0,0,0,0.07)'}}>
-          <CompareTable selected={sel} sm={true}/>
-        </div>
-      )}
+
     </div>
   )
 }

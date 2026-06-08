@@ -571,3 +571,14 @@ footer { border-top:1px solid var(--border);padding:2.5rem;max-width:1400px;marg
   .hero-metrics > div:nth-child(3) { border-top: 1px solid rgba(188,202,195,0.3) !important; }
   .hero-metrics > div:nth-child(4) { border-top: 1px solid rgba(188,202,195,0.3) !important; border-right: none !important; }
 }
+
+/* -- COMPARE PAGE MOBILE -- */
+@media (max-width: 768px) {
+  .compare-mobile-bar { display: block !important; }
+  .compare-panel-desktop { display: none !important; }
+  .compare-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    padding: 0 1rem 3rem !important;
+  }
+}
