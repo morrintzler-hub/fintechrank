@@ -350,6 +350,7 @@ function ComparePageInner() {
             })}
           </div>
         </div>
+        </div>
 
         {/* CENTER: Company list */}
         <div>
@@ -723,7 +724,6 @@ function ComparePageInner() {
               </div>
             </div>
           )}
-        </div>
       </div>
       </div>
       </div>
