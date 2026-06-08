@@ -29,6 +29,7 @@ export default function HamburgerMenu() {
     { href: '/category/lending', label: 'Lending', color: '#f87171' },
     { href: '/category/business', label: 'Business', color: '#4ade80' },
     { href: '/blog', label: 'Blog', color: '#6366f1' },
+    { href: '/methodology', label: 'Methodology', color: '#008489' },
     { href: '/about', label: 'About', color: '#6d7a74' },
   ]
 

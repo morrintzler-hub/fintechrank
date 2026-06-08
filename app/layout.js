@@ -81,6 +81,7 @@ export default function RootLayout({ children }) {
               </div>
             </div>
             <a href="/blog">Blog</a>
+            <a href="/methodology">Methodology</a>
             <a href="/about">About</a>
           </div>
           <a href="mailto:hello@thefintechrank.com" className="nav-cta">
@@ -110,6 +111,7 @@ export default function RootLayout({ children }) {
           </div>
           <div className="footer-links">
             <h4>Company</h4>
+            <a href="/methodology">Methodology</a>
             <a href="/about">About</a>
             <a href="/compare">Compare tool</a>
             <a href="/blog">Blog</a>

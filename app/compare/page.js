@@ -29,7 +29,7 @@ const POPULAR = [
   { label:'Wealthfront vs Betterment vs Acorns', ids:['wealthfront','betterment','acorns'] },
 ]
 const FIELDS = [
-  { key:'rating',        label:'Our Score',         type:'rating'   },
+  { key:'rating',        label:'Editorial Score',   type:'rating'   },
   { key:'pricing',       label:'Pricing',           type:'text'     },
   { key:'pricing_model', label:'Fee model',         type:'badge'    },
   { key:'mobile_app',    label:'Mobile app',        type:'feature'  },

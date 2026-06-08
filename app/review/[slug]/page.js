@@ -229,7 +229,7 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
           </Section>
 
           {/* Verdict */}
-          <Section title="Our Verdict" delay=".4s">
+          <Section title="Editorial Score" delay=".4s">
             <div style={{background:'linear-gradient(135deg,rgba(0,212,170,.07),rgba(37,99,235,.05))',border:'1px solid rgba(0,212,170,.18)',borderRadius:'var(--r)',padding:'1.25rem'}}>
               <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:'.85rem'}}>
                 <span style={{fontSize:'1.3rem'}}>🏆</span>
@@ -244,7 +244,9 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
                 <span style={{fontSize:13,fontWeight:600,color:'var(--accent)'}}>{c.rating}</span>
               </div>
             </div>
-          </Section>
+          
+              <p style={{fontSize:12,color:'var(--dim)',marginTop:'1rem',lineHeight:1.6}}>This is an editorial score based on user sentiment, product breadth, pricing transparency, regulatory standing, and market presence. <a href="/methodology" style={{color:'var(--accent)',textDecoration:'none',fontWeight:500}}>How we score companies</a></p>
+            </Section>
 
           {/* Quick facts mobile */}
           <div className="fade-up" style={{display:'none'}}>
