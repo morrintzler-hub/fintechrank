@@ -64,12 +64,13 @@ function shortText(str, n) {
 
 function ratingStr(r) {
   if (!r) return '-'
-  return r + ' / 5'
+  return String(r) + ' out of 5'
 }
 
 function CompanyLogo({ website, name }) {
   const [failed, setFailed] = useState(false)
-  const domain = (website || '').replace(/^https?:\/\/(www\.)?/, '').split('/')[0].trim()
+  const site = website || ''
+  const domain = site.replace('https://','').replace('http://','').replace('www.','').split('/')[0].trim()
   const initials = (name || '').slice(0, 2).toUpperCase()
   if (domain && !failed) {
     return (
@@ -230,7 +231,7 @@ function ComparePageInner() {
               </div>
             ))}
             {selected.length >= 2 && (
-              <a href={'/compare?ids=' + selected.map(c => c.slug).join(',')}
+              <a href={`/compare?ids=${selected.map(c => c.slug).join(',')}`}
                 style={{
                   padding:'5px 12px', borderRadius:6, background:'#008489', color:'white',
                   textDecoration:'none', fontSize:11, fontWeight:600, whiteSpace:'nowrap', flexShrink:0,
@@ -260,17 +261,21 @@ function ComparePageInner() {
         <div style={{ display:'flex', flexWrap:'wrap', gap:8, marginBottom:'1.5rem' }}>
           <span style={{ fontSize:11, fontWeight:600, color:'#6d7a74', letterSpacing:'.06em',
             textTransform:'uppercase', alignSelf:'center', marginRight:4 }}>Popular:</span>
-          {POPULAR.map(p => (
-            <button key={p.label} onClick={() => loadPreset(p)} style={{
+          {POPULAR.map(p => {
+            const isActive = activePreset === p.label
+            const btnStyle = {
               fontSize:12, fontWeight:400, padding:'5px 12px', borderRadius:6, cursor:'pointer',
-              border: activePreset === p.label ? '1px solid #008489' : '1px solid rgba(188,202,195,0.5)',
-              background: activePreset === p.label ? 'rgba(0,132,137,0.08)' : '#ffffff',
-              color: activePreset === p.label ? '#008489' : '#3d4945',
+              border: isActive ? '1px solid #008489' : '1px solid rgba(188,202,195,0.5)',
+              background: isActive ? 'rgba(0,132,137,0.08)' : '#ffffff',
+              color: isActive ? '#008489' : '#3d4945',
               fontFamily:'Manrope,sans-serif', transition:'all .15s',
-            }}>
-              {p.label}
-            </button>
-          ))}
+            }
+            return (
+              <button key={p.label} onClick={() => loadPreset(p)} style={btnStyle}>
+                {p.label}
+              </button>
+            )
+          })}
         </div>
       </div>
 
@@ -287,20 +292,23 @@ function ComparePageInner() {
               color:'#6d7a74', marginBottom:10, fontFamily:'Manrope,sans-serif' }}>
               Category
             </div>
-            {CATEGORIES.map(cat => (
-              <button key={cat.key} onClick={() => { setCategory(cat.key); setVisible(20) }} style={{
+            {CATEGORIES.map(cat => {
+              const isCat = category === cat.key
+              const catBtnStyle = {
                 display:'flex', alignItems:'center', justifyContent:'space-between',
                 width:'100%', padding:'7px 10px', borderRadius:6,
-                border: category === cat.key ? '1px solid rgba(0,132,137,0.25)' : '1px solid transparent',
-                background: category === cat.key ? 'rgba(0,132,137,0.06)' : 'transparent',
+                border: isCat ? '1px solid rgba(0,132,137,0.25)' : '1px solid transparent',
+                background: isCat ? 'rgba(0,132,137,0.06)' : 'transparent',
                 cursor:'pointer', marginBottom:2, fontFamily:'Manrope,sans-serif', transition:'all .15s',
-              }}>
+              }
+              return (
+              <button key={cat.key} onClick={() => { setCategory(cat.key); setVisible(20) }} style={catBtnStyle}>
                 <div style={{ display:'flex', alignItems:'center', gap:8 }}>
                   {cat.key !== 'all' && (
                     <span style={{ width:6, height:6, borderRadius:'50%', background:cat.color, flexShrink:0 }}/>
                   )}
                   <span style={{ fontSize:13, fontWeight: category === cat.key ? 500 : 400,
-                    color: category === cat.key ? '#008489' : '#3d4945' }}>
+                    color: isCat ? '#008489' : '#3d4945' }}>
                     {cat.label}
                   </span>
                 </div>
@@ -308,14 +316,16 @@ function ComparePageInner() {
                   {cat.key === 'all' ? allCompanies.length : (counts[cat.key] || 0)}
                 </span>
               </button>
-            ))}
+            )})}
           </div>
           <div>
             <div style={{ fontSize:10, fontWeight:700, letterSpacing:'.18em', textTransform:'uppercase',
               color:'#6d7a74', marginBottom:10, fontFamily:'Manrope,sans-serif' }}>
               Sort by
             </div>
-            {SORT_OPTIONS.map(opt => (
+            {SORT_OPTIONS.map(opt => {
+              const isSort = sortBy === opt.key
+              return (
               <button key={opt.key} onClick={() => setSortBy(opt.key)} style={{
                 display:'flex', alignItems:'center', gap:8, width:'100%', padding:'7px 10px', borderRadius:6,
                 border:'none', background:'transparent', cursor:'pointer', fontFamily:'Manrope,sans-serif',
@@ -323,7 +333,7 @@ function ComparePageInner() {
               }}>
                 <div style={{
                   width:13, height:13, borderRadius:'50%', flexShrink:0,
-                  border: sortBy === opt.key ? '1.5px solid #008489' : '1.5px solid #bccac3',
+                  border: isSort ? '1.5px solid #008489' : '1.5px solid #bccac3',
                   display:'flex', alignItems:'center', justifyContent:'center',
                 }}>
                   {sortBy === opt.key && (
@@ -335,7 +345,7 @@ function ComparePageInner() {
                   {opt.label}
                 </span>
               </button>
-            ))}
+            )})}
           </div>
         </div>
 
@@ -411,7 +421,7 @@ function ComparePageInner() {
                   <div style={{ padding:'12px 14px' }}/>
                   {selected.map(c => (
                     <div key={c.id} style={{ padding:'10px 8px', textAlign:'center', borderLeft:'1px solid rgba(188,202,195,0.2)' }}>
-                      <a href={'/review/' + c.slug} style={{
+                      <a href={`/review/${c.slug}`} style={{
                         display:'inline-block', padding:'6px 14px', borderRadius:6,
                         background:'#008489', color:'white', textDecoration:'none',
                         fontSize:11, fontWeight:600, fontFamily:'Manrope,sans-serif',
@@ -459,7 +469,7 @@ function ComparePageInner() {
                 </div>
                 <div style={{ fontFamily:'Manrope,sans-serif', fontSize:13, color:'#6d7a74' }}>
                   Showing similar results.{' '}
-                  <a href={'mailto:hello@thefintechrank.com?subject=Missing: ' + search}
+                  <a href={`mailto:hello@thefintechrank.com?subject=Missing: ${search}`}
                     style={{ color:'#008489', textDecoration:'none', fontWeight:500 }}>
                     Suggest a company
                   </a>
@@ -544,7 +554,7 @@ function ComparePageInner() {
                           }}>
                             {isSelected ? 'Added' : '+ Compare'}
                           </button>
-                          <a href={'/review/' + c.slug} style={{ fontSize:11, padding:'5px 12px', borderRadius:6,
+                          <a href={`/review/${c.slug}`} style={{ fontSize:11, padding:'5px 12px', borderRadius:6,
                             border:'1px solid rgba(188,202,195,0.5)', color:'#3d4945', textDecoration:'none',
                             fontFamily:'Manrope,sans-serif' }}>
                             Full review
@@ -648,7 +658,7 @@ function ComparePageInner() {
               </div>
             )}
             {selected.length >= 2 ? (
-              <a href={'/compare?ids=' + selected.map(c => c.slug).join(',')}
+              <a href={`/compare?ids=${selected.map(c => c.slug).join(',')}`}
                 style={{ display:'block', width:'100%', padding:'10px', borderRadius:8,
                   background:'#008489', color:'#ffffff', textAlign:'center', textDecoration:'none',
                   fontSize:13, fontWeight:600, fontFamily:'Manrope,sans-serif', transition:'opacity .15s' }}
