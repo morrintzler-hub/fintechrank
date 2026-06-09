@@ -14,11 +14,12 @@ const POSTS = [
     image: true, // has hero SVG image
   },
   {
-    title: 'Best Neobanks in Europe 2026: Monzo vs Revolut vs Starling vs N26',
-    cat: 'Guide', color: '#60a5fa',
-    date: 'June 10, 2026', time: '10 min',
-    excerpt: "A deep dive into Europe's leading digital banks. Features, fees, and which one suits your lifestyle best.",
-    icon: '🏦',
+    title: 'Revolut vs Wise vs Monzo 2026: Which Neobank Should You Choose?',
+    slug: 'revolut-vs-wise-vs-monzo-2026',
+    published: true,
+    cat: 'Comparison', color: '#2563eb',
+    date: 'June 9, 2026', time: '11 min',
+    excerpt: "Three of Europe's most popular neobanks compared on fees, features, and everyday banking. The honest answer depends on who you are.",
   },
   {
     title: 'Fintech Fee Study 2026: We Compared 100 Platforms So You Don\'t Have To',

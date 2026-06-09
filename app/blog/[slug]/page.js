@@ -298,5 +298,40 @@ export default function BlogPostPage() {
       </div>
 
     </div>
-  )
+  ),
+  'revolut-vs-wise-vs-monzo-2026': {
+    title: "Revolut vs Wise vs Monzo 2026: Which Neobank Should You Choose?",
+    date: "June 9, 2026",
+    readTime: "11 min read",
+    category: "Comparison",
+    categoryColor: "#2563eb",
+    excerpt: "Three of Europe's most popular neobanks compared on fees, features, international transfers, and everyday banking. The honest answer depends on who you are.",
+    content: [
+      { type: 'intro', text: "Revolut, Wise, and Monzo are three of the most talked-about names in European fintech. Between them they serve over 60 million customers. But they started from very different places and still serve very different needs in 2026. Picking the wrong one is an easy mistake to make." },
+      { type: 'verdict', items: [
+          { label: 'Choose Revolut if', text: 'you want an all-in-one financial super-app with currency exchange, crypto, stock trading, and premium metal cards in one place.' },
+          { label: 'Choose Wise if', text: 'you regularly send money internationally or hold multiple currencies and want the best exchange rates with full transparency on fees.' },
+          { label: 'Choose Monzo if', text: 'you want the best everyday UK current account with excellent budgeting tools, instant notifications, and the most responsive customer support.' },
+      ]},
+      { type: 'h2', text: 'How they started' },
+      { type: 'text', text: "Monzo launched in 2015 as a pure current account replacement. Wise launched in 2011 with a single obsession: fair exchange rates for international transfers. Revolut launched in 2015 as a travel card that eliminated foreign transaction fees, and has since expanded into almost every area of finance." },
+      { type: 'h2', text: 'Fees' },
+      { type: 'text', text: "All three have free tiers. Revolut free gives you interbank rates on weekdays with a 1% weekend markup. Wise charges a small transparent fee on every transfer but always uses the mid-market rate. Monzo is free with no foreign transaction fees on spending abroad." },
+      { type: 'h2', text: 'International transfers' },
+      { type: 'text', text: "Wise wins decisively here. It was built for international transfers and uses the mid-market rate with a transparent fee on top. On a 1,000 transfer to Europe, Wise typically charges around 4 to 6. Revolut uses a similar rate on weekdays but adds a markup on weekends. Monzo routes international transfers through Wise, so you get Wise rates but pay through Monzo." },
+      { type: 'h2', text: 'Everyday banking' },
+      { type: 'text', text: "For day-to-day UK banking, Monzo is the strongest product. It has the best budgeting tools, spending categories, salary sorter, and savings pots of the three. Its customer support is available 24/7 and consistently ranks as the best of any bank in the UK. Revolut has improved significantly but still feels more like a fintech product than a bank account. Wise is not a current account - it is a multi-currency account optimised for holding and sending money internationally." },
+      { type: 'h2', text: 'Currency accounts' },
+      { type: 'text', text: "Wise wins on currency breadth with 50+ currencies and local bank details in 10 markets. You can receive USD to a real US account number, GBP to a UK sort code, EUR to an IBAN. Essential for freelancers paid in foreign currencies. Revolut holds 36 currencies with similar local details. Monzo is GBP-only but handles spending abroad well." },
+      { type: 'h2', text: 'Security and regulation' },
+      { type: 'text', text: "All three are FCA regulated. Monzo and Revolut hold full UK banking licences with FSCS protection up to 85,000. Wise is regulated as an electronic money institution - your money is safeguarded but not FSCS protected. For everyday use the distinction rarely matters, but for holding larger balances Monzo or Revolut offer stronger protection." },
+      { type: 'h2', text: 'The verdict' },
+      { type: 'text', text: "The most common winning combination in 2026 is Monzo as your primary current account plus Wise for international transfers and foreign currency. Revolut is right if you want one app that does everything including crypto and stock trading. The worst choice is picking one and expecting it to be perfect at everything." },
+      { type: 'cta', links: [
+          { label: 'Full Revolut review', href: '/review/revolut' },
+          { label: 'Full Wise review', href: '/review/wise' },
+          { label: 'Full Monzo review', href: '/review/monzo' },
+      ]}
+    ]
+  }
 }
