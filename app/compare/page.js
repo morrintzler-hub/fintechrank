@@ -206,7 +206,6 @@ function Sidebar({ cat, setCat, sort, setSort, all, counts }) {
         ))}
       </div>
     </div>
-    </div>
   )
 }
 
