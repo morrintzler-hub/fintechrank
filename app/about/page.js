@@ -30,29 +30,19 @@ export default function AboutPage() {
       <Section title="What makes us different" delay=".1s">
         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:14,margin:'1.25rem 0'}}>
           {[
-            ['ban',      'No sponsored rankings', 'Companies cannot pay to rank higher. Rankings are based on rating, review volume, and editorial assessment. Nothing else.'],
-            ['users',    'Community verified',    'Every review page has a discrepancy reporting system. When pricing or features change, our community tells us within 48 hours.'],
-            ['card',     'Real pricing',          'We list actual transaction fees, monthly costs, and hidden charges. Not just the headline rate companies want you to see.'],
-            ['refresh',  'Updated in real time',  'Our database updates continuously. When Stripe changes their UK fees, we know within days, not months.'],
-            ['globe',    'Global perspective',    'We cover fintech from every continent. From M-Pesa in Kenya to Nubank in Brazil to Razorpay in India.'],
-            ['grid',     'Structured data',       'Every company has the same data fields, making true apples-to-apples comparison possible for the first time.'],
-          ].map(([icon, title, desc]) => {
-            const icons = {
-              ban:     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#008489" strokeWidth="1.5" strokeLinecap="round"><circle cx="10" cy="10" r="8"/><line x1="4" y1="4" x2="16" y2="16"/></svg>,
-              users:   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#008489" strokeWidth="1.5" strokeLinecap="round"><circle cx="7" cy="6" r="3"/><path d="M1 16c0-2 2.5-3.5 6-3.5s6 1.5 6 3.5"/><circle cx="15" cy="5" r="2"/><path d="M15 10.5c1.5.4 3 1.5 3 3.5"/></svg>,
-              card:    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#008489" strokeWidth="1.5" strokeLinecap="round"><rect x="1" y="4" width="18" height="13" rx="2"/><path d="M1 8h18"/><path d="M5 13h2M9 13h4"/></svg>,
-              refresh: <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#008489" strokeWidth="1.5" strokeLinecap="round"><polyline points="1 4 1 9 6 9"/><path d="M3 13.5A8 8 0 1 0 4 7L1 9"/></svg>,
-              globe:   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#008489" strokeWidth="1.5" strokeLinecap="round"><circle cx="10" cy="10" r="8"/><path d="M2 10h16"/><path d="M10 2a13 13 0 0 1 0 16M10 2a13 13 0 0 0 0 16"/></svg>,
-              grid:    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#008489" strokeWidth="1.5" strokeLinecap="round"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/><rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/></svg>,
-            }
-            return (
+            ['🚫', 'No sponsored rankings', 'Companies cannot pay to rank higher. Our rankings are based on rating, review volume, and editorial assessment — nothing else.'],
+            ['👥', 'Community verified', 'Every review page has a discrepancy reporting system. When pricing or features change, our community tells us. Reports are AI-triaged and resolved within 48 hours.'],
+            ['🔍', 'Real pricing', 'We list actual transaction fees, monthly costs, and hidden charges — not just the headline rate companies want you to see.'],
+            ['⚡', 'Updated in real time', 'Our database updates continuously. When Stripe changes their UK fees, we know within days — not months.'],
+            ['🌍', 'Global perspective', 'We cover fintech from every continent — not just US and UK companies. From M-Pesa in Kenya to Nubank in Brazil to Razorpay in India.'],
+            ['📊', 'Structured data', 'Every company has the same data fields, making true apples-to-apples comparison possible for the first time.'],
+          ].map(([icon, title, desc]) => (
             <div key={title} className="company-card" style={{padding:'1.25rem'}}>
-              <div style={{width:38,height:38,borderRadius:9,background:'rgba(0,132,137,0.08)',display:'flex',alignItems:'center',justifyContent:'center',marginBottom:12}}>{icons[icon]}</div>
+              <div style={{fontSize:'1.4rem',marginBottom:'.75rem'}}>{icon}</div>
               <div style={{fontWeight:500,fontSize:14,color:'var(--text)',marginBottom:6}}>{title}</div>
               <div style={{fontSize:12,fontWeight:300,color:'var(--muted)',lineHeight:1.7}}>{desc}</div>
             </div>
-          )
-          })
+          ))}
         </div>
       </Section>
 
