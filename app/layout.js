@@ -62,9 +62,8 @@ export default function RootLayout({ children }) {
 
         {/* Nav */}
         <nav className="nav" id="mainNav">
-          <a href="/" className="nav-logo">
-            <span className="nav-dot"></span>
-            The Fintech <span className="nav-acc">Rank</span>
+          <a href="/" className="nav-logo" style={{display:"flex",alignItems:"center"}}>
+            <img src="/logo-mark.png" alt="The Fintech Rank" style={{height:"32px",width:"auto",objectFit:"contain"}} />
           </a>
           <div className="nav-links">
             <a href="/">Home</a>
@@ -94,7 +93,7 @@ export default function RootLayout({ children }) {
 
         <footer>
           <div>
-            <div className="footer-brand">The Fintech <span>Rank</span></div>
+            <div className="footer-brand"><img src="/logo.png" alt="The Fintech Rank" style={{height:"36px",width:"auto",objectFit:"contain"}} /></div>
             <div className="footer-tagline">
               Independent research on the world's top 100 fintech companies.
               Updated by our community in real time.
