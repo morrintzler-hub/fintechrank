@@ -33,7 +33,8 @@ const FIELDS = [
   { key:'category',      label:'Type'            },
   { key:'pricing',       label:'Pricing'         },
   { key:'pricing_model', label:'Fee model'       },
-  { key:'tagline',       label:'Best for'        },
+  { key:'currencies_supported', label:'Currencies'      },
+  { key:'tagline',              label:'Best for'        },
 ]
 const CAT_COLORS = {
   Payments:'#60a5fa', Banking:'#009e80', Investing:'#fbbf24',
