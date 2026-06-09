@@ -51,7 +51,7 @@ export default function AboutPage() {
               <div style={{fontWeight:500,fontSize:14,color:'var(--text)',marginBottom:6}}>{title}</div>
               <div style={{fontSize:12,fontWeight:300,color:'var(--muted)',lineHeight:1.7}}>{desc}</div>
             </div>
-          )}}
+          )}
         </div>
       </Section>
 
