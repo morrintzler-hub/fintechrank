@@ -30,12 +30,12 @@ export default function AboutPage() {
       <Section title="What makes us different" delay=".1s">
         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:14,margin:'1.25rem 0'}}>
           {[
-            ['🚫', 'No sponsored rankings', 'Companies cannot pay to rank higher. Our rankings are based on rating, review volume, and editorial assessment — nothing else.'],
-            ['👥', 'Community verified', 'Every review page has a discrepancy reporting system. When pricing or features change, our community tells us. Reports are AI-triaged and resolved within 48 hours.'],
-            ['🔍', 'Real pricing', 'We list actual transaction fees, monthly costs, and hidden charges — not just the headline rate companies want you to see.'],
-            ['⚡', 'Updated in real time', 'Our database updates continuously. When Stripe changes their UK fees, we know within days — not months.'],
-            ['🌍', 'Global perspective', 'We cover fintech from every continent — not just US and UK companies. From M-Pesa in Kenya to Nubank in Brazil to Razorpay in India.'],
-            ['📊', 'Structured data', 'Every company has the same data fields, making true apples-to-apples comparison possible for the first time.'],
+            ['•', 'No sponsored rankings', 'Companies cannot pay to rank higher. Our rankings are based on rating, review volume, and editorial assessment — nothing else.'],
+            ['•', 'Community verified', 'Every review page has a discrepancy reporting system. When pricing or features change, our community tells us. Reports are AI-triaged and resolved within 48 hours.'],
+            ['•', 'Real pricing', 'We list actual transaction fees, monthly costs, and hidden charges — not just the headline rate companies want you to see.'],
+            ['•', 'Updated in real time', 'Our database updates continuously. When Stripe changes their UK fees, we know within days — not months.'],
+            ['•', 'Global perspective', 'We cover fintech from every continent — not just US and UK companies. From M-Pesa in Kenya to Nubank in Brazil to Razorpay in India.'],
+            ['•', 'Structured data', 'Every company has the same data fields, making true apples-to-apples comparison possible for the first time.'],
           ].map(([icon, title, desc]) => (
             <div key={title} className="company-card" style={{padding:'1.25rem'}}>
               <div style={{fontSize:'1.4rem',marginBottom:'.75rem'}}>{icon}</div>
