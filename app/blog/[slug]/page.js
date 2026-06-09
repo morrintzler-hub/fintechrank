@@ -140,7 +140,6 @@ const POSTS = {
     ]
   }
 }
-}
 
 export default function BlogPostPage() {
   const { slug } = useParams()
