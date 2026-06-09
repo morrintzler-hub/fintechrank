@@ -115,7 +115,7 @@ export default function RootLayout({ children }) {
             <a href="/about">About</a>
             <a href="/compare">Compare tool</a>
             <a href="/blog">Blog</a>
-            <a href="/about">Methodology</a>
+            <a href="/about">About</a>
             <a href="mailto:hello@thefintechrank.com">Contact</a>
           </div>
         </footer>
