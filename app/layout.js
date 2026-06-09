@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
         {/* Nav */}
         <nav className="nav" id="mainNav">
           <a href="/" className="nav-logo" style={{display:"flex",alignItems:"center"}}>
-            <img src="/logo.png" alt="The Fintech Rank" style={{height:"64px",width:"auto",objectFit:"contain"}} />
+            <img src="/logo.png" alt="The Fintech Rank" style={{height:"128px",width:"auto",objectFit:"contain"}} />
           </a>
           <div className="nav-links">
             <a href="/">Home</a>
