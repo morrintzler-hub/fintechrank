@@ -582,3 +582,6 @@ footer { border-top:1px solid var(--border);padding:2.5rem;max-width:1400px;marg
     padding: 0 1rem 3rem !important;
   }
 }
+@media (max-width: 768px) {
+  .nav-logo img { height: 60px; }
+}
