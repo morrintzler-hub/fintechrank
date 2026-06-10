@@ -36,7 +36,9 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-DW3W1CYJ23"></script>
+    <script dangerouslySetInnerHTML={{__html: "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DW3W1CYJ23');"}}/>
+    <body>
 
         {/* Intro animation - homepage only */}
         <div id="fr-intro" role="presentation" style={{display:'none'}}>
