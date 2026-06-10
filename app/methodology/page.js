@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Our Methodology | The Fintech Rank',
-  description: 'How we score and rank the top 100 fintech companies. Our editorial scoring process, data sources, and transparency commitments.',
+  description: 'How we score and rank the leading Fintech companies. Our editorial scoring process, data sources, and transparency commitments.',
 }
 
 const DIMENSIONS = [

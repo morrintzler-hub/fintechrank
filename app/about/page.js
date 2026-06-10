@@ -23,7 +23,7 @@ export default function AboutPage() {
       {/* Mission */}
       <Section title="Our mission" delay="0s">
         <p>The fintech landscape changes fast. Fees change overnight. Products get acquired. Features get dropped. Regulations shift. And most comparison sites update their content once a year, if that.</p>
-        <p>The Fintech Rank exists to be the most accurate, most current, and most honest source of fintech intelligence on the internet. We cover 100 companies across payments, banking, investing, crypto, lending, and business finance — with real pricing, verified features, and community-powered accuracy checks.</p>
+        <p>The Fintech Rank exists to be the most accurate, most current, and most honest source of fintech intelligence on the internet. We cover leading companies across payments, banking, investing, crypto, lending, and business finance — with real pricing, verified features, and community-powered accuracy checks.</p>
       </Section>
 
       {/* What makes us different */}

@@ -25,7 +25,7 @@ const POSTS = [
     title: 'Fintech Fee Study 2026: We Compared 100 Platforms So You Don\'t Have To',
     cat: 'Research', color: '#fbbf24',
     date: 'June 5, 2026', time: '15 min',
-    excerpt: 'Original research analysing the true cost of using the top 100 fintech platforms. The results will surprise you.',
+    excerpt: 'Original research analysing the true cost of using the leading Fintech platforms. The results will surprise you.',
     icon: '📊',
   },
   {

@@ -8,17 +8,17 @@ export const metadata = {
     google: 'Lk5FsVy1yXc_kyNMrwCl3Rgf7uIvxevkktmEqMjmFlA',
   },
   title: {
-    default: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
+    default: "The Fintech Rank — Compare the World's Leading Fintech Companies",
     template: '%s | The Fintech Rank',
   },
-  description: "Unbiased ratings, verified pricing, and side-by-side comparisons across the world's top 100 fintech companies.",
+  description: "Unbiased ratings, verified pricing, and side-by-side comparisons across the world's leading Fintech companies.",
   keywords: ['fintech','fintech comparison','best fintech apps','payment processing','neobank','crypto exchange'],
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     url: 'https://www.thefintechrank.com',
     siteName: 'The Fintech Rank',
-    title: "The Fintech Rank — Compare the World's Top 100 Fintech Companies",
+    title: "The Fintech Rank — Compare the World's Leading Fintech Companies",
     description: "Unbiased ratings, verified pricing, and side-by-side feature comparisons.",
   },
   robots: { index: true, follow: true },
@@ -95,7 +95,7 @@ export default function RootLayout({ children }) {
           <div>
             <div className="footer-brand"><img src="/logo.png" alt="The Fintech Rank" style={{height:"80px",width:"auto",objectFit:"contain"}} /></div>
             <div className="footer-tagline">
-              Independent research on the world's top 100 fintech companies.
+              Independent research on the world's leading Fintech companies.
               Updated by our community in real time.
             </div>
           </div>

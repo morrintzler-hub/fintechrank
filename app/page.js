@@ -83,7 +83,7 @@ export default function HomePage() {
             variant="shimmer"
             title="Find the right fintech for your business"
             subtitle="Side-by-side comparison across any 2–3 companies"
-            description="Compare fees, features, global coverage, and ratings across 100 fintech companies. From Stripe vs Adyen to Revolut vs Wise — get the full picture before you decide."
+            description="Compare fees, features, global coverage, and ratings across leading Fintech companies. From Stripe vs Adyen to Revolut vs Wise — get the full picture before you decide."
             cta="Start comparing"
             delay={0}
           />
@@ -93,7 +93,7 @@ export default function HomePage() {
             variant="pulse"
             title="Every corner of fintech, covered"
             subtitle="Payments · Banking · Crypto · Investing · Lending · Business"
-            description="Six categories, 100 companies, verified data. Whether you need a payment processor, a neobank, or a crypto exchange — the comparison is already here."
+            description="Six categories, leading companies, verified data. Whether you need a payment processor, a neobank, or a crypto exchange — the comparison is already here."
             cta="Browse categories"
             delay={1}
           />

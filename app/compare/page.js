@@ -278,7 +278,7 @@ function CompareInner() {
       )}
       <div style={{maxWidth:1400,margin:'0 auto',padding:'2rem 2rem 1.5rem'}}>
         <h1 style={{fontFamily:'Manrope,sans-serif',fontWeight:800,fontSize:'clamp(1.8rem,3.5vw,2.8rem)',letterSpacing:'-.03em',color:'#191c1e',marginBottom:8}}>Find the right fintech for your business</h1>
-        <p style={{fontSize:15,color:'#3d4945',lineHeight:1.7,maxWidth:560,marginBottom:'1.5rem'}}>Browse 100 companies, filter by category, and compare any 2-3 side by side.</p>
+        <p style={{fontSize:15,color:'#3d4945',lineHeight:1.7,maxWidth:560,marginBottom:'1.5rem'}}>Browse leading companies, filter by category, and compare any 2-3 side by side.</p>
         <div style={{display:'flex',flexWrap:'wrap',gap:8,marginBottom:'1.5rem'}}>
           <span style={{fontSize:11,fontWeight:600,color:'#6d7a74',textTransform:'uppercase',alignSelf:'center',marginRight:4}}>Popular:</span>
           {POPULAR.map(p => (
