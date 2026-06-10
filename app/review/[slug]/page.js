@@ -50,7 +50,14 @@ export default function ReviewPage({ params }) {
   if (loading) return <LoadingSkeleton />
   if (!company) return <NotFound slug={slug} />
 
-  return <ReviewLayout company={company} pros={pros} cons={cons} features={features} reports={reports} />
+  if (!company) return null
+  const jsonLd = {'@context':'https://schema.org','@type':'SoftwareApplication','name':company.name,'description':company.description,'applicationCategory':'FinanceApplication','aggregateRating':company.rating?{'@type':'AggregateRating','ratingValue':company.rating,'reviewCount':company.review_count||0,'bestRating':5,'worstRating':1}:undefined}
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(jsonLd)}}/>
+      <ReviewLayout company={company} pros={pros} cons={cons} features={features} reports={reports}/>
+    </>
+  )
 }
 
 function ReviewLayout({ company: c, pros, cons, features, reports }) {
