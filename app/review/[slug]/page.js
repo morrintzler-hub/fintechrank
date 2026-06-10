@@ -269,26 +269,12 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
             </div>
           )}
           <div className="slide-right" style={{background:'var(--bg2)',border:'1px solid var(--border)',borderRadius:'var(--r)',padding:'1.1rem',animationDelay:'.15s'}}>
-            <div style={{display:'flex',flexDirection:'column',gap:12}}>
-              {c.best_for && (
-                <div style={{display:'flex',gap:10,alignItems:'flex-start'}}>
-                  <span style={{color:'#008489',fontWeight:700,fontSize:14,flexShrink:0}}>+</span>
-                  <div>
-                    <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'.08em',color:'#008489',marginBottom:3}}>Best for</div>
-                    <div style={{fontSize:13,color:'var(--text)',lineHeight:1.5}}>{c.best_for}</div>
-                  </div>
-                </div>
-              )}
-              {c.watch_out_for && (
-                <div style={{display:'flex',gap:10,alignItems:'flex-start'}}>
-                  <span style={{color:'#e53e3e',fontWeight:700,fontSize:14,flexShrink:0}}>-</span>
-                  <div>
-                    <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'.08em',color:'#e53e3e',marginBottom:3}}>Watch out for</div>
-                    <div style={{fontSize:13,color:'var(--text)',lineHeight:1.5}}>{c.watch_out_for}</div>
-                  </div>
-                </div>
-              )}
-            </div>
+            {c.best_for && (
+              <div>
+                <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'.08em',color:'#008489',marginBottom:8}}>Best for</div>
+                <div style={{fontSize:14,color:'var(--text)',lineHeight:1.6}}>{c.best_for}</div>
+              </div>
+            )}
           </div>
         </div>
       </div>
