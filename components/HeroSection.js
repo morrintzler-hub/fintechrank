@@ -235,6 +235,7 @@ export default function HeroSection({
           maxWidth: 800,
         }}>
           Compare the world's{' '}
+          <br/>
           <span style={{ color: ACCENT }}>Top Fintech</span>{' '}
           <span style={{ fontWeight: 400, color: '#6d7a74' }}>companies</span>
         </h1>
