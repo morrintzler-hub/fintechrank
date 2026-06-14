@@ -186,48 +186,11 @@ export default function BlogPostPage() {
       </div>
 
       {/* Hero image */}
-      <div style={{ borderRadius: 'var(--r)', overflow: 'hidden', marginBottom: '2.5rem',
-        border: '1px solid var(--border)', background: 'var(--bg2)' }}>
-        <svg width="100%" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg">
-          <rect width="680" height="340" fill="#f0f4ff"/>
-          <pattern id="dots2" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1" fill="#00000008"/>
-          </pattern>
-          <rect width="680" height="340" fill="url(#dots2)"/>
-          <line x1="340" y1="40" x2="340" y2="300" stroke="#e2e6ea" strokeWidth="1" strokeDasharray="4 4"/>
-          <rect x="40" y="60" width="260" height="220" rx="16" fill="white" stroke="#e8eaed" strokeWidth="1"/>
-          <rect x="40" y="60" width="260" height="6" rx="3" fill="#635bff"/>
-          <rect x="130" y="90" width="80" height="50" rx="10" fill="#635bff"/>
-          <text x="170" y="122" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="22" fontWeight="700" fill="white">S</text>
-          <text x="170" y="163" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="17" fontWeight="600" fill="#0a1520">Stripe</text>
-          <text x="170" y="181" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fill="#6a85a8">Developer-first payments</text>
-          <line x1="65" y1="196" x2="275" y2="196" stroke="#f0f2f5" strokeWidth="1"/>
-          <text x="75" y="215" fontFamily="Manrope,sans-serif" fontSize="11" fill="#6a85a8">Fee</text>
-          <text x="275" y="215" textAnchor="end" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="600" fill="#635bff">1.5% + 25p</text>
-          <text x="75" y="235" fontFamily="Manrope,sans-serif" fontSize="11" fill="#6a85a8">Rating</text>
-          <text x="275" y="235" textAnchor="end" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="600" fill="#635bff">4.8 / 5</text>
-          <text x="75" y="255" fontFamily="Manrope,sans-serif" fontSize="11" fill="#6a85a8">Best for</text>
-          <text x="275" y="255" textAnchor="end" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="600" fill="#635bff">Developers</text>
-          <rect x="380" y="60" width="260" height="220" rx="16" fill="white" stroke="#e8eaed" strokeWidth="1"/>
-          <rect x="380" y="60" width="260" height="6" rx="3" fill="#003087"/>
-          <rect x="470" y="90" width="80" height="50" rx="10" fill="#003087"/>
-          <text x="510" y="122" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="22" fontWeight="700" fill="white">P</text>
-          <text x="510" y="163" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="17" fontWeight="600" fill="#0a1520">PayPal</text>
-          <text x="510" y="181" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fill="#6a85a8">Global consumer payments</text>
-          <line x1="405" y1="196" x2="615" y2="196" stroke="#f0f2f5" strokeWidth="1"/>
-          <text x="415" y="215" fontFamily="Manrope,sans-serif" fontSize="11" fill="#6a85a8">Fee</text>
-          <text x="615" y="215" textAnchor="end" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="600" fill="#003087">2.9% + $0.30</text>
-          <text x="415" y="235" fontFamily="Manrope,sans-serif" fontSize="11" fill="#6a85a8">Rating</text>
-          <text x="615" y="235" textAnchor="end" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="600" fill="#003087">4.2 / 5</text>
-          <text x="415" y="255" fontFamily="Manrope,sans-serif" fontSize="11" fill="#6a85a8">Best for</text>
-          <text x="615" y="255" textAnchor="end" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="600" fill="#003087">Consumers</text>
-          <circle cx="340" cy="170" r="22" fill="white" stroke="#e2e6ea" strokeWidth="1.5"/>
-          <text x="340" y="175" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="13" fontWeight="700" fill="#0a1520">VS</text>
-          <rect x="240" y="14" width="200" height="28" rx="4" fill="white" stroke="#e2e6ea" strokeWidth="1"/>
-          <text x="340" y="32" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fontWeight="500" fill="#009e80">● THE FINTECH RANK · 2025</text>
-          <text x="340" y="318" textAnchor="middle" fontFamily="Manrope,sans-serif" fontSize="11" fill="#9ab0c8">thefintechrank.com</text>
-        </svg>
-      </div>
+      {post.image && post.image !== false ? (
+        <div style={{ borderRadius: 'var(--r)', overflow: 'hidden', marginBottom: '2.5rem', border: '1px solid var(--border)' }}>
+          <img src={post.image} alt={post.title} style={{ width: '100%', display: 'block', objectFit: 'cover', maxHeight: 320 }}/>
+        </div>
+      ) : null}
 
       {/* Article body */}
       <div style={{ fontSize: 15, lineHeight: 1.8, color: 'var(--muted)' }}>
