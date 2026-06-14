@@ -3,6 +3,7 @@ import { useParams } from 'next/navigation'
 
 const POSTS = {
   'stripe-vs-paypal-2025': {
+    image: '/blog-stripe-vs-paypal.png',
     title: "Stripe vs PayPal 2025: The Complete Comparison for Businesses",
     date: "June 3, 2025",
     readTime: "12 min read",
@@ -105,6 +106,7 @@ const POSTS = {
     ]
   },
   'revolut-vs-wise-vs-monzo-2026': {
+    image: '/blog-revolut-wise-monzo.png',
     title: "Revolut vs Wise vs Monzo 2026: Which Neobank Should You Choose?",
     date: "June 9, 2026",
     readTime: "11 min read",

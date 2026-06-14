@@ -11,7 +11,7 @@ const POSTS = [
     excerpt: 'The two biggest names in payments compared across fees, developer experience, global coverage, and which one is right for your business in 2026.',
     slug: 'stripe-vs-paypal-2025',
     published: true,
-    image: true, // has hero SVG image
+    image: '/blog-stripe-vs-paypal.png',
   },
   {
     title: 'Revolut vs Wise vs Monzo 2026: Which Neobank Should You Choose?',
