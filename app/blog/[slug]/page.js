@@ -190,7 +190,7 @@ export default function BlogPostPage() {
       {/* Hero image */}
       {post.image && post.image !== false ? (
         <div style={{ borderRadius: 'var(--r)', overflow: 'hidden', marginBottom: '2.5rem', border: '1px solid var(--border)' }}>
-          <img src={post.image} alt={post.title} style={{ width: '100%', display: 'block', objectFit: 'cover', maxHeight: 320 }}/>
+          <img src={post.image} alt={post.title} style={{ width: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center top', maxHeight: 320 }}/>
         </div>
       ) : null}
 

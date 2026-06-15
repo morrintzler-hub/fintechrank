@@ -172,7 +172,7 @@ function BlogWidget({ post, delay = 0 }) {
             </div>
           ) : post.image && post.image !== false ? (
             <div style={{ borderBottom: '1px solid rgba(188,202,195,0.2)' }}>
-              <img src={post.image} alt={post.title} style={{ width:'100%', display:'block', objectFit:'cover', maxHeight:240 }}/>
+              <img src={post.image} alt={post.title} style={{ width:'100%', display:'block', objectFit:'cover', objectPosition:'center center', maxHeight:240 }}/>
             </div>
           ) : (
             <div style={{
