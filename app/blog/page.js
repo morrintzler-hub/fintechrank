@@ -27,37 +27,37 @@ const POSTS = [
   {
     title: 'Fintech Fee Study 2026: We Compared 100 Platforms So You Don\'t Have To',
     cat: 'Research', color: '#fbbf24',
-    date: 'June 5, 2026', time: '15 min',
+    date: 'June 18, 2026', time: '15 min',
     excerpt: 'Original research analysing the true cost of using the leading Fintech platforms. The results will surprise you.',
   },
   {
     title: 'Best Crypto Exchanges 2026: Coinbase vs Binance vs Kraken vs Gemini',
     cat: 'Comparison', color: '#c084fc',
-    date: 'May 28, 2026', time: '11 min',
+    date: 'June 25, 2026', time: '11 min',
     excerpt: 'Security, fees, coin selection, and regulatory status compared across the four biggest names in crypto.',
   },
   {
     title: 'The Complete Guide to BNPL in 2026: Klarna vs Afterpay vs Affirm',
     cat: 'Guide', color: '#f87171',
-    date: 'May 20, 2026', time: '9 min',
+    date: 'July 2, 2026', time: '9 min',
     excerpt: 'Buy now pay later has changed shopping forever. Here is everything you need to know before using it.',
   },
   {
     title: 'Global Payroll Software 2026: Deel vs Gusto vs Rippling Compared',
     cat: 'Comparison', color: '#4ade80',
-    date: 'May 12, 2026', time: '8 min',
+    date: 'July 9, 2026', time: '8 min',
     excerpt: 'Hiring across borders? We break down the leading global payroll platforms on price, compliance, and ease of use.',
   },
   {
     title: 'Best Business Banking for Startups 2026: Brex vs Ramp vs Mercury',
     cat: 'Comparison', color: '#fb923c',
-    date: 'May 5, 2026', time: '10 min',
+    date: 'July 16, 2026', time: '10 min',
     excerpt: 'Three modern business banking platforms for high-growth startups — compared on credit limits, rewards, and integrations.',
   },
   {
     title: 'How to Choose a Payment Gateway in 2026: The Complete Guide',
     cat: 'Guide', color: '#38bdf8',
-    date: 'April 28, 2026', time: '13 min',
+    date: 'July 23, 2026', time: '13 min',
     excerpt: 'Everything a non-technical founder needs to know about choosing between Stripe, Adyen, Checkout.com, and PayPal.',
   },
 ]
