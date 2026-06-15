@@ -98,7 +98,7 @@ export default function HomePage() {
             delay={1}
           />
           <FeatureWidget
-            href="/blog/stripe-vs-paypal-2025"
+            href="/blog/stripe-vs-paypal-2026"
             tag="Research"
             variant="progress"
             title="Stripe vs PayPal 2026: The complete breakdown"

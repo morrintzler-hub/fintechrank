@@ -94,7 +94,7 @@ const POSTS = {
         type: 'text', text: "PayPal is a conversion tool as much as it is a payment processor. For consumer-facing businesses, especially in the US, the trust signal and one-click checkout that comes with PayPal's 430 million user base is worth paying more for."
       },
       {
-        type: 'text', text: "The best strategy for most e-commerce businesses in 2025 is to use Stripe as your primary payment processor and offer PayPal as an additional checkout option. The incremental conversion lift from PayPal typically pays for the integration cost within weeks."
+        type: 'text', text: "The best strategy for most e-commerce businesses in 2026 is to use Stripe as your primary payment processor and offer PayPal as an additional checkout option. The incremental conversion lift from PayPal typically pays for the integration cost within weeks."
       },
       {
         type: 'cta',
