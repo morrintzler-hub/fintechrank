@@ -2,14 +2,14 @@
 import { useParams } from 'next/navigation'
 
 const POSTS = {
-  'stripe-vs-paypal-2025': {
+  'stripe-vs-paypal-2026': {
     image: '/blog-stripe-vs-paypal.png',
-    title: "Stripe vs PayPal 2025: The Complete Comparison for Businesses",
-    date: "June 3, 2025",
+    title: "Stripe vs PayPal 2026: The Complete Comparison for Businesses",
+    date: "June 3, 2026",
     readTime: "12 min read",
     category: "Comparison",
     categoryColor: "#009e80",
-    excerpt: "The two biggest names in payments compared across fees, developer experience, global coverage, and which one is actually right for your business in 2025.",
+    excerpt: "The two biggest names in payments compared across fees, developer experience, global coverage, and which one is actually right for your business in 2026.",
     content: [
       {
         type: 'intro',
