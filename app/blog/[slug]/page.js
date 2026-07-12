@@ -237,6 +237,7 @@ const POSTS = {
       ]}
     ]
   }
+}
 export default function BlogPostPage() {
   const { slug } = useParams()
   const post = POSTS[slug]
