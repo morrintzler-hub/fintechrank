@@ -41,6 +41,7 @@ const POSTS = [
     title: 'BNPL Guide 2026: Klarna vs Afterpay vs Affirm vs Sezzle',
     slug: 'bnpl-guide-2026',
     published: true,
+    image: '/blog-bnpl-guide.png',
     cat: 'Guide', color: '#fbbf24',
     date: 'July 2, 2026', time: '9 min',
     excerpt: 'Buy now, pay later is now the default at most online retailers. Here is how the major providers actually differ.',

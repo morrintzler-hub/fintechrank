@@ -177,6 +177,7 @@ const POSTS = {
     ]
   },
   'bnpl-guide-2026': {
+    image: '/blog-bnpl-guide.png',
     title: "BNPL Guide 2026: Klarna vs Afterpay vs Affirm vs Sezzle",
     date: "July 2, 2026",
     readTime: "9 min read",
