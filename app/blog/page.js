@@ -20,8 +20,6 @@ const POSTS = [
     cat: 'Comparison', color: '#2563eb',
     date: 'June 9, 2026', time: '11 min',
     excerpt: "Three of Europe's most popular neobanks compared on fees, features, and everyday banking. The honest answer depends on who you are.",
-    slug: 'revolut-vs-wise-vs-monzo-2026',
-    published: true,
     image: '/blog-revolut-wise-monzo.png',
   },
   {

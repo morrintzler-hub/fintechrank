@@ -142,7 +142,102 @@ const POSTS = {
     ]
   }
 }
-
+,
+  'best-crypto-exchanges-2026': {
+    title: "Best Crypto Exchanges 2026: Coinbase vs Binance vs Kraken vs Bybit vs OKX",
+    date: "June 25, 2026",
+    readTime: "13 min read",
+    category: "Comparison",
+    categoryColor: "#c084fc",
+    excerpt: "Security, fees, coin selection, and regulatory status compared across the biggest names in crypto trading.",
+    content: [
+      { type: 'intro', text: "Choosing a crypto exchange in 2026 means balancing fees, liquidity, and regulatory safety. The cheapest exchange is rarely the most secure, and the most regulated rarely has the widest coin selection. Here is how the biggest global exchanges actually compare." },
+      { type: 'verdict', items: [
+        { label: 'Choose Coinbase if', text: 'you are new to crypto and want the most regulated, beginner-friendly experience in the US and UK.' },
+        { label: 'Choose Kraken if', text: 'you want a US-regulated exchange with lower fees than Coinbase and a strong security track record.' },
+        { label: 'Choose Binance if', text: 'you want the largest global liquidity and widest altcoin selection outside the US.' },
+        { label: 'Choose Bybit or OKX if', text: 'you are an active trader wanting deep derivatives liquidity outside the US and UK.' },
+      ]},
+      { type: 'h2', text: 'Regulatory standing' },
+      { type: 'text', text: "Coinbase and Kraken are the most heavily regulated, both accountable in the US with Coinbase listed on Nasdaq. Gemini holds a New York trust charter. Binance, Bybit, and OKX operate under lighter-touch regimes outside the US and UK, which explains their lower fees and wider coin selection but means less regulatory protection." },
+      { type: 'h2', text: 'Fees' },
+      { type: 'text', text: "Coinbase has the highest fees, often 1.5% or more on simple buys through the basic app, though Coinbase Advanced Trade brings this down significantly. Kraken and Binance both offer maker/taker fees starting near 0%. Bybit and OKX are similarly competitive, with futures fees as low as 0.02%." },
+      { type: 'h2', text: 'Coin selection' },
+      { type: 'text', text: "Binance and OKX offer the widest selection with 350+ coins each. Bybit goes further with 1000+ trading pairs. Coinbase, Kraken, and Gemini are more conservative, typically under 250 coins, prioritising regulatory compliance over breadth. For major coins this rarely matters. For smaller altcoins it matters a lot." },
+      { type: 'h2', text: 'Security track record' },
+      { type: 'text', text: "Coinbase, Kraken, and Gemini have never suffered a major exchange-level hack. Binance maintains a large insurance fund (SAFU) to cover losses. Bybit and OKX are newer with shorter track records, though both maintain proof-of-reserves systems for transparency." },
+      { type: 'h2', text: 'US availability' },
+      { type: 'text', text: "Coinbase, Kraken, and Gemini are fully available in the US. Binance operates a separate limited entity (Binance.US) for American users. Bybit and OKX do not serve US customers at all due to regulatory restrictions." },
+      { type: 'h2', text: 'The verdict' },
+      { type: 'text', text: "For most beginners in the US or UK, Coinbase remains the safest starting point despite higher fees. Once you are comfortable and fee-conscious, Kraken offers a similar safety profile at lower cost. For experienced traders outside the US wanting maximum liquidity and the widest coin selection, Binance, Bybit, and OKX are where the volume actually is." },
+      { type: 'cta', links: [
+        { label: 'Full Coinbase review', href: '/review/coinbase' },
+        { label: 'Full Kraken review', href: '/review/kraken' },
+        { label: 'Full Binance review', href: '/review/binance' },
+      ]}
+    ]
+  },
+  'bnpl-guide-2026': {
+    title: "BNPL Guide 2026: Klarna vs Afterpay vs Affirm vs Sezzle",
+    date: "July 2, 2026",
+    readTime: "9 min read",
+    category: "Guide",
+    categoryColor: "#fbbf24",
+    excerpt: "Buy now, pay later is now the default at most online retailers. Here is how the major providers actually differ and what the late fees really cost you.",
+    content: [
+      { type: 'intro', text: "Buy now, pay later has gone from a niche checkout option to a default expectation at most online retailers. Klarna, Afterpay, Affirm, and Sezzle collectively process tens of billions in transactions annually. They are not interchangeable - each has a different structure, fee model, and credit impact." },
+      { type: 'verdict', items: [
+        { label: 'Choose Klarna if', text: 'you want the widest retailer acceptance and flexible payment options including pay-in-30 and longer instalments.' },
+        { label: 'Choose Afterpay if', text: 'you want the simplest four-instalment model with no interest ever, as long as you pay on time.' },
+        { label: 'Choose Affirm if', text: 'you are buying something expensive and want longer financing with transparent fixed interest shown upfront.' },
+        { label: 'Choose Sezzle if', text: 'you want a BNPL option that reports to credit bureaus and helps build your credit history.' },
+      ]},
+      { type: 'h2', text: 'How the core model works' },
+      { type: 'text', text: "Klarna, Afterpay, and Sezzle all use a pay-in-4 model: the purchase splits into four equal instalments paid every two weeks, with no interest if you pay on time. Affirm works differently, offering longer financing terms of 3 to 36 months with a fixed interest rate disclosed before you commit - more like a traditional instalment loan than a split payment." },
+      { type: 'h2', text: 'Late fees' },
+      { type: 'text', text: "Afterpay caps late fees at 25% of the order value and pauses your account if you miss a payment rather than letting fees compound. Klarna's late fees vary by plan and region. Affirm does not charge late fees at all on most loans, instead reporting missed payments to credit bureaus which can hurt your credit score more directly than a fee." },
+      { type: 'h2', text: 'Credit impact' },
+      { type: 'text', text: "Most pay-in-4 providers including Klarna and Afterpay traditionally did not report on-time payments to credit bureaus, meaning responsible use did not build credit history. Sezzle has been most proactive about reporting positive payment history. Affirm's longer-term loans are more likely to appear on a credit report given their resemblance to traditional instalment credit." },
+      { type: 'h2', text: 'The verdict' },
+      { type: 'text', text: "For everyday smaller purchases where you can pay within six weeks, Afterpay's simple four-instalment model with capped late fees is the lowest-risk choice. For larger purchases where you genuinely need months to pay, Affirm's transparent upfront interest beats hidden fees elsewhere. Klarna is the safest default given its flexibility and retailer reach. Whichever you choose, treat BNPL as a cash flow tool, not a way to afford something you could not otherwise buy." },
+      { type: 'cta', links: [
+        { label: 'Full Klarna review', href: '/review/klarna' },
+        { label: 'Full Afterpay review', href: '/review/afterpay' },
+        { label: 'Full Affirm review', href: '/review/affirm' },
+      ]}
+    ]
+  },
+  'best-business-banking-startups-2026': {
+    title: "Best Business Banking for Startups 2026: Brex vs Ramp vs Mercury",
+    date: "July 9, 2026",
+    readTime: "10 min read",
+    category: "Comparison",
+    categoryColor: "#4ade80",
+    excerpt: "Three of the most popular neobanks for startups compared on features, fees, credit limits, and which stage of company each is actually built for.",
+    content: [
+      { type: 'intro', text: "Brex, Ramp, and Mercury have collectively become the default banking stack for venture-backed startups. But they were built for different problems. Brex started as a corporate card for companies that could not get credit elsewhere. Ramp was built as a spend management tool with cost-saving as its core promise. Mercury is a bank account first, with a clean API and no monthly fees. Choosing the wrong one is an easy mistake to make early." },
+      { type: 'verdict', items: [
+        { label: 'Choose Brex if', text: 'you are a venture-backed startup wanting high credit limits without a personal guarantee and strong travel rewards.' },
+        { label: 'Choose Ramp if', text: 'you want to actively reduce company spend with automated savings detection and smart expense controls.' },
+        { label: 'Choose Mercury if', text: 'you want a clean free business bank account with no monthly fees and a great API for finance automation.' },
+      ]},
+      { type: 'h2', text: 'Who each product is built for' },
+      { type: 'text', text: "Brex is designed for high-growth startups with VC backing - it historically required proof of venture funding or significant cash deposits. Ramp is more accessible, serving businesses of various sizes, and positions itself as a finance operations platform rather than just a card. Mercury is the most broadly accessible, available to almost any US business, and is particularly popular with early-stage founders who want great banking infrastructure without complexity." },
+      { type: 'h2', text: 'Credit limits and underwriting' },
+      { type: 'text', text: "Brex offers some of the highest credit limits in the startup banking space, underwritten against your company's cash balance and funding stage rather than your personal credit score. No personal guarantee is required, which matters for founders who want to keep personal and business liability separate. Ramp similarly underwrites against your business cash balance. Mercury is primarily a bank account - its card product is a charge card requiring full monthly payoff rather than a traditional credit card." },
+      { type: 'h2', text: 'Fees' },
+      { type: 'text', text: "Mercury has no monthly fees on its core product. Ramp has no monthly fees either. Brex has moved to a paid model for many features, with Brex Essentials free but core spend management features requiring a subscription. For cost-conscious early-stage startups, Mercury and Ramp have the lower barrier to entry." },
+      { type: 'h2', text: 'Rewards and cashback' },
+      { type: 'text', text: "Brex has historically offered strong rewards, particularly for travel and software purchases relevant to startups. Ramp focuses less on rewards and more on finding savings through spend analytics - the pitch is that it will save you more money by flagging wasteful spend than any rewards programme would return. Mercury's card offers modest cashback." },
+      { type: 'h2', text: 'The verdict' },
+      { type: 'text', text: "For pre-seed and seed startups wanting free banking with no complexity, Mercury is the right default. Once you have a team and significant monthly spend, Ramp's spend management tools start delivering real value. Brex makes most sense for Series A and beyond, when high credit limits, travel rewards, and dedicated support become meaningful. Many fast-growing startups end up using Mercury for banking and Ramp for expense management simultaneously - they are not mutually exclusive." },
+      { type: 'cta', links: [
+        { label: 'Full Brex review', href: '/review/brex' },
+        { label: 'Full Ramp review', href: '/review/ramp' },
+        { label: 'Full Mercury review', href: '/review/mercury' },
+      ]}
+    ]
+  }
 export default function BlogPostPage() {
   const { slug } = useParams()
   const post = POSTS[slug]
