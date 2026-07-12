@@ -268,6 +268,40 @@ const POSTS = {
         { label: 'Full Rippling review', href: '/review/rippling' },
       ]}
     ]
+  },
+  'how-to-choose-payment-gateway-2026': {
+    title: "How to Choose a Payment Gateway in 2026: The Complete Guide",
+    date: "July 23, 2026",
+    readTime: "13 min read",
+    category: "Guide",
+    categoryColor: "#38bdf8",
+    excerpt: "Everything a non-technical founder needs to know about choosing between Stripe, Adyen, Checkout.com, and PayPal.",
+    content: [
+      { type: 'intro', text: "Choosing a payment gateway is one of the most consequential technical decisions an e-commerce or SaaS business makes. Get it wrong and you are looking at months of re-integration work, potential revenue loss during migration, and a painful conversation with your engineering team. This guide cuts through the noise and tells you exactly what to look for and which product fits which situation." },
+      { type: 'verdict', items: [
+        { label: 'Choose Stripe if', text: 'you are building a developer-first product, SaaS subscription business, or marketplace and want the best API in the industry.' },
+        { label: 'Choose Adyen if', text: 'you are an enterprise or high-volume merchant needing local acquiring in multiple countries with a single integration.' },
+        { label: 'Choose Checkout.com if', text: 'you want enterprise-grade acceptance rates with more flexible commercial terms than Adyen.' },
+        { label: 'Choose PayPal if', text: 'you sell to consumers who already have PayPal and want to add it as an additional checkout option alongside your primary gateway.' },
+      ]},
+      { type: 'h2', text: 'What a payment gateway actually does' },
+      { type: 'text', text: "A payment gateway is the infrastructure that sits between your checkout page and the banking system. When a customer enters their card details, the gateway encrypts that data, routes it to the card network (Visa, Mastercard), checks with the issuing bank for approval, and returns an accept or decline response in seconds. The gateway also handles fraud screening, currency conversion, and settlement of funds to your bank account. What most businesses call their payment gateway is often a combination of a gateway, a payment processor, and an acquirer - modern providers like Stripe and Adyen bundle all three into one product." },
+      { type: 'h2', text: 'The most important factor: where your customers are' },
+      { type: 'text', text: "Local acquiring is the single biggest factor affecting acceptance rates and fees that most businesses overlook. When a UK customer pays on your site and your acquirer is based in the US, the transaction is processed cross-border, which increases decline rates and often triggers additional fees. Stripe has local acquiring in most major markets now. Adyen has the broadest local acquiring network globally. If you are selling primarily in one market, almost any provider works fine. If you are selling across multiple regions, local acquiring capability should be your primary filter." },
+      { type: 'h2', text: 'Pricing models explained' },
+      { type: 'text', text: "Most gateways use one of three pricing models. Blended pricing (like Stripe's standard 1.5% plus 25p) combines all fees into one simple rate - easy to understand but often more expensive at higher volumes. Interchange plus pricing charges you the actual card network cost plus a fixed markup - more complex but typically cheaper once you are processing over 50,000 per month. Custom or negotiated pricing is what Adyen and Checkout.com offer at scale, where your rate is negotiated based on volume, industry, and chargeback history." },
+      { type: 'h2', text: 'Developer experience vs commercial terms' },
+      { type: 'text', text: "Stripe has the best developer experience in the industry by a meaningful margin. Its documentation, SDKs, and testing tools are class-leading. If your engineering team is evaluating options, they will almost always prefer Stripe. Adyen has a more complex integration but offers more granular control over routing, retry logic, and fraud rules - valuable for high-volume merchants with dedicated payment operations teams. Checkout.com sits between the two, with good documentation and more negotiating flexibility on commercial terms than Adyen typically offers at mid-market volumes." },
+      { type: 'h2', text: 'Fraud and chargebacks' },
+      { type: 'text', text: "All major gateways include basic fraud screening. Stripe Radar uses machine learning trained on its global transaction network. Adyen has RevenueProtect, which is highly configurable for merchants with specific fraud patterns. If fraud is a significant concern for your business (common in digital goods, travel, and high-value items), look carefully at the fraud tooling, chargeback liability policies, and whether the provider offers 3D Secure support in a way that minimises friction for legitimate customers." },
+      { type: 'h2', text: 'The verdict' },
+      { type: 'text', text: "For most startups and SMBs, Stripe is the right default. The developer experience is unmatched, pricing is transparent, and the product covers almost every payment use case. As you scale past a few million in annual processing volume, it is worth getting a quote from Checkout.com to compare rates. At enterprise volumes, Adyen's local acquiring network and operational tooling start to justify the more complex integration. PayPal is worth adding as a secondary checkout option if you sell to consumers, but rarely makes sense as your primary gateway." },
+      { type: 'cta', links: [
+        { label: 'Full Stripe review', href: '/review/stripe' },
+        { label: 'Full Adyen review', href: '/review/adyen' },
+        { label: 'Full Checkout.com review', href: '/review/checkout-com' },
+      ]}
+    ]
   }
 export default function BlogPostPage() {
   const { slug } = useParams()

@@ -63,6 +63,8 @@ const POSTS = [
   },
   {
     title: 'How to Choose a Payment Gateway in 2026: The Complete Guide',
+    slug: 'how-to-choose-payment-gateway-2026',
+    published: true,
     cat: 'Guide', color: '#38bdf8',
     date: 'July 23, 2026', time: '13 min',
     excerpt: 'Everything a non-technical founder needs to know about choosing between Stripe, Adyen, Checkout.com, and PayPal.',
