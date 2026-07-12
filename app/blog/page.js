@@ -22,12 +22,7 @@ const POSTS = [
     excerpt: "Three of Europe's most popular neobanks compared on fees, features, and everyday banking. The honest answer depends on who you are.",
     image: '/blog-revolut-wise-monzo.png',
   },
-  {
-    title: 'Fintech Fee Study 2026: We Compared 100 Platforms So You Don\'t Have To',
-    cat: 'Research', color: '#fbbf24',
-    date: 'June 18, 2026', time: '15 min',
-    excerpt: 'Original research analysing the true cost of using the leading Fintech platforms. The results will surprise you.',
-  },
+
   {
     title: 'Best Crypto Exchanges 2026: Coinbase vs Binance vs Kraken vs Bybit vs OKX',
     slug: 'best-crypto-exchanges-2026',
