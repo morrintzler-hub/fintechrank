@@ -237,8 +237,7 @@ const POSTS = {
         { label: 'Full Mercury review', href: '/review/mercury' },
       ]}
     ]
-  }
-},
+  },
   'global-payroll-2026': {
     title: "Global Payroll Software 2026: Deel vs Gusto vs Rippling Compared",
     date: "July 9, 2026",
