@@ -32,6 +32,7 @@ const POSTS = [
     title: 'Best Crypto Exchanges 2026: Coinbase vs Binance vs Kraken vs Bybit vs OKX',
     slug: 'best-crypto-exchanges-2026',
     published: true,
+    image: '/blog-crypto-exchanges.png',
     cat: 'Comparison', color: '#c084fc',
     date: 'June 25, 2026', time: '13 min',
     excerpt: 'Security, fees, coin selection, and regulatory status compared across the biggest names in crypto trading.',

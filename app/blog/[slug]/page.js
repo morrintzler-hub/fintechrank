@@ -144,6 +144,7 @@ const POSTS = {
 }
 ,
   'best-crypto-exchanges-2026': {
+    image: '/blog-crypto-exchanges.png',
     title: "Best Crypto Exchanges 2026: Coinbase vs Binance vs Kraken vs Bybit vs OKX",
     date: "June 25, 2026",
     readTime: "13 min read",
