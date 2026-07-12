@@ -47,6 +47,8 @@ const POSTS = [
   },
   {
     title: 'Global Payroll Software 2026: Deel vs Gusto vs Rippling Compared',
+    slug: 'global-payroll-2026',
+    published: true,
     cat: 'Comparison', color: '#4ade80',
     date: 'July 9, 2026', time: '8 min',
     excerpt: 'Hiring across borders? We break down the leading global payroll platforms on price, compliance, and ease of use.',
