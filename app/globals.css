@@ -585,3 +585,16 @@ footer { border-top:1px solid var(--border);padding:2.5rem;max-width:1400px;marg
 @media (max-width: 768px) {
   .nav-logo img { height: 60px; }
 }
+
+.blog-content { font-family: var(--font); font-size: 16px; line-height: 1.8; color: var(--text); }
+.blog-content h2 { font-family: var(--heading); font-size: 1.4rem; font-weight: 700; color: var(--text); margin: 2.5rem 0 1rem; letter-spacing: -.02em; display: block; }
+.blog-content h3 { font-family: var(--heading); font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 2rem 0 .75rem; display: block; }
+.blog-content p { margin: 0 0 1.4rem; color: var(--muted); line-height: 1.8; display: block; }
+.blog-content strong { color: var(--text); font-weight: 700; }
+.blog-content ul { margin: 1rem 0 1.4rem 1.5rem; display: block; }
+.blog-content li { margin-bottom: .6rem; color: var(--muted); line-height: 1.7; display: list-item; }
+.blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 14px; display: table; }
+.blog-content td { padding: 10px 14px; border: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+.blog-content tr:first-child td { background: var(--bg2); font-weight: 600; color: var(--text); }
+.blog-content tr:nth-child(even) td { background: var(--bg); }
+.blog-content br { display: block; content: ""; margin: 0.5rem 0; }
