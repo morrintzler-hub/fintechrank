@@ -219,7 +219,7 @@ export default function HeroSection({
             textTransform: 'uppercase', color: '#565e74',
             fontFamily: 'Manrope, sans-serif',
           }}>
-            Independent Fintech Research
+            {''}
           </span>
         </div>
 
