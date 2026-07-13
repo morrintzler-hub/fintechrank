@@ -198,30 +198,7 @@ export default function HeroSection({
         alignItems: 'center', textAlign: 'center',
       }}>
 
-        {/* Eyebrow pill - hidden */}
-        <div style={{ display:'none',
-          display: 'inline-flex', alignItems: 'center', gap: 8,
-          background: 'rgba(255,255,255,0.7)',
-          backdropFilter: 'blur(12px)',
-          border: '1px solid rgba(0,105,84,0.12)',
-          borderRadius: 9999,
-          padding: '6px 16px',
-          marginBottom: 32,
-        }}>
-          <span style={{
-            width: 6, height: 6, borderRadius: '50%',
-            background: ACCENT,
-            boxShadow: `0 0 0 3px rgba(0,132,137,0.2)`,
-            animation: 'pulse-dot 2s ease infinite',
-          }}/>
-          <span style={{
-            fontSize: 10, fontWeight: 700, letterSpacing: '0.18em',
-            textTransform: 'uppercase', color: '#565e74',
-            fontFamily: 'Manrope, sans-serif',
-          }}>
-            {''}
-          </span>
-        </div>
+
 
         {/* Headline */}
         <h1 style={{
