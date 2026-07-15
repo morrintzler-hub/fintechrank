@@ -3,7 +3,7 @@ import HamburgerMenu from '../components/HamburgerMenu'
 import { headers } from 'next/headers'
 
 export const metadata = {
-  metadataBase: new URL('https://www.thefintechrank.com'),
+  metadataBase: new URL('https://thefintechrank.com'),
   verification: {
     google: 'Lk5FsVy1yXc_kyNMrwCl3Rgf7uIvxevkktmEqMjmFlA',
   },
@@ -16,13 +16,13 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://www.thefintechrank.com',
+    url: 'https://thefintechrank.com',
     siteName: 'The Fintech Rank',
     title: "The Fintech Rank — Compare the World's Leading Fintech Companies",
     description: "Unbiased ratings, verified pricing, and side-by-side feature comparisons.",
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://www.thefintechrank.com' },
+  alternates: { canonical: 'https://thefintechrank.com' },
 }
 
 export default function RootLayout({ children }) {

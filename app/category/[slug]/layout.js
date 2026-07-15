@@ -15,9 +15,9 @@ export async function generateMetadata({ params }) {
   return {
     title,
     description: desc,
-    openGraph: { title, description: desc, url: `https://www.thefintechrank.com/category/${slug}`, siteName: 'The Fintech Rank' },
+    openGraph: { title, description: desc, url: `https://thefintechrank.com/category/${slug}`, siteName: 'The Fintech Rank' },
     twitter: { card: 'summary_large_image', title, description: desc },
-    alternates: { canonical: `https://www.thefintechrank.com/category/${slug}` },
+    alternates: { canonical: `https://thefintechrank.com/category/${slug}` },
   }
 }
 
