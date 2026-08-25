@@ -77,6 +77,7 @@ const POSTS = [
     title: 'Stripe vs Adyen 2026: Which Payment Platform Is Right for Your Business?',
     slug: 'stripe-vs-adyen-2026',
     published: true,
+    image: '/blog-stripe-vs-adyen-2026.png',
     cat: 'Comparison', color: '#2563eb',
     date: 'August 12, 2026', time: '12 min',
     excerpt: 'Two of the most powerful payment platforms compared honestly. Stripe wins on developer experience. Adyen wins on global acceptance rates.',
