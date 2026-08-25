@@ -98,12 +98,12 @@ export default function HomePage() {
             delay={1}
           />
           <FeatureWidget
-            href="/blog/stripe-vs-paypal-2026"
-            tag="Research"
+            href={LATEST_POST.href}
+            tag={LATEST_POST.tag}
             variant="progress"
-            title="Stripe vs PayPal 2026: The complete breakdown"
-            subtitle="New article · 12 minute read"
-            description="Fees, developer experience, international coverage, and checkout conversion compared. Our most in-depth payment platform analysis."
+            title={LATEST_POST.title}
+            subtitle={LATEST_POST.subtitle}
+            description={LATEST_POST.description}
             cta="Read the article"
             delay={2}
           />
