@@ -13,6 +13,14 @@ const SUGGEST_PILLS = [
   { type:'category', value:'business',   label:'Business',   href:'/category/business'   },
 ]
 
+const LATEST_POST = {
+  href: '/blog/coinbase-vs-kraken-2026',
+  tag: 'Comparison',
+  title: 'Coinbase vs Kraken 2026: Which regulated exchange should you use?',
+  subtitle: 'New article · 10 minute read',
+  description: 'The two most trusted regulated crypto exchanges compared on fees, coin selection, security, and which type of user each is built for.',
+}
+
 export default function HomePage() {
   const [search, setSearch]         = useState('')
   const [counts, setCounts]         = useState({ all: 100 })
