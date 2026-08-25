@@ -287,7 +287,8 @@ function BlogWidget({ post, delay = 0 }) {
 
 export default function BlogPage() {
   const [showAll, setShowAll] = useState(false)
-  const visible = showAll ? POSTS : POSTS.slice(0, 4)
+  const SORTED = [...POSTS].sort((a, b) => new Date(b.date) - new Date(a.date))
+  const visible = showAll ? SORTED : SORTED.slice(0, 4)
 
   return (
     <div style={{ background: '#f7f9fb', minHeight: '100vh', position: 'relative', zIndex: 1 }}>
