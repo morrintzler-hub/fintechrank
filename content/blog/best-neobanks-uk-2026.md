@@ -4,6 +4,7 @@ date: "August 19, 2026"
 readTime: "11 min read"
 category: "Comparison"
 categoryColor: "#00c4a0"
+image: "/blog-neobanks-uk-2026.png"
 excerpt: "Four of the UK's most popular digital banks compared on features, fees, customer support, and everyday usability. Which one should be your main bank in 2026?"
 ---
 

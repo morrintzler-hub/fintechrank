@@ -4,6 +4,7 @@ date: "August 26, 2026"
 readTime: "10 min read"
 category: "Comparison"
 categoryColor: "#c084fc"
+image: "/blog-coinbase-vs-kraken-2026.png"
 excerpt: "The two most trusted regulated crypto exchanges compared on fees, coin selection, security, and which type of user each is actually built for."
 ---
 
