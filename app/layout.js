@@ -92,6 +92,7 @@ export default function RootLayout({ children }) {
         </nav>
 
         <main>{children}</main>
+        <CookieBanner/>
 
         <footer>
           <div>
