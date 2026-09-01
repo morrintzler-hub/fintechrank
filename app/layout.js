@@ -1,4 +1,5 @@
 import './globals.css'
+import CookieBanner from '../components/CookieBanner'
 import HamburgerMenu from '../components/HamburgerMenu'
 import { headers } from 'next/headers'
 
