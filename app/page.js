@@ -14,11 +14,11 @@ const SUGGEST_PILLS = [
 ]
 
 const LATEST_POST = {
-  href: '/blog/coinbase-vs-kraken-2026',
+  href: '/blog/wise-vs-payoneer-2026',
   tag: 'Comparison',
-  title: 'Coinbase vs Kraken 2026: Which regulated exchange should you use?',
+  title: 'Wise vs Payoneer 2026: Which is better for freelancers?',
   subtitle: 'New article · 10 minute read',
-  description: 'The two most trusted regulated crypto exchanges compared on fees, coin selection, security, and which type of user each is built for.',
+  description: 'Two of the most popular platforms for receiving international payments compared. Wise wins on exchange rates. Payoneer wins on marketplace integrations.',
 }
 
 export default function HomePage() {
