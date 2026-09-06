@@ -61,6 +61,7 @@ const POSTS = [
     title: 'Wise vs Payoneer 2026: Which Is Better for Freelancers and Remote Workers?',
     slug: 'wise-vs-payoneer-2026',
     published: true,
+    image: '/blog-wise-vs-payoneer-2026.png',
     cat: 'Comparison', color: '#2563eb',
     date: 'September 16, 2026', time: '10 min',
     excerpt: 'Two of the most popular platforms for receiving international payments compared. Wise wins on exchange rates. Payoneer wins on marketplace integrations.',

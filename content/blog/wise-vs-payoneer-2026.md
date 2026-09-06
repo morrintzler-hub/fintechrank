@@ -4,6 +4,7 @@ date: "September 16, 2026"
 readTime: "10 min read"
 category: "Comparison"
 categoryColor: "#2563eb"
+image: "/blog-wise-vs-payoneer-2026.png"
 excerpt: "Two of the most popular platforms for receiving international payments compared honestly. Wise wins on exchange rates. Payoneer wins on marketplace integrations. Here is how to choose."
 ---
 
