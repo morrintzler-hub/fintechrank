@@ -70,6 +70,7 @@ const POSTS = [
     title: 'Best Business Bank Accounts in the UK 2026: Compared and Ranked',
     slug: 'best-business-bank-account-uk-2026',
     published: true,
+    image: '/blog-business-bank-uk-2026.png',
     cat: 'Comparison', color: '#4ade80',
     date: 'September 9, 2026', time: '11 min',
     excerpt: 'Starling, Monzo Business, Tide, Revolut Business, and Barclays compared on fees, features, and which type of UK business each is built for.',

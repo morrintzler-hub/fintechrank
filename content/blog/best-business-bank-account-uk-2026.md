@@ -4,6 +4,7 @@ date: "September 9, 2026"
 readTime: "11 min read"
 category: "Comparison"
 categoryColor: "#4ade80"
+image: "/blog-business-bank-uk-2026.png"
 excerpt: "Starling, Monzo Business, Tide, Revolut Business, and Barclays compared on fees, features, and which type of UK business each is actually built for."
 ---
 
