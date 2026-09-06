@@ -4,6 +4,7 @@ date: "September 2, 2026"
 readTime: "12 min read"
 category: "Comparison"
 categoryColor: "#fbbf24"
+image: "/blog-investing-apps-uk-2026.png"
 excerpt: "Commission-free stock trading, ISAs, and robo-advisors compared. Freetrade, Trading 212, eToro, Hargreaves Lansdown, and Vanguard reviewed honestly."
 ---
 

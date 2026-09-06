@@ -79,6 +79,7 @@ const POSTS = [
     title: 'Best Investing Apps in the UK 2026: Compared and Ranked',
     slug: 'best-investing-apps-uk-2026',
     published: true,
+    image: '/blog-investing-apps-uk-2026.png',
     cat: 'Comparison', color: '#fbbf24',
     date: 'September 2, 2026', time: '12 min',
     excerpt: 'Freetrade, Trading 212, eToro, Hargreaves Lansdown, and Vanguard compared on ISA fees, stock selection, and which investor each is built for.',
