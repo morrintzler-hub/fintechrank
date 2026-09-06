@@ -1,6 +1,4 @@
 'use client'
-import CompanyNews from '../../../components/CompanyNews'
-import CompanyFAQ from '../../../components/CompanyFAQ'
 import { useEffect, useState } from 'react'
 import { supabase } from '../../../lib/supabase'
 
@@ -315,18 +313,6 @@ High = pricing/fees numbers wrong. Medium = features/availability. Low = wording
             </div>
           </div>
         )}
-
-        {/* Latest News */}
-        <div className="fade-up" style={{marginBottom:'2rem'}}>
-          <div style={{fontSize:11,fontWeight:600,letterSpacing:'.12em',textTransform:'uppercase',color:'var(--dim)',marginBottom:'1rem'}}>Latest news</div>
-          <CompanyNews company={c}/>
-        </div>
-
-        {/* FAQ */}
-        <div className="fade-up" style={{marginBottom:'2rem'}}>
-          <div style={{fontSize:11,fontWeight:600,letterSpacing:'.12em',textTransform:'uppercase',color:'var(--dim)',marginBottom:'1rem'}}>Frequently asked questions</div>
-          <CompanyFAQ slug={slug}/>
-        </div>
 
         {/* Report trigger */}
         {!submitted ? (
