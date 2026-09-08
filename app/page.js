@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import HeroSection from '../components/HeroSection'
 import FeatureWidget from '../components/FeatureWidget'
+import CookieBanner from '../components/CookieBanner'
 
 const SUGGEST_PILLS = [
   { type:'category', value:'payments',   label:'Payments',   href:'/category/payments'   },
@@ -46,6 +47,7 @@ export default function HomePage() {
   }
 
   return (
+    <>
     <div style={{ background: '#f7f9fb', minHeight: '100vh' }}>
 
       {/* Hero with canvas particle system */}
@@ -263,5 +265,7 @@ export default function HomePage() {
       </div>
 
     </div>
+    <CookieBanner/>
+    </>
   )
 }
