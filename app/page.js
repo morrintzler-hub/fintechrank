@@ -14,11 +14,11 @@ const SUGGEST_PILLS = [
 ]
 
 const LATEST_POST = {
-  href: '/blog/wise-vs-payoneer-2026',
+  href: '/blog/tradingview-review-2026',
   tag: 'Comparison',
-  title: 'Wise vs Payoneer 2026: Which is better for freelancers?',
+  title: 'TradingView Review 2026: Is it worth it for retail investors?',
   subtitle: 'New article · 10 minute read',
-  description: 'Two of the most popular platforms for receiving international payments compared. Wise wins on exchange rates. Payoneer wins on marketplace integrations.',
+  description: 'TradingView has 50 million users and the best charting tools available. But is the free plan enough? Here is the honest breakdown.',
 }
 
 export default function HomePage() {

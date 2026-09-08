@@ -58,6 +58,22 @@ const POSTS = [
     excerpt: 'Three of the most popular neobanks for startups compared on features, fees, and which stage of company each is built for.',
   },
   {
+    title: 'TradingView Review 2026: Is It Worth It for Retail Investors?',
+    slug: 'tradingview-review-2026',
+    published: true,
+    cat: 'Guide', color: '#fbbf24',
+    date: 'September 23, 2026', time: '9 min',
+    excerpt: 'TradingView has 50 million users and the best charting tools for retail investors. But the free plan has real limitations. Here is the honest review.',
+  },
+  {
+    title: 'Best Prediction Markets 2026: Kalshi vs Polymarket vs PredictIt Compared',
+    slug: 'best-prediction-markets-2026',
+    published: true,
+    cat: 'Guide', color: '#c084fc',
+    date: 'September 8, 2026', time: '10 min',
+    excerpt: 'Prediction markets let you trade on real-world events. Here is how the major platforms compare on regulation, fees, and available markets.',
+  },
+  {
     title: 'Wise vs Payoneer 2026: Which Is Better for Freelancers and Remote Workers?',
     slug: 'wise-vs-payoneer-2026',
     published: true,
