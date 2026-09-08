@@ -1,6 +1,5 @@
 import './globals.css'
-import dynamic from 'next/dynamic'
-const CookieBanner = dynamic(() => import('../components/CookieBanner'), { ssr: false })
+import CookieBanner from '../components/CookieBanner'
 import HamburgerMenu from '../components/HamburgerMenu'
 import { headers } from 'next/headers'
 
