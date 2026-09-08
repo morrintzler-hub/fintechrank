@@ -28,7 +28,7 @@ export default function CookieBanner() {
   return (
     <div style={{
       position: 'fixed', bottom: 24, left: '50%', transform: 'translateX(-50%)',
-      zIndex: 9999, width: 'calc(100% - 48px)', maxWidth: 520,
+      zIndex: 9999, width: 'calc(100% - 48px)', maxWidth: 780,
       background: '#1a1d23', borderRadius: 12, padding: '16px 20px',
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       gap: 16, boxShadow: '0 8px 32px rgba(0,0,0,0.24)', flexWrap: 'wrap',
