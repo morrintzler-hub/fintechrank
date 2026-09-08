@@ -6,25 +6,15 @@ export default function CookieBanner() {
 
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent')
-    if (consent) {
-      if (consent === 'accepted') enableGA()
-      return
-    }
+    if (consent) return
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone
     const isEU = tz.startsWith('Europe/') || ['Atlantic/Azores','Atlantic/Canary','Atlantic/Madeira'].includes(tz)
     if (isEU) setVisible(true)
-    else { localStorage.setItem('cookie-consent', 'accepted'); enableGA() }
   }, [])
-
-  function enableGA() {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('consent', 'update', { analytics_storage: 'granted' })
-    }
-  }
 
   function accept() {
     localStorage.setItem('cookie-consent', 'accepted')
-    enableGA()
+    if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'granted' })
     setVisible(false)
   }
 
