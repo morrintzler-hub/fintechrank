@@ -21,12 +21,20 @@ const URLS = [
     'figure','earnin','marqeta','sezzle','afterpay','consensys','block','izettle',
     'mercado-pago','paytm','plaid','stash','toast','wise-business','nuvei',
     'crypto-com-exchange','bybit','okx','charles-schwab','fidelity','ally-bank',
-    'rippling','expensify'
+    'rippling','expensify',
+    'tradingview','kalshi','polymarket','seeking-alpha','morningstar',
+    'etoro-options','numerai','tipranks','intuit','paxos',
+    'interactive-brokers','vanguard','etoro-us','monese','vivid-money',
+    'starling-business','klarna-bank','zilch','codat','airbase','payhawk'
   ].map(s => `${HOST}/review/${s}`),
   ...['payments','banking','investing','crypto','lending','business'].map(c => `${HOST}/category/${c}`),
   ...['stripe-vs-paypal-2026','revolut-vs-wise-vs-monzo-2026','best-crypto-exchanges-2026',
       'bnpl-guide-2026','best-business-banking-startups-2026','global-payroll-2026',
-      'how-to-choose-payment-gateway-2026'].map(b => `${HOST}/blog/${b}`),
+      'how-to-choose-payment-gateway-2026',
+    'stripe-vs-adyen-2026','best-neobanks-uk-2026','coinbase-vs-kraken-2026',
+    'best-investing-apps-uk-2026','best-business-bank-account-uk-2026',
+    'wise-vs-payoneer-2026','best-prediction-markets-2026',
+    'tradingview-review-2026'].map(b => `${HOST}/blog/${b}`),
 ]
 
 export async function POST() {
