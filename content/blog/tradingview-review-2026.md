@@ -4,6 +4,7 @@ date: "September 23, 2026"
 readTime: "9 min read"
 category: "Guide"
 categoryColor: "#fbbf24"
+image: "/blog-tradingview-review-2026.png"
 excerpt: "TradingView has 50 million users and the best charting tools available to retail investors. But the free plan has real limitations and the paid plans are expensive. Here is the honest review."
 ---
 

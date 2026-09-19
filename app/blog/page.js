@@ -61,6 +61,7 @@ const POSTS = [
     title: 'TradingView Review 2026: Is It Worth It for Retail Investors?',
     slug: 'tradingview-review-2026',
     published: true,
+    image: '/blog-tradingview-review-2026.png',
     cat: 'Guide', color: '#fbbf24',
     date: 'September 23, 2026', time: '9 min',
     excerpt: 'TradingView has 50 million users and the best charting tools for retail investors. But the free plan has real limitations. Here is the honest review.',
