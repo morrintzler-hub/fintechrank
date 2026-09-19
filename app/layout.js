@@ -7,6 +7,7 @@ export const metadata = {
   metadataBase: new URL('https://thefintechrank.com'),
   verification: {
     google: 'Lk5FsVy1yXc_kyNMrwCl3Rgf7uIvxevkktmEqMjmFlA',
+  other: { 'impact-site-verification': '51ac57bc-5250-4a56-9bac-cb714e5be838' },
   },
   title: {
     default: "The Fintech Rank — Compare the World's Leading Fintech Companies",
