@@ -7,7 +7,6 @@ export const metadata = {
   metadataBase: new URL('https://thefintechrank.com'),
   verification: {
     google: 'Lk5FsVy1yXc_kyNMrwCl3Rgf7uIvxevkktmEqMjmFlA',
-  other: { 'impact-site-verification': '51ac57bc-5250-4a56-9bac-cb714e5be838' },
   },
   title: {
     default: "The Fintech Rank — Compare the World's Leading Fintech Companies",
@@ -35,6 +34,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name='impact-site-verification' value='51ac57bc-5250-4a56-9bac-cb714e5be838'/>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
