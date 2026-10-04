@@ -34,7 +34,7 @@ const URLS = [
     'stripe-vs-adyen-2026','best-neobanks-uk-2026','coinbase-vs-kraken-2026',
     'best-investing-apps-uk-2026','best-business-bank-account-uk-2026',
     'wise-vs-payoneer-2026','best-prediction-markets-2026',
-    'tradingview-review-2026'].map(b => `${HOST}/blog/${b}`),
+    'tradingview-review-2026','best-crypto-wallet-2026'].map(b => `${HOST}/blog/${b}`),
 ]
 
 export async function POST() {
