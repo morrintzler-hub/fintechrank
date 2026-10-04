@@ -15,11 +15,11 @@ const SUGGEST_PILLS = [
 ]
 
 const LATEST_POST = {
-  href: '/blog/tradingview-review-2026',
-  tag: 'Comparison',
-  title: 'TradingView Review 2026: Is it worth it for retail investors?',
-  subtitle: 'New article · 10 minute read',
-  description: 'TradingView has 50 million users and the best charting tools available. But is the free plan enough? Here is the honest breakdown.',
+  href: '/blog/best-crypto-wallet-2026',
+  tag: 'Guide',
+  title: 'Best Crypto Wallets 2026: Hardware vs Software vs Exchange Wallets Compared',
+  subtitle: 'New article · 11 minute read',
+  description: 'Not your keys, not your coins. Here is how hardware wallets, software wallets, and exchange custody actually differ — and which is right for how much crypto you hold.',
 }
 
 export default function HomePage() {

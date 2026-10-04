@@ -136,6 +136,15 @@ const POSTS = [
     date: 'July 23, 2026', time: '13 min',
     excerpt: 'Everything a non-technical founder needs to know about choosing between Stripe, Adyen, Checkout.com, and PayPal.',
   },
+  {
+    title: 'Best Crypto Wallets 2026: Hardware vs Software vs Exchange Wallets Compared',
+    slug: 'best-crypto-wallet-2026',
+    published: true,
+    cat: 'Guide', color: '#c084fc',
+    date: 'October 7, 2026', time: '11 min',
+    excerpt: 'Not your keys, not your coins. How hardware wallets, software wallets, and exchange custody actually differ — and which is right for your portfolio size.',
+    image: '/blog-best-crypto-wallet-2026.png',
+  },
 ]
 
 // Hero SVG image for the published Stripe vs PayPal post
