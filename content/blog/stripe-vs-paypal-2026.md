@@ -18,7 +18,7 @@ They are not interchangeable. They were built for different customers, optimised
 
 **Choose PayPal if** you are selling physical products to consumers, particularly in markets where PayPal has high brand recognition, and you want to add it as an additional checkout option alongside a primary gateway.
 
-**Use both if** you are a high-volume e-commerce business — Stripe as your primary gateway and PayPal as an alternative checkout button that captures buyers who prefer not to enter card details.
+**Use both if** you are a high-volume e-commerce business - Stripe as your primary gateway and PayPal as an alternative checkout button that captures buyers who prefer not to enter card details.
 
 ## Fees compared
 
@@ -34,13 +34,13 @@ Stripe has the best developer experience of any payment company in the world. It
 
 PayPal's developer experience is functional but noticeably behind. Documentation has improved significantly but remains less comprehensive. Integration typically takes longer, and the older PayPal SDK versions still widely referenced in tutorials can cause confusion.
 
-If your engineering team is evaluating the two options, they will almost always prefer Stripe. This preference has real cost implications — faster integration, fewer bugs, and less ongoing maintenance.
+If your engineering team is evaluating the two options, they will almost always prefer Stripe. This preference has real cost implications - faster integration, fewer bugs, and less ongoing maintenance.
 
 ## Checkout conversion
 
 PayPal's most significant advantage is checkout conversion for consumer transactions. Studies consistently show that offering PayPal as a checkout option alongside card payment increases conversion by 5-15% for consumer e-commerce, because buyers who prefer not to enter their card details on an unfamiliar site will complete a PayPal-funded purchase instead.
 
-For a business doing £1 million in annual revenue, a 10% conversion lift on PayPal-eligible transactions could be worth £50,000 to £100,000 in recovered revenue — far exceeding any fee differential.
+For a business doing £1 million in annual revenue, a 10% conversion lift on PayPal-eligible transactions could be worth £50,000 to £100,000 in recovered revenue - far exceeding any fee differential.
 
 ## Global coverage
 
@@ -54,7 +54,7 @@ PayPal offers recurring billing through its Subscriptions API, but it is less fe
 
 ## Fraud and disputes
 
-Stripe Radar uses machine learning trained on its global transaction volume to flag suspicious transactions. Its rules engine allows custom logic — blocking transactions from specific countries or requiring 3D Secure for high-value orders.
+Stripe Radar uses machine learning trained on its global transaction volume to flag suspicious transactions. Its rules engine allows custom logic - blocking transactions from specific countries or requiring 3D Secure for high-value orders.
 
 PayPal has built-in buyer protection, which is a double-edged sword for merchants. Buyers can initiate chargebacks directly through PayPal in addition to through their card issuer, which can increase dispute volume. PayPal Seller Protection provides coverage for eligible transactions, but the qualifying criteria require careful attention.
 

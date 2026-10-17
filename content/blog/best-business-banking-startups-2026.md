@@ -23,13 +23,13 @@ Many fast-growing companies use Mercury for banking and Ramp for expense managem
 
 **Mercury** was built as a bank account for startups that traditional banks would not take seriously. Before Mercury, founders with a Delaware C-corp, no revenue, and six months of runway often struggled to open a business bank account at Chase or Wells Fargo. Mercury solved this: clean online application, approval within days, no minimum balance, no monthly fees, and a proper API that integrates with accounting software.
 
-**Ramp** was built on a specific thesis: companies waste a predictable percentage of their SaaS spend on unused subscriptions, duplicate tools, and unoptimised vendor contracts. Ramp's core pitch is not a better corporate card — it is that they will save you money. The platform monitors spend, identifies waste, and surfaces savings recommendations. It enforces spend controls: department budgets, merchant blocking, approval workflows, and real-time visibility.
+**Ramp** was built on a specific thesis: companies waste a predictable percentage of their SaaS spend on unused subscriptions, duplicate tools, and unoptimised vendor contracts. Ramp's core pitch is not a better corporate card - it is that they will save you money. The platform monitors spend, identifies waste, and surfaces savings recommendations. It enforces spend controls: department budgets, merchant blocking, approval workflows, and real-time visibility.
 
 **Brex** started as a corporate card for startups that could not get credit. Traditional corporate cards require a personal guarantee from the founder. Brex underwrote cards against company cash balance and funding stage instead, offering limits that scaled with runway rather than the founder's personal credit score.
 
 ## Credit limits and underwriting
 
-**Brex** offers credit limits that can reach into the millions for well-funded companies. No personal guarantee is required — ever. For a founder with $5 million in the bank from a Series A, Brex can offer limits far above what any traditional corporate card would provide based on the company's short operating history.
+**Brex** offers credit limits that can reach into the millions for well-funded companies. No personal guarantee is required - ever. For a founder with $5 million in the bank from a Series A, Brex can offer limits far above what any traditional corporate card would provide based on the company's short operating history.
 
 **Ramp** underwrites against business cash balance without a personal guarantee. Limits are typically 1.5-2% of your bank balance. For a company with $2 million in the bank, the initial Ramp limit might be $30,000-$40,000, increasing as the relationship develops.
 
@@ -47,7 +47,7 @@ Many fast-growing companies use Mercury for banking and Ramp for expense managem
 
 **Brex** offers strong rewards for startup spending patterns: 7x on rideshare, 4x on travel booked through Brex Travel, 3x on restaurants, 2x on software subscriptions. For a company spending heavily on AWS, travel, and SaaS, Brex points accumulate quickly.
 
-**Ramp** explicitly de-emphasises rewards. Its argument is that optimising for cashback percentages distracts from the larger opportunity of eliminating wasteful spend. Ramp offers 1.5% cashback on all purchases — simple and consistent.
+**Ramp** explicitly de-emphasises rewards. Its argument is that optimising for cashback percentages distracts from the larger opportunity of eliminating wasteful spend. Ramp offers 1.5% cashback on all purchases - simple and consistent.
 
 **Mercury** offers 1.5% cashback on its credit card for qualifying spend.
 

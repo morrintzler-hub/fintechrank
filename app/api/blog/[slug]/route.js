@@ -27,6 +27,8 @@ function markdownToHtml(md) {
     .replace(/(<li>.*<\/li>\n?)+/gs, m => `<ul>${m}</ul>`)
     .replace(/\n\n([^<\n][^\n]*)\n\n/g, '\n\n<p>$1</p>\n\n')
     .replace(/\n\n([^<\n][^\n]*?)$/g, '\n\n<p>$1</p>')
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\[([^\]]+)\]\((\/[^)]+)\)/g, '<a href="$2">$1</a>')
 }
 
 export async function GET(request, { params }) {

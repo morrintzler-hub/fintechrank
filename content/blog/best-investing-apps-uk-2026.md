@@ -8,7 +8,7 @@ image: "/blog-investing-apps-uk-2026.png"
 excerpt: "Commission-free stock trading, ISAs, and robo-advisors compared. Freetrade, Trading 212, eToro, Hargreaves Lansdown, and Vanguard reviewed honestly."
 ---
 
-The UK investing app market has matured significantly. Commission-free trading is now the baseline expectation, not a differentiator. What actually separates the best platforms in 2026 is the quality of their ISA wrapper, the breadth of their investment universe, the reliability of their execution, and — most importantly — whether the platform is regulated to a standard that protects your money when things go wrong.
+The UK investing app market has matured significantly. Commission-free trading is now the baseline expectation, not a differentiator. What actually separates the best platforms in 2026 is the quality of their ISA wrapper, the breadth of their investment universe, the reliability of their execution, and - most importantly - whether the platform is regulated to a standard that protects your money when things go wrong.
 
 This comparison covers the five most-used investing apps in the UK, from pure-play trading apps to established fund platforms.
 
@@ -32,7 +32,7 @@ All five platforms in this comparison offer a Stocks and Shares ISA. The differe
 
 **Freetrade** charges £5.99/month for ISA access on its Standard plan, or it is included in Plus at £9.99/month. The fee is flat regardless of portfolio size, which makes it cost-effective for larger portfolios and expensive for small ones.
 
-**Trading 212** offers a completely free ISA — no monthly fee, no percentage charge. This is genuinely unusual and makes it the lowest-cost ISA option for most retail investors.
+**Trading 212** offers a completely free ISA - no monthly fee, no percentage charge. This is genuinely unusual and makes it the lowest-cost ISA option for most retail investors.
 
 **eToro** offers a free ISA available to UK users, also with no annual fee.
 
@@ -50,7 +50,7 @@ All five platforms in this comparison offer a Stocks and Shares ISA. The differe
 | Hargreaves Lansdown | £11.95 (or less with volume) | £11.95 | £11.95 | Free |
 | Vanguard | N/A | N/A | Free | Free |
 
-The spread on eToro is important to understand: eToro does not charge a commission but makes money on the bid-ask spread. For liquid stocks like Apple or Tesla, this is typically 0.09-0.15%. For less liquid assets, it can be higher. This is not free trading — it is differently-structured trading costs.
+The spread on eToro is important to understand: eToro does not charge a commission but makes money on the bid-ask spread. For liquid stocks like Apple or Tesla, this is typically 0.09-0.15%. For less liquid assets, it can be higher. This is not free trading - it is differently-structured trading costs.
 
 ## Investment selection
 
@@ -62,13 +62,13 @@ The spread on eToro is important to understand: eToro does not charge a commissi
 
 **Hargreaves Lansdown** has the most comprehensive fund universe with 3,000+ funds alongside stocks and ETFs. If you want actively managed funds, investment trusts, or specific bond products, HL is the only platform in this list that covers them properly.
 
-**Vanguard** only offers its own funds and ETFs — approximately 80 products. If you want anything outside Vanguard's range, you cannot get it here.
+**Vanguard** only offers its own funds and ETFs - approximately 80 products. If you want anything outside Vanguard's range, you cannot get it here.
 
 ## Interest on uninvested cash
 
 This has become a meaningful differentiator as interest rates have risen.
 
-**Trading 212** pays up to 5.2% AER on uninvested cash in ISA and invest accounts — the highest of any major UK investing platform. This is genuinely valuable if you keep significant cash in your account between investments.
+**Trading 212** pays up to 5.2% AER on uninvested cash in ISA and invest accounts - the highest of any major UK investing platform. This is genuinely valuable if you keep significant cash in your account between investments.
 
 **Freetrade** pays interest on uninvested cash on its paid plans.
 
@@ -102,6 +102,6 @@ All five platforms are regulated by the Financial Conduct Authority (FCA) and co
 
 ## The bottom line
 
-For most UK retail investors starting out in 2026, Trading 212 is the best starting point: free ISA, widest stock selection, highest cash interest, fractional shares. As your portfolio grows and your needs become more sophisticated — particularly if you want actively managed funds, investment trusts, or the highest level of platform reliability — Hargreaves Lansdown earns its higher fees.
+For most UK retail investors starting out in 2026, Trading 212 is the best starting point: free ISA, widest stock selection, highest cash interest, fractional shares. As your portfolio grows and your needs become more sophisticated - particularly if you want actively managed funds, investment trusts, or the highest level of platform reliability - Hargreaves Lansdown earns its higher fees.
 
 The worst outcome is not investing at all because the choice feels complicated. Any of these five platforms is dramatically better than leaving money in a current account.

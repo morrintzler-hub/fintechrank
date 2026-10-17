@@ -18,11 +18,11 @@ BNPL companies make money from two sources: merchant fees and consumer late fees
 
 ## The four products compared
 
-**Klarna** is the largest BNPL provider globally with 150 million users across 45 countries. It offers Pay in 30 days, Pay in 3, and Klarna Financing. The first two charge no interest. Late fees are capped at £5 per missed payment in the UK. Klarna's strength is retailer coverage — it integrates with more merchants than any competitor.
+**Klarna** is the largest BNPL provider globally with 150 million users across 45 countries. It offers Pay in 30 days, Pay in 3, and Klarna Financing. The first two charge no interest. Late fees are capped at £5 per missed payment in the UK. Klarna's strength is retailer coverage - it integrates with more merchants than any competitor.
 
 **Afterpay** (Clearpay in the UK) uses a strict pay-in-4 model: four equal fortnightly payments, no interest, ever. Late fees are capped at 25% of the original order value, and Afterpay pauses your account if you miss a payment rather than continuing to charge fees on a running balance. This capping mechanism is meaningful consumer protection.
 
-**Affirm** offers financing terms of 1 to 36 months with a fixed APR disclosed before you confirm the purchase. APR ranges from 0% at participating merchants to 36% depending on your credit profile. Affirm does not charge late fees — instead, it reports missed payments to credit bureaus, which affects your credit score directly.
+**Affirm** offers financing terms of 1 to 36 months with a fixed APR disclosed before you confirm the purchase. APR ranges from 0% at participating merchants to 36% depending on your credit profile. Affirm does not charge late fees - instead, it reports missed payments to credit bureaus, which affects your credit score directly.
 
 **Sezzle** uses the standard pay-in-4 model with one key differentiator: it reports positive payment history to credit bureaus, positioning itself as a tool for building credit.
 
@@ -45,7 +45,7 @@ Affirm's no-late-fee policy sounds generous, but a missed payment on your credit
 
 **Affirm** always performs a hard credit check. Multiple Affirm applications in a short period can reduce your credit score.
 
-**Sezzle** performs a soft check and uniquely reports positive payment history to Experian as part of its credit-building programme — the only standard BNPL provider that actively helps build credit through on-time payments.
+**Sezzle** performs a soft check and uniquely reports positive payment history to Experian as part of its credit-building programme - the only standard BNPL provider that actively helps build credit through on-time payments.
 
 ## When BNPL makes financial sense
 
@@ -65,7 +65,7 @@ It does not make sense when:
 
 For straightforward split payments on purchases you can afford, **Afterpay** is the lowest-risk option: simple structure, capped late fees, automatic account suspension that prevents debt accumulation.
 
-For larger purchases needing genuine financing over months, **Affirm's** transparent APR and no late fee policy make it the most honest product — just be aware missed payments affect your credit score.
+For larger purchases needing genuine financing over months, **Affirm's** transparent APR and no late fee policy make it the most honest product - just be aware missed payments affect your credit score.
 
 **Klarna** is the most ubiquitous and flexible, but its multiple product types require you to pay attention to which one you are using at checkout.
 

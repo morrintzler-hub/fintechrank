@@ -40,11 +40,11 @@ The practical implication: for international transfers, Wise is cheapest in most
 
 ## Everyday UK banking
 
-For day-to-day spending in the UK, Monzo is the strongest product. Its budgeting features — spending categories, custom limits, salary sorter, savings pots, round-ups — are more sophisticated and intuitive than either competitor.
+For day-to-day spending in the UK, Monzo is the strongest product. Its budgeting features - spending categories, custom limits, salary sorter, savings pots, round-ups - are more sophisticated and intuitive than either competitor.
 
 Monzo's customer support is available 24/7 via in-app chat and consistently ranks as the best of any bank in the UK in independent surveys.
 
-Monzo holds a full UK banking licence, meaning deposits up to £85,000 are FSCS protected — the same protection as any high street bank.
+Monzo holds a full UK banking licence, meaning deposits up to £85,000 are FSCS protected - the same protection as any high street bank.
 
 Revolut received its UK banking licence in 2024, meaning UK deposits are now also FSCS protected. Its everyday banking features have improved significantly but it still feels more like a fintech application than a bank account.
 
@@ -66,7 +66,7 @@ Wise is not really a current account. It is a multi-currency account optimised f
 | Wise | Free account, pay per transfer | No subscription |
 | Revolut | Limited FX allowance | Plus £2.99, Premium £6.99, Metal £12.99/mo |
 
-Wise has no monthly subscription — you only pay when you use it. This makes it most cost-effective for infrequent users who primarily want good FX rates.
+Wise has no monthly subscription - you only pay when you use it. This makes it most cost-effective for infrequent users who primarily want good FX rates.
 
 ## The combination most people end up using
 

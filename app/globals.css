@@ -591,6 +591,8 @@ footer { border-top:1px solid var(--border);padding:2.5rem;max-width:1400px;marg
 .blog-content h3 { font-family: var(--heading); font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 2rem 0 .75rem; display: block; }
 .blog-content p { margin: 0 0 1.4rem; color: var(--muted); line-height: 1.8; display: block; }
 .blog-content strong { color: var(--text); font-weight: 700; }
+.blog-content a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); transition: border-color .15s ease, color .15s ease; }
+.blog-content a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .blog-content ul { margin: 1rem 0 1.4rem 1.5rem; display: block; }
 .blog-content li { margin-bottom: .6rem; color: var(--muted); line-height: 1.7; display: list-item; }
 .blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 14px; display: table; }
