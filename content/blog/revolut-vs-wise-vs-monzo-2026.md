@@ -8,7 +8,7 @@ excerpt: "Three of Europe's most popular neobanks compared on fees, features, in
 image: "/blog-revolut-wise-monzo.png"
 ---
 
-Revolut, Wise, and Monzo together serve more than 80 million customers across Europe and beyond. They are regularly recommended in the same breath, but they were built for different purposes and remain different products in 2026.
+[Revolut](/review/revolut), [Wise](/review/wise), and [Monzo](/review/monzo) together serve more than 80 million customers across Europe and beyond. They are regularly recommended in the same breath, but they were built for different purposes and remain different products in 2026.
 
 ## Quick verdict
 
@@ -73,3 +73,5 @@ Wise has no monthly subscription - you only pay when you use it. This makes it m
 The most common optimal setup in 2026 is Monzo as your primary UK current account and Wise for international transfers and foreign currency balances. Revolut earns its place for frequent travellers who want crypto and travel perks in one app and are willing to pay for a premium plan.
 
 The worst outcome is committing to one app and expecting it to be best at everything. None of them are.
+
+For more on this, see our [is Revolut safe](/blog/is-revolut-safe-2026) and [best neobanks in the UK](/blog/best-neobanks-uk-2026).

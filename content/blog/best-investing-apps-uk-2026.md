@@ -14,11 +14,11 @@ This comparison covers the five most-used investing apps in the UK, from pure-pl
 
 ## Quick verdict
 
-**Choose Freetrade** if you want a regulated UK stocks and shares ISA with commission-free trading and a clean, beginner-friendly interface. Best for long-term ISA investors buying UK and US stocks.
+**Choose [Freetrade](/review/freetrade)** if you want a regulated UK stocks and shares ISA with commission-free trading and a clean, beginner-friendly interface. Best for long-term ISA investors buying UK and US stocks.
 
-**Choose Trading 212** if you want the widest selection of stocks, fractional shares from £1, and the highest interest rate on uninvested cash. Best for active investors and those building diversified global portfolios.
+**Choose [Trading 212](/review/trading-212)** if you want the widest selection of stocks, fractional shares from £1, and the highest interest rate on uninvested cash. Best for active investors and those building diversified global portfolios.
 
-**Choose eToro** if you want to copy top-performing investors automatically or want social trading features alongside standard investing. Best for beginners who want guided exposure to markets.
+**Choose [eToro](/review/etoro)** if you want to copy top-performing investors automatically or want social trading features alongside standard investing. Best for beginners who want guided exposure to markets.
 
 **Choose Hargreaves Lansdown** if you want the most comprehensive platform, widest fund selection, and the strongest track record for reliability. Best for serious investors who value breadth and security over the lowest fees.
 
@@ -105,3 +105,5 @@ All five platforms are regulated by the Financial Conduct Authority (FCA) and co
 For most UK retail investors starting out in 2026, Trading 212 is the best starting point: free ISA, widest stock selection, highest cash interest, fractional shares. As your portfolio grows and your needs become more sophisticated - particularly if you want actively managed funds, investment trusts, or the highest level of platform reliability - Hargreaves Lansdown earns its higher fees.
 
 The worst outcome is not investing at all because the choice feels complicated. Any of these five platforms is dramatically better than leaving money in a current account.
+
+For more on this, see our [TradingView review](/blog/tradingview-review-2026).

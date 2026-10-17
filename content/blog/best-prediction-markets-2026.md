@@ -94,3 +94,5 @@ For US users, Kalshi is the right starting point - regulated, accessible, and gr
 For users outside the US or those comfortable with crypto who want maximum liquidity and market selection, Polymarket's scale and accessibility are significant advantages, accepting the absence of regulatory protection.
 
 Prediction markets are a genuinely new financial instrument with real utility for both speculation and research. They are not suitable as a primary investment vehicle - the markets are smaller, less liquid than traditional financial instruments, and the fees are higher. They work best as a complement to a broader investment strategy for users who have specific information or views on particular events.
+
+For more on this, see our [best crypto exchanges](/blog/best-crypto-exchanges-2026).

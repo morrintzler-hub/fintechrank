@@ -113,3 +113,5 @@ The free plan works for casual use but the limitations are real. For anyone who 
 Premium at $59.95/month is harder to justify for most retail investors. The additional features - second-by-second data, 25 indicators, unlimited alerts - matter for professional or high-frequency traders but provide diminishing returns for most users.
 
 If you are not already using TradingView, start with the free plan for a month. The limitations will make it clear whether Pro is worth upgrading to based on your actual trading behaviour.
+
+For more on this, see our [best investing apps in the UK](/blog/best-investing-apps-uk-2026).

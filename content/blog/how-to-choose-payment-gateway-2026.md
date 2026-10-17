@@ -19,7 +19,7 @@ When a customer enters their card details at checkout, the gateway:
 4. The bank returns an approve or decline response in real time
 5. If approved, the gateway holds the funds and settles them to your account within 1-2 business days
 
-Modern providers like Stripe and Adyen bundle the gateway, payment processor, and acquiring bank into a single product, which simplifies setup significantly compared to older architectures where these were purchased separately.
+Modern providers like [Stripe](/review/stripe) and [Adyen](/review/adyen) bundle the gateway, payment processor, and acquiring bank into a single product, which simplifies setup significantly compared to older architectures where these were purchased separately.
 
 ## The five questions that determine the right gateway
 
@@ -28,7 +28,7 @@ Local acquiring - where the transaction is processed by a bank in the same count
 
 **2. What is your monthly processing volume?**
 - Under £50,000/month: Blended pricing is fine. Simplicity outweighs the slight cost premium.
-- £50,000-500,000/month: Worth getting quotes from Checkout.com.
+- £50,000-500,000/month: Worth getting quotes from [Checkout.com](/review/checkout-com).
 - Over £500,000/month: Negotiate. Every provider at this volume will offer custom interchange-plus pricing.
 
 **3. Do you have subscriptions or recurring billing?**
@@ -52,7 +52,7 @@ Weaknesses: requires more technical investment to integrate, minimum volume requ
 
 **Checkout.com** sits between Stripe and Adyen. It offers enterprise-grade features with a lower barrier to entry than Adyen and more flexibility on commercial terms. A strong choice for mid-market businesses that have outgrown Stripe's standard offering.
 
-**PayPal** is a consumer wallet that also functions as a payment gateway. Adding a PayPal button alongside your primary gateway can increase checkout conversion by 5-15% for consumer e-commerce. PayPal as a primary gateway for developer-built products is not recommended - fees are higher, developer experience is behind Stripe, and the product is more limited.
+**[PayPal](/review/paypal)** is a consumer wallet that also functions as a payment gateway. Adding a PayPal button alongside your primary gateway can increase checkout conversion by 5-15% for consumer e-commerce. PayPal as a primary gateway for developer-built products is not recommended - fees are higher, developer experience is behind Stripe, and the product is more limited.
 
 ## Understanding pricing
 
@@ -81,3 +81,5 @@ The savings from interchange-plus begin to meaningfully offset the reconciliatio
 **For consumer e-commerce regardless of gateway:** Add PayPal as a secondary checkout option. The conversion lift typically pays for the integration cost within weeks.
 
 The gateway decision is not permanent, but migrating is painful enough that choosing thoughtfully at the start saves significant operational cost later.
+
+For more on this, see our [Stripe vs PayPal](/blog/stripe-vs-paypal-2026) and [Stripe vs Adyen](/blog/stripe-vs-adyen-2026).

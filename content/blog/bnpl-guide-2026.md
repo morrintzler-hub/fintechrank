@@ -8,7 +8,7 @@ excerpt: "Buy now, pay later is now the default at most online retailers. Here i
 image: "/blog-bnpl-guide.png"
 ---
 
-Buy now, pay later processed over $300 billion in global transaction volume in 2025. It is now offered at checkout by most major retailers, embedded into credit cards, and available as a standalone app. Klarna, Afterpay, Affirm, and Sezzle handle the majority of this volume, but they operate very differently under the hood.
+Buy now, pay later processed over $300 billion in global transaction volume in 2025. It is now offered at checkout by most major retailers, embedded into credit cards, and available as a standalone app. [Klarna](/review/klarna), [Afterpay](/review/afterpay), [Affirm](/review/affirm), and [Sezzle](/review/sezzle) handle the majority of this volume, but they operate very differently under the hood.
 
 ## How BNPL actually works
 
@@ -72,3 +72,5 @@ For larger purchases needing genuine financing over months, **Affirm's** transpa
 **Sezzle** is a niche choice with a specific value: building credit history through BNPL use.
 
 Whatever you choose, treat BNPL as a budgeting tool for purchases you have already decided to make, not a mechanism for purchasing things outside your budget.
+
+For more on this, see our [Stripe vs PayPal](/blog/stripe-vs-paypal-2026).
