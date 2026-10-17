@@ -145,6 +145,15 @@ const POSTS = [
     excerpt: 'Not your keys, not your coins. How hardware wallets, software wallets, and exchange custody actually differ — and which is right for your portfolio size.',
     image: '/blog-best-crypto-wallet-2026.png',
   },
+  {
+    title: 'Is Revolut Safe? What You Need to Know in 2026',
+    slug: 'is-revolut-safe-2026',
+    published: true,
+    cat: 'Guide', color: '#2563eb',
+    date: 'October 17, 2026', time: '8 min',
+    excerpt: 'Revolut has 50 million customers and a full UK banking licence. But is it actually safe to keep your money there? Here is the honest answer.',
+    image: '/blog-is-revolut-safe-2026.png',
+  },
 ]
 
 // Hero SVG image for the published Stripe vs PayPal post

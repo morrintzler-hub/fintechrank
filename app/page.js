@@ -15,11 +15,11 @@ const SUGGEST_PILLS = [
 ]
 
 const LATEST_POST = {
-  href: '/blog/best-crypto-wallet-2026',
+  href: '/blog/is-revolut-safe-2026',
   tag: 'Guide',
-  title: 'Best Crypto Wallets 2026: Hardware vs Software vs Exchange Wallets Compared',
-  subtitle: 'New article · 11 minute read',
-  description: 'Not your keys, not your coins. Here is how hardware wallets, software wallets, and exchange custody actually differ — and which is right for how much crypto you hold.',
+  title: 'Is Revolut Safe? What You Need to Know in 2026',
+  subtitle: 'New article · 8 minute read',
+  description: 'Revolut has 50 million customers and a full UK banking licence. But is it actually safe to keep your money there? Here is the honest answer.',
 }
 
 export default function HomePage() {
