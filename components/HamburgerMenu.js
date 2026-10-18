@@ -68,12 +68,18 @@ export default function HamburgerMenu() {
       <div style={{
         position: 'fixed',
         top: 0,
-        right: open ? 0 : -280,
+        right: 0,
         width: 260,
         height: '100vh',
         background: '#ffffff',
         zIndex: 10001,
-        transition: 'right 0.3s cubic-bezier(0.4,0,0.2,1)',
+        // Slide with a transform, not a negative offset: a parked drawer at
+        // right:-280 sits outside the viewport and widens the document, which
+        // gave every page ~280px of horizontal scroll. Transforms don't.
+        transform: open ? 'translateX(0)' : 'translateX(100%)',
+        visibility: open ? 'visible' : 'hidden',
+        pointerEvents: open ? 'auto' : 'none',
+        transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1), visibility 0.3s',
         boxShadow: open ? '-4px 0 24px rgba(0,0,0,0.12)' : 'none',
         display: 'flex',
         flexDirection: 'column',
