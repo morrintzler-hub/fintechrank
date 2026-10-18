@@ -156,7 +156,7 @@ const POSTS = [
     cat: 'Guide', color: '#2563eb',
     date: 'October 17, 2026', time: '8 min',
     excerpt: 'Revolut has 50 million customers and a full UK banking licence. But is it actually safe to keep your money there? Here is the honest answer.',
-    image: '/blog-is-revolut-safe-2026.png',
+    image: '/blog-is-revolut-safe-2026.jpg',
   },
 ]
 
