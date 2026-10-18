@@ -64,18 +64,28 @@ export default function HamburgerMenu() {
         />
       )}
 
-      {/* Drawer */}
+      {/* Drawer, inside a viewport-sized clipper.
+          A closed drawer must not add page width. Offsetting it (right:-280)
+          or translating it past the edge both extend the scrollable area,
+          because a fixed element is laid out against the viewport and
+          transforms still count toward scroll overflow. So the drawer sits at
+          right:0 and slides on a transform, while this wrapper - fixed to the
+          viewport with overflow:hidden - clips whatever leaves the screen.
+          pointerEvents:'none' keeps the wrapper from swallowing page clicks. */}
       <div style={{
         position: 'fixed',
+        inset: 0,
+        overflow: 'hidden',
+        pointerEvents: 'none',
+        zIndex: 10001,
+      }}>
+      <div style={{
+        position: 'absolute',
         top: 0,
         right: 0,
         width: 260,
-        height: '100vh',
+        height: '100%',
         background: '#ffffff',
-        zIndex: 10001,
-        // Slide with a transform, not a negative offset: a parked drawer at
-        // right:-280 sits outside the viewport and widens the document, which
-        // gave every page ~280px of horizontal scroll. Transforms don't.
         transform: open ? 'translateX(0)' : 'translateX(100%)',
         visibility: open ? 'visible' : 'hidden',
         pointerEvents: open ? 'auto' : 'none',
@@ -150,6 +160,7 @@ export default function HamburgerMenu() {
             Submit a Company
           </a>
         </div>
+      </div>
       </div>
     </>
   )
