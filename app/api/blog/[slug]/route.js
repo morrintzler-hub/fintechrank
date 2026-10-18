@@ -37,5 +37,15 @@ export async function GET(request, { params }) {
   if (!fs.existsSync(filePath)) return NextResponse.json({ error: 'Not found' }, { status: 404 })
   const raw = fs.readFileSync(filePath, 'utf8')
   const { data, body } = parseFrontmatter(raw)
-  return NextResponse.json({ ...data, html: markdownToHtml(body), slug })
+
+  // The post page renders `excerpt` and `image`; markdown frontmatter carries
+  // `description` and may omit the image, so fill both in here.
+  const excerpt = data.excerpt || data.description || ''
+  let image = data.image || null
+  if (!image) {
+    const guess = `/blog-${slug}.png`
+    if (fs.existsSync(path.join(process.cwd(), 'public', `blog-${slug}.png`))) image = guess
+  }
+
+  return NextResponse.json({ ...data, excerpt, image, html: markdownToHtml(body), slug })
 }

@@ -5,6 +5,7 @@ readTime: "8 min read"
 category: "Guide"
 categoryColor: "#2563eb"
 description: "Revolut has 50 million customers and a full UK banking licence. But is it actually safe to keep your money there? Here is the honest answer."
+image: "/blog-is-revolut-safe-2026.png"
 ---
 
 Revolut has over 50 million customers worldwide, processes billions in transactions every month, and is now one of the most valuable private fintech companies in Europe. And yet the question keeps coming up: *is Revolut actually safe?*

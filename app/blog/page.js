@@ -48,6 +48,7 @@ const POSTS = [
     cat: 'Comparison', color: '#4ade80',
     date: 'July 9, 2026', time: '8 min',
     excerpt: 'Hiring across borders? We break down the leading global payroll platforms on price, compliance, and ease of use.',
+    image: '/blog-global-payroll-2026.png',
   },
   {
     title: 'Best Business Banking for Startups 2026: Brex vs Ramp vs Mercury',
@@ -56,6 +57,7 @@ const POSTS = [
     cat: 'Comparison', color: '#4ade80',
     date: 'July 16, 2026', time: '10 min',
     excerpt: 'Three of the most popular neobanks for startups compared on features, fees, and which stage of company each is built for.',
+    image: '/blog-best-business-banking-startups-2026.png',
   },
   {
     title: 'TradingView Review 2026: Is It Worth It for Retail Investors?',
@@ -73,6 +75,7 @@ const POSTS = [
     cat: 'Guide', color: '#c084fc',
     date: 'September 8, 2026', time: '10 min',
     excerpt: 'Prediction markets let you trade on real-world events. Here is how the major platforms compare on regulation, fees, and available markets.',
+    image: '/blog-best-prediction-markets-2026.png',
   },
   {
     title: 'Wise vs Payoneer 2026: Which Is Better for Freelancers and Remote Workers?',
@@ -135,6 +138,7 @@ const POSTS = [
     cat: 'Guide', color: '#38bdf8',
     date: 'July 23, 2026', time: '13 min',
     excerpt: 'Everything a non-technical founder needs to know about choosing between Stripe, Adyen, Checkout.com, and PayPal.',
+    image: '/blog-how-to-choose-payment-gateway-2026.png',
   },
   {
     title: 'Best Crypto Wallets 2026: Hardware vs Software vs Exchange Wallets Compared',

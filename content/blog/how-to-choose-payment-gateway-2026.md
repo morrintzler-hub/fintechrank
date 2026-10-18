@@ -5,6 +5,7 @@ readTime: "13 min read"
 category: "Guide"
 categoryColor: "#38bdf8"
 excerpt: "Everything a non-technical founder needs to know about choosing between Stripe, Adyen, Checkout.com, and PayPal."
+image: "/blog-how-to-choose-payment-gateway-2026.png"
 ---
 
 The payment gateway decision is one of the most consequential technical choices an e-commerce or SaaS business makes. Unlike most software decisions, switching payment gateways is painful - it requires engineering time, creates downtime risk, and can disrupt subscriptions and stored payment methods. Getting it right the first time is worth the research investment.

@@ -5,6 +5,7 @@ readTime: "8 min read"
 category: "Comparison"
 categoryColor: "#4ade80"
 excerpt: "Hiring across borders? We break down the leading global payroll platforms on price, compliance coverage, and which stage of company each is actually built for."
+image: "/blog-global-payroll-2026.png"
 ---
 
 Global payroll was once a problem only enterprise companies with dedicated legal teams had to solve. In 2026, with remote work normalised and talent markets global, teams of ten are regularly paying contractors across five countries and hiring full-time employees in markets where they have no legal entity.
