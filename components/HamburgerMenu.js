@@ -74,7 +74,14 @@ export default function HamburgerMenu() {
           pointerEvents:'none' keeps the wrapper from swallowing page clicks. */}
       <div style={{
         position: 'fixed',
-        inset: 0,
+        top: 0,
+        left: 0,
+        // Sized in viewport units, not inset:0. The nav uses backdrop-filter,
+        // which makes it the containing block for fixed descendants, so
+        // inset:0 would collapse this to the nav's own 53px-tall box and
+        // crop the drawer.
+        width: '100vw',
+        height: '100vh',
         overflow: 'hidden',
         pointerEvents: 'none',
         zIndex: 10001,
