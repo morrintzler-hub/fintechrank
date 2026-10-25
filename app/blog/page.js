@@ -167,6 +167,15 @@ const POSTS = [
     excerpt: 'Sending money abroad used to mean paying 3-5% in hidden fees. In 2026 that is no longer necessary. Here are the apps that actually give you a fair exchange rate.',
     image: '/blog-best-apps-send-money-internationally-2026.png',
   },
+  {
+    title: 'Robinhood Alternatives: 6 Better Investing Apps for 2026',
+    slug: 'robinhood-alternatives-2026',
+    published: true,
+    cat: 'Guide', color: '#8b5cf6',
+    date: 'October 25, 2026', time: '9 min',
+    excerpt: 'Robinhood made investing accessible, but it is not the best option for everyone. Here are six alternatives worth considering, and who each one actually suits.',
+    image: '/blog-robinhood-alternatives-2026.png',
+  },
 ]
 
 // Hero SVG image for the published Stripe vs PayPal post

@@ -35,7 +35,8 @@ const URLS = [
     'best-investing-apps-uk-2026','best-business-bank-account-uk-2026',
     'wise-vs-payoneer-2026','best-prediction-markets-2026',
     'tradingview-review-2026','best-crypto-wallet-2026','is-revolut-safe-2026',
-    'best-apps-send-money-internationally-2026'].map(b => `${HOST}/blog/${b}`),
+    'best-apps-send-money-internationally-2026',
+    'robinhood-alternatives-2026'].map(b => `${HOST}/blog/${b}`),
 ]
 
 export async function POST() {
