@@ -15,11 +15,11 @@ const SUGGEST_PILLS = [
 ]
 
 const LATEST_POST = {
-  href: '/blog/is-revolut-safe-2026',
+  href: '/blog/best-apps-send-money-internationally-2026',
   tag: 'Guide',
-  title: 'Is Revolut Safe? What You Need to Know in 2026',
-  subtitle: 'New article · 8 minute read',
-  description: 'Revolut has 50 million customers and a full UK banking licence. But is it actually safe to keep your money there? Here is the honest answer.',
+  title: 'Best Apps to Send Money Internationally in 2026',
+  subtitle: 'New article · 9 minute read',
+  description: 'Sending money abroad used to mean paying 3-5% in hidden fees. In 2026 that is no longer necessary. Here are the apps that actually give you a fair exchange rate.',
 }
 
 export default function HomePage() {
