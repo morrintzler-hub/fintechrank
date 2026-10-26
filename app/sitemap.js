@@ -1,3 +1,24 @@
+import fs from 'fs'
+import path from 'path'
+
+// Blog posts are read from content/blog so new articles enter the sitemap
+// automatically. Wrapped so a missing directory can never break the sitemap.
+function blogPosts(base) {
+  try {
+    const dir = path.join(process.cwd(), 'content', 'blog')
+    return fs.readdirSync(dir)
+      .filter(f => f.endsWith('.md'))
+      .map(f => ({
+        url: `${base}/blog/${f.replace(/\.md$/, '')}`,
+        lastModified: fs.statSync(path.join(dir, f)).mtime,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      }))
+  } catch {
+    return []
+  }
+}
+
 export default async function sitemap() {
   const base = 'https://thefintechrank.com'
 
@@ -39,5 +60,5 @@ export default async function sitemap() {
     priority: 0.7,
   }))
 
-  return [...static_pages, ...review_pages]
+  return [...static_pages, ...review_pages, ...blogPosts(base)]
 }
